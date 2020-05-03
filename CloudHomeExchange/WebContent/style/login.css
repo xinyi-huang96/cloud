@@ -1,0 +1,45 @@
+.logo_middle {
+	width: 60%;
+	height: 100%;
+	float: left;
+	padding-left: 19%;
+	text-align: center;
+}
+
+.logo_middle img {
+	width: 180px;
+	height: 135px;
+}
+
+.loginpart {
+	width: 400px;
+	height: 100%;
+	margin: auto;
+	text-align: center;
+	padding-top: 50px;
+}
+
+.login_input {
+	width: 400px;
+	float: left;
+	margin-top: 30px;
+}
+
+.login_input input{
+	width: 250px;
+	height: 30px;
+	border: 1px solid lightgrey;
+}
+
+.login_submit {
+	width: 100%;
+	float: left;
+	margin-top: 30px;
+}
+
+.login_submit input {
+	width: 80px;
+	height: 25px;
+	border-radius: 5px;
+	border: 1px solid black;
+}

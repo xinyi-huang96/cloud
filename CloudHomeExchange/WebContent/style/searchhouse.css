@@ -1,0 +1,117 @@
+.mainsearch {
+	width: 80.5%;
+	min-width: 700px;
+	height: 100%;
+	float: left;
+}
+
+.search {
+	width: 98%;
+	height: 18%;
+	padding-left: 1%;
+	float: left;
+	min-width: 700px;
+}
+
+.search_input_city {
+	margin-top: 30px;
+	padding-right: 4%;
+	float: left;
+	width: 22%;
+}
+
+.search_input_city input {
+	margin-top: 5px;
+	width: 100%;
+	height: 35px;
+	font-size: 15px;
+	float: left;
+}
+
+.search_input {
+	margin-top: 30px;
+	padding-right: 4%;
+	float: left;
+	width: 13%;
+}
+
+.search_input span {
+	width: 100%;
+	font-size: 16px;
+	float: left;
+}
+
+.search_input input {
+	margin-top: 5px;
+	width: 100%;
+	height: 35px;
+	font-size: 15px;
+	float: left;
+}
+
+.submit_search {
+	margin: auto;
+	margin-top: 30px;
+	text-align: center;
+	padding-top: 25px;
+	float: left;
+	width: 15%;
+}
+
+.submit_search input{
+	margin: auto;
+	height: 40px;
+	font-size: 15px;
+}
+
+.recommend_house {
+	width: 65%;
+	padding-top: 5px;
+	padding-left: 15px;
+	float: left;
+	min-width: 280px;
+	overflow-y: scroll;
+    overflow-x: hidden;
+    height: 80%;
+}
+
+.recommandation {
+	width: 48%;
+	height: 315px;
+	padding-top: 5px;
+	padding-left: 1%;
+	padding-right: 1%;
+	float: left;
+	min-width: 280px;
+}
+
+.re_house {
+	width: 98%;
+	float: left;
+	padding-top: 5px;
+}
+
+.re_house_img {
+	width: 98%;
+	height: 220px;
+	float: left;
+}
+
+.re_house_discribe {
+	width: 98%;
+	height: 25px;
+	float: left;
+	padding-left: 3px;
+}
+
+.re_house_comment {
+	width: 98%;
+	height: 20px;
+	float: left;
+	padding-left: 3px;
+	color: red;
+}
+
+.search_map {
+	width: 34%;
+}

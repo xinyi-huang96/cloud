@@ -1,0 +1,205 @@
+.mainresult {
+	width: 80.5%;
+	min-width: 700px;
+	height: 100%;
+	float: left;
+	overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.btn_back {
+	width: 98%;
+	height: 25px;
+	float: left;
+	margin-left: 1%;
+}
+
+.btn_back button {
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+.result_house {
+	width: 98%;
+	height: 350px;
+	float: left;
+	margin-left: 1%;
+}
+
+.house_img {
+	width: 50%;
+	height: 100%;
+	text-align: center;
+	float: left;
+}
+
+.house_detail {
+	width: 48%;
+	height: 100%;
+	float: left;
+	text-align: center;
+}
+
+.house_info {
+	width: 100%;
+	height: 60%;
+	padding-top: 10%;
+	float: left;
+}
+
+.house_location {
+	width: 60%;
+	height: 10%;
+	float: left;
+}
+
+.house_contact {
+	width: 80%;
+	height: 40%;
+	float: left;
+}
+
+.house_contact_loc {
+	width: 100%;
+	height: 10%;
+	margin-top: 2%;
+	float: left;
+}
+
+.house_contact_mail {
+	width: 100%;
+	height: 10%;
+	margin-top: 2%;
+	float: left;
+}
+
+.house_contact_tel {
+	width: 100%;
+	height: 10%;
+	margin-top: 2%;
+	float: left;
+}
+
+.house_apply {
+	width: 80%;
+	height: 25%;
+	margin-top: 10%;
+	float: left;
+}
+
+.house_apply button {
+	width: 30%;
+	height: 30px;
+	margin-right: 10%;
+	float: left;
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+.result_rooms {
+	width: 98%;
+	float: left;
+	margin-left: 1%;
+}
+
+.rooms {
+	width: 120px;
+	float: left;
+}
+
+.rooms img {
+	width: 35px;
+	height: 15px;
+}
+
+.rooms p {
+	width: 80px;
+	height: 15px;
+	margin-left: 5px;
+}
+
+.result_discribe {
+	width: 98%;
+	float: left;
+	border-top: 1px solid lightgrey;
+	border-bottom: 1px solid lightgrey;
+	margin-left: 1%;
+}
+
+.result_discribe span {
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.result_discribe p {
+	font-size: 20px;
+	width: 95%;
+}
+
+.result_feature {
+	width: 98%;
+	float: left;
+	margin-left: 1%;
+	margin-top:20px;
+	border-bottom: 1px solid lightgrey;
+}
+
+.feature_title {
+	width: 100%;
+	font-size: 30px;
+	font-weight: bold;
+	float: left;
+}
+
+.feature {
+	width: 25%;
+	height: 80px;
+	float: left;
+	padding-top: 25px;
+	padding-bottom: 15px;
+}
+
+.feature img {
+	width: 35px;
+	height: 15px;
+}
+
+.feature p {
+	width: 80px;
+	height: 15px;
+	margin-left: 5px;
+}
+
+.result_host {
+	width: 98%;
+	float: left;
+	margin-left: 1%;
+	margin-top:20px;
+}
+
+.dream_title {
+	width: 100%;
+	font-size: 30px;
+	font-weight: bold;
+	float: left;
+	margin-bottom: 30px;
+}
+
+.destination {
+	width: 80%;
+	height: 80px;
+	float: left;
+	padding-top: 15px;
+	padding-left: 30px;
+}
+
+.destination img {
+	width: 35px;
+	height: 15px;
+}
+
+.destination p {
+	width: 80px;
+	height: 15px;
+	margin-left: 5px;
+}
