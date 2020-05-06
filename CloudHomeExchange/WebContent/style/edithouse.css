@@ -1,0 +1,237 @@
+.btn_back {
+	width: 98%;
+	height: 25px;
+	float: left;
+	margin-left: 1%;
+}
+
+.btn_back button {
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+.mytitle {
+	width: 98%;
+	height: 85px;
+	float: left;
+	margin-left: 1%;
+}
+
+.mytitle span{
+	display: block;
+	margin-top: 30px;
+	font-size: 30px;
+}
+
+.myhouse {
+	width: 98%;
+	float: left;
+	margin-top: 15px;
+	margin-left: 3%;
+}
+
+.house_form {
+	width: 98%;
+	float: left;
+}
+
+.house_input_title {
+	width: 90%;
+	float: left;
+}
+
+.house_input_title span {
+	display: block;
+	width: 30%;
+	font-size: 20px;
+	float: left;
+}
+
+.house_input_title input {
+	width: 65%;
+	height: 26px;
+	float: left;
+}
+
+.house_input_discribe {
+	width: 90%;
+	float: left;
+	margin-top: 10px;
+}
+
+.house_input_discribe span {
+	display: block;
+	width: 30%;
+	font-size: 16px;
+	float: left;
+}
+
+.house_input_discribe input {
+	width: 65%;
+	height: 100px;
+	float: left;
+}
+
+.house_input_feature {
+	width: 90%;
+	float: left;
+	margin-top: 10px;
+}
+
+.house_input_feature span {
+	display: block;
+	width: 100%;
+	font-size: 20px;
+	float: left;
+}
+
+.input_feature {
+	width: 18%;
+	float: left;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.input_feature img {
+	width: 20px;
+	height: 20px;
+}
+
+.input_feature input {
+
+}
+
+.house_input_style {
+	width: 90%;
+	float: left;
+	margin-top: 10px;
+}
+
+.house_input_style span {
+	display: block;
+	width: 100%;
+	font-size: 20px;
+	float: left;
+}
+
+.input_style {
+	width: 18%;
+	float: left;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.input_style input {
+
+}
+
+.house_input_rooms {
+	width: 90%;
+	float: left;
+	margin-top: 10px;
+}
+
+.input_room {
+	margin-top: 20px;
+	width: 48%;
+	border-right: 2px solid black;
+	float: left;
+}
+
+.input_number {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 98%;
+	height: 40px;
+}
+
+.input_number span {
+	display: block;
+	width: 40%;
+	float: left;
+}
+
+.input_number input {
+	width: 40%;
+	float: left;
+	height: 30px;
+}
+
+.input_room_allow  {
+	margin-left: 2%;
+	margin-top: 20px;
+	width: 48%;
+	float: left;
+}
+
+.input_allows {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 98%;
+	height: 40px;
+}
+
+.input_allows span {
+	display: block;
+	width: 40%;
+	float: left;
+}
+
+.input_allows input {
+	width: 40%;
+	float: left;
+	height: 30px;
+}
+
+.house_input_photos {
+	width: 90%;
+	float: left;
+	margin-top: 10px;
+}
+
+.photo_add {
+	width: 90%;
+	float: left;
+	margin-top: 10px;
+}
+
+.photo_add button {
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+.show_photo {
+	width: 30%;
+	float: left;
+	text-align: center;
+	margin-top: 10px;
+	padding-right: 20px;
+}
+
+.show_photo img {
+	width: 200px;
+	height: 200px;
+	float: left;
+}
+
+.show_photo span{
+	display: block;
+	width: 120px;
+	height: 40px;
+	float: left;
+	margin-top: 10px;
+}
+
+.house_submit {
+	width: 90%;
+	float: left;
+	margin-top: 10px;
+	padding-bottom: 50px;
+}
+
+.house_submit input {
+	float: right;
+	border-radius: 5px;
+	border: 1px solid black;
+	width: 100px;
+}

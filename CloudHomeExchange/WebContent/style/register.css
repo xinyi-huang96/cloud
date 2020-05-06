@@ -1,0 +1,81 @@
+.logo_middle {
+	width: 60%;
+	height: 100%;
+	float: left;
+	padding-left: 19%;
+	text-align: center;
+}
+
+.logo_middle img {
+	width: 180px;
+	height: 135px;
+}
+
+.login span {
+	font-size: 16px;
+	text-align: right;
+	display: block;
+	text-decoration: none;
+	color: black;
+	margin: 2px;
+}
+
+.register {
+	width: 400px;
+	height: 100%;
+	margin: auto;
+	text-align: center;
+	padding-top: 15px;
+}
+
+.register_input {
+	width: 400px;
+	float: left;
+	margin-top: 30px;
+}
+
+.register_input input{
+	width: 250px;
+	height: 30px;
+	border: 1px solid lightgrey;
+}
+
+.register_input_sex {
+	width: 400px;
+	float: left;
+	margin: auto;
+	margin-top: 30px;
+}
+
+.input_sex {
+	width: 50%;
+	float: left;
+}
+
+.register_service {
+	width: 400px;
+	float: left;
+	margin-top: 30px;
+}
+
+.service {
+	width: 100%;
+	float: left;
+}
+
+.service span {
+	color: lightblue;
+}
+
+.register_submit {
+	width: 100%;
+	float: left;
+	margin-top: 30px;
+}
+
+.register_submit input {
+	width: 80px;
+	height: 25px;
+	border-radius: 5px;
+	border: 1px solid black;
+}

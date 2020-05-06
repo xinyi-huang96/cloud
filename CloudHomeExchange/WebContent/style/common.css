@@ -1,0 +1,191 @@
+.border_box {
+	width: 82%;
+	height: 950px;
+	margin: auto;
+	background: #fff;
+	min-width: 900px;
+	box-shadow: 0px 0px 8px #888888;
+}
+
+.header {
+	width: 100%;
+	height: 135px;
+	min-width: 900px;
+	overflow: hidden;
+	float: left;
+	border-bottom: 3px solid black;
+}
+
+.logo {
+	width: 19%;
+	height: 100%;
+	float: left;
+	padding-left: 3px;
+	text-align: center;
+}
+
+.logo img {
+	width: 180px;
+	height: 135px;
+}
+
+.title {
+	width: 60%;
+	height: 80%;
+	padding-top: 15px;
+	font-size: 36px;
+	font-weight: bolder;
+	float: left;
+	margin: auto;
+	text-align: center;
+}
+
+.login {
+	width: 19%;
+	height: 50%;
+	padding-top: 80px;
+	padding-right: 15px;
+	float: right;
+}
+
+.login a {
+	font-size: 16px;
+	text-align: right;
+	display: block;
+	text-decoration: none;
+	color: black;
+	margin: 2px;
+}
+
+.main_box {
+	width: 100%;
+	height: 672px;
+	min-width: 900px;
+	float: left;
+}
+
+.left_nav {
+	width: 19%;
+	min-width: 150px;
+	height: 100%;
+	float: left;
+	border-right: 1px solid lightgrey;
+}
+
+.left_nav ul {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+} 
+
+.left_nav li {
+	display: inline-block;
+	width: 100%;
+	height: 112px;
+	cursor: pointer;
+}
+
+.left_nav a {
+	font-size: 20px;
+	display: block;
+	text-decoration: none;
+	color: black;
+	margin-left: 3px;
+	margin-top: 40px;
+}
+
+.left_nav a span{
+	font-size: 24px;
+	float: right;
+	padding-right: 5px;
+	color: grey;
+}
+
+.left_nav li:hover {
+	color: black;
+	background-color: lightgrey;
+}
+
+.left_nav .active {
+	color: black;
+	background: lightgrey;
+}
+
+.main {
+	width: 80.5%;
+	min-width: 700px;
+	height: 100%;
+	overflow-y:scroll;
+    overflow-x:hidden;
+}
+
+.footer {
+	width: 100%;
+	height: 80px;
+	min-width: 900px;
+	float: left;
+	background-color: lightgrey;
+	border-bottom: 5px solid grey;
+}
+
+.footer_logo {
+	width: 19%;
+	height: 90%;
+	float: left;
+	padding-top: 15px;
+}
+
+.footer_logo img{
+	width: 50px;
+	height: 50px;
+	margin-left: 40px;
+}
+
+.footer_nav {
+	width: 60%;
+	height: 80%;
+	float: left;
+	margin: auto;
+}
+
+.footer_nav ul {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+} 
+
+.footer_nav li {
+	display: inline-block;
+	width: 25%;
+	padding-left: 5px;
+}
+
+.footer_nav a {
+	font-size: 18px;
+	display: block;
+	text-decoration: none;
+	color: black;
+	margin-left: 13px;
+	margin-top: 25px;
+}
+
+.social_media {
+	width: 18%;
+	height: 80%;
+	float: right;
+}
+
+i {
+	float: left;
+	padding-top: 30px;
+	margin-right: 25px;
+}
+
+.foot {
+	width: 100%;
+	height: 55px;
+	min-width: 900px;
+	float: left;
+	background-color: lightgrey;
+	color: grey;
+}
