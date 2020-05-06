@@ -94,7 +94,10 @@
 	width: 20%;
 	height: 30px;
 	border-radius: 5px;
-	border: 1px solid lightgrey;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: white;
+	background: lightskyblue;
 	cursor: pointer;
 }
 

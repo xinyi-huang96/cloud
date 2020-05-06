@@ -1,14 +1,29 @@
 .logo_middle {
 	width: 60%;
-	height: 100%;
+	height: 50%;
 	float: left;
 	padding-left: 19%;
 	text-align: center;
 }
-
+.header {
+	width: 100%;
+	height: 180px;
+	min-width: 1000px;
+	overflow: hidden;
+	float: left;
+	border-bottom: 3px solid black;
+}
 .logo_middle img {
+	align-content: center;
 	width: 180px;
 	height: 135px;
+}
+.logo_middle #logo_text{
+	font-size: 30px;
+	font-weight:bold ;
+	width:660px;
+	height:150px;
+
 }
 
 .loginpart {

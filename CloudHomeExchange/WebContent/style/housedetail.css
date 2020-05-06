@@ -1,5 +1,5 @@
 .mainresult {
-	width: 80.5%;
+	width: 84%;
 	min-width: 700px;
 	height: 100%;
 	float: left;
@@ -15,10 +15,16 @@
 }
 
 .btn_back button {
-	border-radius: 5px;
-	border: 1px solid black;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: white;
+	background: lightskyblue;
 }
-
+.result{
+	width: 1000px;
+	min-width: 700px;
+	float: left;
+}
 .result_house {
 	width: 98%;
 	height: 350px;
@@ -28,6 +34,12 @@
 
 .house_img {
 	width: 50%;
+	height: 100%;
+	text-align: center;
+	float: left;
+}
+.house_img img{
+	width: 90%;
 	height: 100%;
 	text-align: center;
 	float: left;
@@ -93,17 +105,20 @@
 	margin-right: 10%;
 	float: left;
 	border-radius: 5px;
-	border: 1px solid black;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: white;
+	background: lightskyblue;
 }
 
 .result_rooms {
-	width: 98%;
+	width: 1000px;
 	float: left;
 	margin-left: 1%;
 }
 
 .rooms {
-	width: 120px;
+	width: 160px;
 	float: left;
 }
 
