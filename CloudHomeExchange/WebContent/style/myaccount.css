@@ -19,7 +19,7 @@
 
 .profile_form {
 	width: 45%;
-	border-right: 3px solid black;
+	border-right: 3px solid lightskyblue;
 	float: left;
 }
 
@@ -60,6 +60,7 @@
 	height: 50px;
 	margin-top: 90px;
 	float: left;
+
 }
 
 .profile_submit input{
@@ -67,7 +68,11 @@
 	height: 30px;
 	float: right;
 	border-radius: 5px;
-	border: 1px solid black;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: white;
+	background: lightskyblue;
+	border-radius: 5px;
 }
 
 .other_profile {
@@ -130,6 +135,7 @@
 .dream_input input {
 	width: 80%;
 	height: 100%;
+
 }
 
 .dream_submit {
@@ -143,7 +149,10 @@
 	width: 60px;
 	height: 25px;
 	border-radius: 5px;
-	border: 1px solid black;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: white;
+	background: lightskyblue;
 }
 
 .show_add {

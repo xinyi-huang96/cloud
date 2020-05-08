@@ -81,5 +81,8 @@
 	margin-right: 10%;
 	float: left;
 	border-radius: 5px;
-	border: 1px solid black;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: white;
+	background: lightskyblue;
 }
