@@ -5,12 +5,25 @@ public class User {
 	private String nickName;
 	private int type;
 	private int gender;
-	private int age;
+	private String birth;
 	private String email;
 	private int telephone;
 	private String psw;
 	private int state;
 	
+	
+	public User(String uid, String nickName, int gender, String birth, String email, int telephone) {
+		super();
+		this.uid = uid;
+		this.nickName = nickName;
+		this.gender = gender;
+		this.birth = birth;
+		this.email = email;
+		this.telephone = telephone;
+	}
+	
+	public User() {
+	}
 	
 	public String getUid() {
 		return uid;
@@ -36,11 +49,11 @@ public class User {
 	public void setGender(int gender) {
 		this.gender = gender;
 	}
-	public int getAge() {
-		return age;
+	public String getBirth() {
+		return birth;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
 	public String getEmail() {
 		return email;

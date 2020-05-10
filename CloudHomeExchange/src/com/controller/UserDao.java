@@ -3,6 +3,7 @@ package com.controller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import com.model.User;
 
@@ -58,4 +59,23 @@ public class UserDao {
 		}
 	}
 
+	//update user information
+	public boolean updateInfo(User user) {
+		try {
+			pst = con.prepareStatement("UPDATE user SET nickname = ?, gender = ?, "
+					+ "birth = ?, email = ?, telephone = ? WHERE uid = ?;");
+			pst.setString(1, user.getNickName());
+			pst.setInt(2, user.getGender());
+			pst.setString(3, user.getBirth());
+			pst.setString(4, user.getEmail());
+			pst.setInt(5, user.getTelephone());
+			pst.setString(6, user.getUid());
+			pst.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
 }
