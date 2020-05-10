@@ -1,0 +1,150 @@
+.border_box {
+	width: 82%;
+	height: 950px;
+	margin: auto;
+	background: #fff;
+	min-width: 900px;
+	box-shadow: 0px 0px 8px #888888;
+}
+
+.header {
+	width: 100%;
+	height: 135px;
+	min-width: 900px;
+	overflow: hidden;
+	float: left;
+	border-bottom: 3px solid black;
+}
+
+.logo {
+	width: 19%;
+	height: 100%;
+	float: left;
+	padding-left: 3px;
+	text-align: center;
+}
+
+.logo img {
+	width: 180px;
+	height: 135px;
+}
+
+.title {
+	width: 60%;
+	height: 80%;
+	padding-top: 15px;
+	font-size: 36px;
+	font-weight: bolder;
+	float: left;
+	margin: auto;
+	text-align: center;
+}
+
+.login {
+	width: 19%;
+	height: 50%;
+	padding-top: 80px;
+	padding-right: 15px;
+	float: right;
+}
+
+.login a {
+	font-size: 16px;
+	text-align: right;
+	display: block;
+	text-decoration: none;
+	color: black;
+	margin: 2px;
+}
+
+.main_box {
+	width: 100%;
+	height: 810px;
+	min-width: 900px;
+	float: left;
+}
+
+.left_nav {
+	width: 19%;
+	min-width: 150px;
+	height: 810px;
+	float: left;
+	border-right: 1px solid lightgrey;
+}
+
+.left_nav ul {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+} 
+
+.left_nav li {
+	display: inline-block;
+	width: 100%;
+	height: 50px;
+	cursor: pointer;
+}
+
+.left_nav a {
+	font-size: 20px;
+	display: block;
+	text-decoration: none;
+	color: black;
+	margin-left: 3px;
+	margin-top: 12px;
+}
+
+.left_nav a span{
+	font-size: 24px;
+	float: right;
+	padding-right: 5px;
+	color: grey;
+}
+
+.left_nav li:hover {
+	color: black;
+	background-color: lightgrey;
+}
+
+.left_nav .active {
+	color: black;
+	background: lightgrey;
+}
+
+.main {
+	width: 80.5%;
+	min-width: 700px;
+	height: 100%;
+	float: right;
+}
+
+.welcome {
+	padding-top: 150px;
+	text-align: center;
+}
+
+.nav {
+	width: 90%;
+	height: 35px;
+	padding-left: 15px;
+	padding-top: 15px;
+}
+
+.nav a {
+	width: 60px;
+	height: 20px;
+	font-size: 16px;
+	display: inline-block;
+	text-decoration: none;
+	color: black;
+	text-align: center;
+}
+
+.nav .active {
+	color: black;
+	background: lightgrey;
+}
+
+.info {
+	width: 98%;
+}
