@@ -35,7 +35,6 @@ public class UserLoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("psw");
 		UserService us=new UserService();
-//		System.out.println("email:" + email + " ,pwd:" + password);
 		User user=new User();
 		user.setEmail(email);
 		user.setPsw(password);
