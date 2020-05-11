@@ -11,7 +11,6 @@ public class User {
 	private String psw;
 	private int state;
 	
-	
 	public User(String uid, String nickName, int gender, String birth, String email, int telephone) {
 		super();
 		this.uid = uid;
