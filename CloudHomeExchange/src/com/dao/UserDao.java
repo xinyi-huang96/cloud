@@ -43,6 +43,7 @@ public class UserDao {
 					if(num < 3)
 						return (3-num);
 					else {
+						//if input wrong password for 3 times, lock the account
 						PreparedStatement pst2 = con.prepareStatement("UPDATE login "
 								+ "SET State = 0 WHERE uid = ?;");
 						pst2.setString(1, rs.getString("Uid"));

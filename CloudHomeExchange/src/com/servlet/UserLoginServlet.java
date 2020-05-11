@@ -44,7 +44,6 @@ public class UserLoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("userId", user.getUid());
 			request.getRequestDispatcher("/index.html").forward(request, response);
-			//response.getWriter().write("Welcome " + session.getAttribute("userId"));
 		}else if(flag == -1) {
 			response.getWriter().append("<script language='javascript'>alert('User does not exist.');"
 					+ "history.back();</script>");
