@@ -9,24 +9,20 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>com.controller.LoginServlet</servlet-class>
-  </servlet>   
-  <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/login</url-pattern>
-  </servlet-mapping>
-  
-
-  <servlet>
-    <servlet-name>UpdateUserInfoServlet</servlet-name>
-    <servlet-class>com.controller.UpdateUserInfoServlet</servlet-class>
+    <servlet-name>UserLoginServlet</servlet-name>
+    <servlet-class>com.controller.UserLoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>UpdateUserInfoServlet</servlet-name>
+    <servlet-name>UserLoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserUpdateInfoServlet</servlet-name>
+    <servlet-class>com.controller.UserUpdateInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserUpdateInfoServlet</servlet-name>
     <url-pattern>/updateUser</url-pattern>
   </servlet-mapping>
-  
 </web-app>

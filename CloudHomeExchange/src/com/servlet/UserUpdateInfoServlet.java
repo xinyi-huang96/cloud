@@ -14,9 +14,9 @@ import com.service.UserService;
 /**
  * Servlet implementation class UpdateUserInfoServlet
  */
-@WebServlet("/UpdateUserInfoServlet")
+@WebServlet("/UserUpdateInfoServlet")
 public class UserUpdateInfoServlet extends HttpServlet {
-	private static final long serialVersionUID = 2L;
+	private static final long serialVersionUID = 3L;
        
     /**
      * @see HttpServlet#HttpServlet()
