@@ -1,4 +1,4 @@
-package com.controller;
+package com.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.model.User;
+import com.entity.User;
+import com.service.UserService;
 
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/UserLoginServlet")
+public class UserLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 2L;
 
     /**
      * Default constructor. 
      */
-    public LoginServlet() {
+    public UserLoginServlet() {
         // TODO Auto-generated constructor stub
     }
 
@@ -28,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("send servlet service");
+		System.out.println("send login servlet service");
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
 		String email = request.getParameter("email");

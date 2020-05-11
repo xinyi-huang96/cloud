@@ -1,4 +1,4 @@
-package com.controller;
+package com.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.model.User;
+import com.entity.User;
+import com.service.UserService;
 
 /**
  * Servlet implementation class UpdateUserInfoServlet
  */
-@WebServlet("/UpdateUserInfoServlet")
-public class UpdateUserInfoServlet extends HttpServlet {
-	private static final long serialVersionUID = 2L;
+@WebServlet("/UserUpdateInfoServlet")
+public class UserUpdateInfoServlet extends HttpServlet {
+	private static final long serialVersionUID = 3L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateUserInfoServlet() {
+    public UserUpdateInfoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

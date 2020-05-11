@@ -1,11 +1,12 @@
-package com.controller;
+package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.model.User;
+import com.entity.User;
+import com.util.Conn;
 
 public class UserDao {
 	private Connection con = null;
@@ -73,7 +74,6 @@ public class UserDao {
 			pst.executeUpdate();
 			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}

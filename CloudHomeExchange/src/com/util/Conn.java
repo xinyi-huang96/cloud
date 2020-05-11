@@ -1,8 +1,9 @@
-package com.controller;
+package com.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+//connect database
 public class Conn {
 	public static Connection getConnection() {
 		Connection conn=null;

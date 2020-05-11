@@ -1,4 +1,4 @@
-package com.model;
+package com.entity;
 
 public class User {
 	private String uid;
@@ -10,7 +10,6 @@ public class User {
 	private int telephone;
 	private String psw;
 	private int state;
-	
 	
 	public User(String uid, String nickName, int gender, String birth, String email, int telephone) {
 		super();
