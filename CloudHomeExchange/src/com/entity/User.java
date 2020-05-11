@@ -1,4 +1,4 @@
-package com.model;
+package com.entity;
 
 public class User {
 	private String uid;

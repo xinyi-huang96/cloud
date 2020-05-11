@@ -1,4 +1,4 @@
-package com.controller;
+package com.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,19 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.model.User;
+import com.entity.User;
+import com.service.UserService;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class UpdateUserInfoServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/UpdateUserInfoServlet")
+public class UserUpdateInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 2L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public UserUpdateInfoServlet() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -28,23 +30,23 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("send servlet service");
+		System.out.println("send update user info servlet service");
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
+//		HttpSession session = request.getSession();
+//		String uid = (String)session.getAttribute("userId");
+		String uid = "123456";
+		String nickName = request.getParameter("firstname");
+		int gender = request.getParameter("sex").equals("male") ? 1 : 0;
+		String birth = request.getParameter("birthday");
 		String email = request.getParameter("email");
-		String password = request.getParameter("psw");
+		int tel = Integer.parseInt(request.getParameter("tel"));
+		User user = new User(uid, nickName, gender, birth, email, tel);
 		UserService us=new UserService();
-//		System.out.println("email:" + email + " ,pwd:" + password);
-		User user=new User();
-		user.setEmail(email);
-		user.setPsw(password);
-		if(us.login(user) == 4) {
-			HttpSession session = request.getSession();
-			session.setAttribute("userId", user.getUid());
-			response.getWriter().write("Welcome " + session.getAttribute("userId"));
-			
+		if(us.update(user)) {
+			response.getWriter().write("success");
 		}else {
-			response.getWriter().write("failed "+user.getUid());
+			response.getWriter().write("failed");
 		}
 	}
 
