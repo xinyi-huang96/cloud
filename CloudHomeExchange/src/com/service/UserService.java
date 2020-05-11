@@ -15,4 +15,9 @@ public class UserService {
 	public boolean update(User user) {
 		return userDao.updateInfo(user);
 	}
+	
+	//register
+	public boolean register(User user) {
+		return userDao.adduser(user);
+	}
 }
