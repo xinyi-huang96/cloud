@@ -13,7 +13,7 @@ public class UserDao {
 	private PreparedStatement pst = null;
 	
 	public UserDao() {
-		con =Conn.getConnection();
+		con = Conn.getConnection();
 	}
 	
 	//valid the username and password
@@ -22,7 +22,7 @@ public class UserDao {
 			pst = con.prepareStatement("SELECT * FROM login WHERE uid = "
 					+ "( SELECT uid FROM USER WHERE email = ? AND usertype = 0);");
 			pst.setString(1, user.getEmail());
-			ResultSet rs =pst.executeQuery();
+			ResultSet rs = pst.executeQuery();
 			if(rs.next()){
 				if(user.getPsw().equals(rs.getString("Password"))) {
 					if(rs.getInt("State") == 0)	//if the account is blocked, return 3
@@ -34,19 +34,18 @@ public class UserDao {
 						return 4;
 					}
 				}else {
-					int num = rs.getInt("ErrorTimes");
+					int num = rs.getInt("ErrorTimes") + 1;
 					PreparedStatement pst1 = con.prepareStatement("UPDATE login "
 							+ "SET ErrorTimes = ? WHERE uid = ?;");
-					pst1.setInt(1, num+1);
+					pst1.setInt(1, num);
 					pst1.setString(2, rs.getString("Uid"));
 					pst1.executeUpdate();
-					if(num < 2)
-						return 3-num;
+					if(num < 3)
+						return (3-num);
 					else {
 						PreparedStatement pst2 = con.prepareStatement("UPDATE login "
 								+ "SET State = 0 WHERE uid = ?;");
-						pst2.setInt(1, num+1);
-						pst2.setString(2, rs.getString("Uid"));
+						pst2.setString(1, rs.getString("Uid"));
 						pst2.executeUpdate();
 						return 3;
 					}
