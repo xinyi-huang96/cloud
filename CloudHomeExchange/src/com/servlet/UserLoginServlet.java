@@ -43,13 +43,13 @@ public class UserLoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("userId", user.getUid());
 			request.getRequestDispatcher("/index.html").forward(request, response);
-		}else if(flag == -1) {
+		}else if(flag == -1) {	//user not exist
 			response.getWriter().append("<script language='javascript'>alert('User does not exist.');"
 					+ "history.back();</script>");
-		}else if(flag == 3) {
+		}else if(flag == 3) {	//account blocked
 			response.getWriter().append("<script language='javascript'>alert('Your account is blocked.');"
 					+ "history.back();</script>");
-		}else {
+		}else {	//wrong password
 			response.getWriter().append("<script language='javascript'>alert('Your password is wrong. You have "
 					+ flag + " times to try.'); history.back();</script>");
 		}
