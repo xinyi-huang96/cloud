@@ -1,4 +1,4 @@
-<%@page import="model.DBConnect"%>
+<%@page import="controller.DBConnect"%>
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 <%@page import="java.sql.*" %>
@@ -16,11 +16,12 @@
 </head>
 <body>
 <%
+	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
-	DBConnect conn = new DBConnect();
-	conn.connectDB();
-	if(conn.conn != null){
+	DBConnect DBConn = new DBConnect();
+	conn = DBConn.getConnection();
+	if(conn != null){
 %>
 	<div class="border_box">
 		<div class="header">
@@ -45,39 +46,41 @@
 			</div>
 			<div class="main">
 				<div class="nav">
-					<a href="#">user info</a>
+					<a href="user.jsp">user info</a>
 				</div>
 				<div class="info">			
 					<table class="userInfo">
 						<tr>
 							<th>uid</th>
 							<th>nickname</th>
-							<th>usertype</th>
 							<th>gender</th>
-							<th>age</th>
-							<th>email</th>
+							<th>birthday</th>
+							<th>e-mail</th>
 							<th>telephone</th>
-							<th></th>
 						</tr>
 						<% 
 							String sql = "SELECT * FROM user;";
-							stmt = conn.conn.createStatement();
+							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
 							while (rs.next()) { 
 								String uid = rs.getString(1);
 								String nickname = rs.getString(2);
 								int usertype = rs.getInt(3);
-								int gender = rs.getInt(4);
-								int age = rs.getInt(5);
+								int genderNum = rs.getInt(4);
+								String gender = null;
+								if (genderNum == 0)
+									gender = "Female";
+								else
+									gender = "Male";
+								String birth = rs.getString(5);
 								String email = rs.getString(6);
 								int telephone = rs.getInt(7);
 						%>
 						<tr>
 							<td><% out.print(uid); %></td>
 							<td><% out.print(nickname); %></td>
-							<td><% out.print(usertype); %></td>
 							<td><% out.print(gender); %></td>
-							<td><% out.print(age); %></td>
+							<td><% out.print(birth); %></td>
 							<td><% out.print(email); %></td>
 							<td><% out.print(telephone); %></td>
 						</tr>
