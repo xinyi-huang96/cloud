@@ -1,4 +1,4 @@
-<%@page import="controller.DBConnect"%>
+<%@page import="com.util.Conn"%>
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 <%@page import="java.sql.*" %>
@@ -19,7 +19,7 @@
 	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
-	DBConnect DBConn = new DBConnect();
+	Conn DBConn = new Conn();
 	conn = DBConn.getConnection();
 	if(conn != null){
 %>
