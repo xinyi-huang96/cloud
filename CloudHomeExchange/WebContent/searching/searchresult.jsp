@@ -23,17 +23,17 @@
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
-					<li><a href="../index.html">Home</a></li>
-					<li><a href="../searching/searchhouse.html">Search House</a></li>
-					<li><a href="../myaccount/myprofile.html">My Account<span>▶</span></a></li>
-					<li class="active"><a href="../myhouse/index.html">My House</a></li>
-					<li ><a href="../myapply/index_applied.html">My Apply</a></li>
-					<li><a href="../contact/send.html">Contact Us</a></li>
+					<li><a href="../index.jsp">Home</a></li>
+					<li  class="active"><a href="../searching/searchhouse.jsp">Search House<span>▶</span></a></li>
+					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
+					<li><a href="../myhouse/index.jsp">My House</a></li>
+					<li ><a href="../myapply/index_applied.jsp">My Apply</a></li>
+					<li><a href="../contact/send.jsp">Contact Us</a></li>
 				</ul>
 			</div>
 			<div class="mainresult">
 				<div class="btn_back">
-					<button><a href="../myhouse/index.html">back</a></button>
+					<button><a href="../searching/searchhouse.html">back</a></button>
 				</div>
 				<div class="result">
 					<div class="result_house">

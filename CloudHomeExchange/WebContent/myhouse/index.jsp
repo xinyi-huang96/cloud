@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+jsp<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta http-equiv="X-UA-Comatible" content="ie-edge">
 	<title>Cloud Home Exchange</title>
-	<link rel="stylesheet" href="../style/contact.css">
+	<link rel="stylesheet" href="../style/myhouse.css">
 	<link rel="stylesheet" href="../style/common.css">
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="style/ShowTime.js"></script>
@@ -23,40 +23,36 @@
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
-					<li><a href="../index.html">Home</a></li>
-					<li><a href="../searching/searchhouse.html">Search House</a></li>
-					<li ><a href="../myaccount/myprofile.html">My Account</a></li>
-					<li><a href="../myhouse/index.html">My House</a></li>
-					<li><a href="../myapply/index_applied.html">My Apply</a></li>
-					<li class="active"><a href="../contact/send.html">Contact Us<span>▶</span></a></li>
+					<li><a href="../index.jsp">Home</a></li>
+					<li><a href="../searching/searchhouse.jsp">Search House</a></li>
+					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
+					<li class="active"><a href="../myhouse/index.jsp">My House<span>▶</span></a></li>
+					<li ><a href="../myapply/index_applied.jsp">My Apply</a></li>
+					<li><a href="../contact/send.jsp">Contact Us</a></li>
 				</ul>
 			</div>
 			<div class="main">
-				<div class="send_message">
-					<form class="send_form" id="send_form">
-						<div class="form_title">
-							<span class="send_title">Send Us a Message</span>
-							<span class="send_note">Send us a message and we'll respond within 24 hours.</span>
-						</div>
-						<div class="form_input">
-							<div class="contact_input">
-								<span>Name</span>
-								<input type="text" name="name" placeholder="Your name" required>
+				<div class="myhouse">
+					<div class="house_img">
+						<img src="../img/house1.jpg">
+					</div>
+					<div class="house_detail">
+						<div class="house_info">
+							<div class="house_location">
+								<p>Paris, France</p>
 							</div>
-							<div class="contact_input">
-								<span>Email</span>
-								<input type="text" name="email" placeholder="Your email address" required>
-							</div>
-							<div class="message_input">
-								<span>Message</span>
-								<input type="text" name="email" placeholder="" required>
+							<div class="house_contact">
+								<div class="house_contact_loc"></div>
+								<div class="house_contact_mail"></div>
+								<div class="house_contact_tel"></div>
 							</div>
 						</div>
-						<div class="form_submit">
-							<input type="submit" name="submit" value="SEND">
-						</div>	
-					</form>
+						<div class="house_apply">
+							<button><a href="../myhouse/edithouse.html">Edit</a></button>
+						</div>
+					</div>
 				</div>
+
 			</div>
 		</div>
 		<div class="footer">

@@ -1,15 +1,19 @@
 .search {
 	width: 98%;
-	height: 350px;
+	height: 550px;
 	padding-left: 1%;
 	float: left;
+	background-size:100% 100%;
 }
 
 .search_form {
 	margin: auto;
-	width: 90%;
-	height: 80%;
-	margin-top: 50px;
+	width: 60%;
+	height: 40%;
+	margin-top: 150px;
+	background-color: white;
+	opacity: 0.9;
+	padding-top: 30px;
 }
 
 .search_span {

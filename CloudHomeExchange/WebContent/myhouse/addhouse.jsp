@@ -6,10 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta http-equiv="X-UA-Comatible" content="ie-edge">
 	<title>Cloud Home Exchange</title>
-	<link rel="stylesheet" href="../style/edithouse.css">
+	<link rel="stylesheet" href="../style/addhouse.css">
 	<link rel="stylesheet" href="../style/common.css">
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="style/ShowTime.js"></script>
+	<script type="text/javascript" src="../style/showPhoto.js"></script>
 </head>
 <body>
 	<div class="border_box">
@@ -23,20 +23,17 @@
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
-					<li><a href="../index.html">Home</a></li>
-					<li><a href="../searching/searchhouse.html">Search House</a></li>
-					<li><a href="../myaccount/myprofile.html">My Account</a></li>
-					<li class="active"><a href="../myhouse/index.html">My House<span>▶</span></a></li>
-					<li ><a href="../myapply/index_applied.html">My Apply</a></li>
-					<li><a href="../contact/send.html">Contact Us</a></li>
+					<li><a href="../index.jsp">Home</a></li>
+					<li><a href="../searching/searchhouse.jsp">Search House</a></li>
+					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
+					<li class="active"><a href="../myhouse/index.jsp">My House<span>▶</span></a></li>
+					<li ><a href="../myapply/index_applied.jsp">My Apply</a></li>
+					<li><a href="../contact/send.jsp">Contact Us</a></li>
 				</ul>
 			</div>
 			<div class="main">
 				<div class="mytitle">
-					<span>My House</span>
-				</div>
-				<div class="btn_back">
-					<button><a href="../myhouse/index.html">back</a></button>
+					<span>Add house</span>
 				</div>
 				<div class="myhouse">
 					<div class="house_form">
@@ -76,13 +73,13 @@
 									<input type="radio" name="bythesea" value="female" required>By the sea
 								</div>
 								<div class="input_style">
-									<input type="radio" name="bythesea" value="female" required>By the sea
+									<input type="radio" name="bythesea" value="female" required>Countryside
 								</div>
 								<div class="input_style">
-									<input type="radio" name="bythesea" value="female" required>By the sea
+									<input type="radio" name="bythesea" value="female" required>Mountain
 								</div>
 								<div class="input_style">
-									<input type="radio" name="bythesea" value="female" required>By the sea
+									<input type="radio" name="bythesea" value="female" required>Spring water
 								</div>
 							</div>
 							<div class="house_input_rooms">
@@ -114,6 +111,9 @@
 							<div class="house_input_photos">
 								<div class="photo_add">
 									<button>Add Photo</button>
+									<span>photo</span>
+									<input type="file" name="file" id="file" class="inputfile" accept="image/*" onchange="changepic(this)" multiple="multiple" />
+									<img src="" id="show" width="200">
 								</div>
 								<div class="show_photo">
 									<img src="../img/logo.png">
@@ -125,7 +125,7 @@
 								</div>
 							</div>
 							<div class="house_submit">
-								<input type="submit" name="submit" value="Update">
+								<input type="submit" name="submit" value="Add">
 							</div>
 						</form>
 					</div>

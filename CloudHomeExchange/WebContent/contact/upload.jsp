@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<%@page import="com.util.Conn"%>
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<%@page import="java.sql.*" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -12,6 +16,11 @@
 	<script type="text/javascript" src="showPhoto.js"></script>
 </head>
 <body>
+<%
+	Connection conn = null;
+	Conn DBConn = new Conn();
+	conn = DBConn.getConnection();
+%>
 	<div class="border_box">
 		<div class="header">
 			<div class="logo"><img src="../img/cloud.png"></div>
@@ -28,12 +37,12 @@
 					<li ><a href="../myaccount/myprofile.html">My Account</a></li>
 					<li><a href="../myhouse/index.html">My House</a></li>
 					<li><a href="../myapply/index_applied.html">My Apply</a></li>
-					<li class="active"><a href="../contact/send.html">Contact Us<span>▶</span></a></li>
+					<li class="active"><a href="../contact/send.html">Contact Us<span>â¶</span></a></li>
 				</ul>
 			</div>
 			<div class="main">
 				<div class="send_message">
-					<form class="send_form" id="send_form" method="post" enctype="multipart/form-data">
+					<form class="send_form" id="send_form" method="post" enctype="multipart/form-data" action="../DemoPhoto">
 						<div class="form_title">
 							<span class="send_title">Send Us a Message</span>
 							<span class="send_note">Send us a message and we'll respond within 24 hours.</span>
@@ -68,7 +77,7 @@
 				<i class="fab fa-facebook-square fa-2x"></i>
 			</div>
 		</div>
-		<div class="foot">© Copyright 2020</div>
+		<div class="foot">Â© Copyright 2020</div>
 	</div>
 </body>
 </html>
