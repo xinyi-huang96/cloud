@@ -31,7 +31,12 @@ public class UserDao {
 						return -1;
 					else {	//if the account is active & password is right, return 4
 						user.setUid(rs.getString("Uid"));
-						return 4;
+						user.setPsw(rs.getString("Password"));
+						if(searchUser(user)) {
+							return 4;
+						}else {
+							return -1;
+						}
 					}
 				}else {
 					int num = rs.getInt("ErrorTimes") + 1;
@@ -94,6 +99,27 @@ public class UserDao {
 			pst1.executeUpdate();
 			pst2.executeUpdate();
 			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean searchUser(User user) {
+		try {
+			PreparedStatement pst1 = con.prepareStatement("SELECT * FROM user WHERE uid = ?;");
+			pst1.setString(1, user.getUid());
+			ResultSet rs = pst1.executeQuery();
+			if(rs.next()) {
+				user.setNickName(rs.getString("NickName"));
+				user.setGender(rs.getInt("Gender"));
+				user.setBirth(rs.getString("Birth"));
+				user.setEmail(rs.getString("Email"));
+				user.setTelephone(rs.getInt("Telephone"));
+				return true;
+			}else {
+				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
