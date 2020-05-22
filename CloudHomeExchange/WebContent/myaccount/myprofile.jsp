@@ -13,7 +13,8 @@
 	<link rel="stylesheet" href="../style/myaccount.css">
 	<link rel="stylesheet" href="../style/common.css">
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="style/ShowTime.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
+	<script type="text/javascript" src="../style/myaccount.js"></script>
 </head>
 <body>
 <%	Connection conn = null;
@@ -51,7 +52,7 @@
 				<%	String sql = "select * from user where Uid = ?";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
-					pstmt.setString(1, "111111");
+					pstmt.setString(1, userId);
 					rs = pstmt.executeQuery();
 					while (rs.next()) { 
 						String NickName = rs.getString(2);
@@ -69,7 +70,7 @@
 							</div>
 							<div class="profile_input">
 								<span>Email</span>
-								<input type="text" name="email" value="<% out.print(Email); %>" required disabled>
+								<input type="text" name="email" value="<% out.print(Email); %>" readonly unselectable="on">
 							</div>
 							<div class="profile_input">
 								<span>Telephone</span>
@@ -93,7 +94,29 @@
 							<div class="profile_submit">
 								<input type="submit" name="submit" value="Update">
 							</div>
-						</form>	
+						</form>
+						<div class="editPassword">
+							<button id="modPsw" οnclick="show()">Modify password</button>
+						</div>
+						<div id="edit_psw" class="edit_psw">
+							<form method="post" action="">
+							<div class="profile_input">
+								<span>Current password</span>
+								<input type="text" name="cpsw" required>
+							</div>
+							<div class="profile_input">
+								<span>New password</span>
+								<input type="text" name="npsw" required>
+							</div>
+							<div class="profile_input">
+								<span>Repeat password</span>
+								<input type="text" name="renpsw" required>
+							</div>
+							<div class="profile_submit">
+								<input type="submit" name="submit" value="Modify">
+							</div>
+						</form>
+						</div>
 					</div>
 					<div class="other_profile">
 						<div class="ty_traval">

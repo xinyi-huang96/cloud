@@ -19,49 +19,49 @@
 
 .profile_form {
 	width: 45%;
+	height: 600px;
 	border-right: 3px solid lightskyblue;
 	float: left;
 }
 
 .profile_input {
-	width: 90%;
+	width: 95%;
 	height: 50px;
-	margin-top: 15px;
+	margin-top: 8px;
 	float: left;
+	mid-width: 440px;
 }
 
 .profile_input span {
-	width: 35%;
+	width: 40%;
 	display:block;
 	float: left;
-	padding-top: 10px;
+	padding-top: 5px;
 }
 
 .profile_input input {
-	width: 50%;
+	width: 55%;
 	float: left;
 	height: 30px;
 }
 
 .profile_input .sex {
 	padding-top: 10px;
-	width: 30%;
+	width: 25%;
 	float: left;
 }
 
 .profile_input .sex input {
-	width: 15%;
+	width: 30%;
 	float: left;
 	height: 20px;
-	margin-right: 10px;
 }
 
 .profile_submit {
 	width: 90%;
 	height: 50px;
-	margin-top: 90px;
+	margin-top: 10px;
 	float: left;
-
 }
 
 .profile_submit input{
@@ -74,6 +74,7 @@
 	color: white;
 	background: lightskyblue;
 	border-radius: 5px;
+	cursor: pointer;
 }
 
 .other_profile {
@@ -204,4 +205,17 @@
 	margin-left: 15px;
 	float: left;
 	display: block;
+}
+
+.editPassword button {
+	width: 200px;
+	height: 30px;
+	float: left;
+	border-radius: 5px;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: white;
+	background: lightskyblue;
+	border-radius: 5px;
+	cursor: pointer;
 }
