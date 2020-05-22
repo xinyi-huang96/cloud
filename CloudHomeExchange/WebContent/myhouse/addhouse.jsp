@@ -1,3 +1,7 @@
+<%@page import="com.util.Conn"%>
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,17 +10,26 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta http-equiv="X-UA-Comatible" content="ie-edge">
 	<title>Cloud Home Exchange</title>
-	<link rel="stylesheet" href="../style/addhouse.css">
+	<link rel="stylesheet" href="../style/edithouse.css">
 	<link rel="stylesheet" href="../style/common.css">
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../style/showPhoto.js"></script>
 </head>
 <body>
+<%	Connection conn = null;
+	Statement stmt = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	Conn DBConn = new Conn();
+	conn = DBConn.getConnection();
+	if(conn != null){
+%>
 	<div class="border_box">
 		<div class="header">
 			<div class="logo"><img src="../img/cloud.png"></div>
 			<div class="title">Cloud Home Exchange</div>
 			<div class="login">
+				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %></a>
 				<a href="../myaccount/login.html">Sign out</a>
 			</div>
 		</div>
@@ -34,6 +47,7 @@
 			<div class="main">
 				<div class="mytitle">
 					<span>Add house</span>
+					<a href="index.jsp"><button>back</button></a>
 				</div>
 				<div class="myhouse">
 					<div class="house_form">
@@ -42,44 +56,48 @@
 								<span>Title</span>
 								<input type="text" name="title" placeholder="title" required>
 							</div>
+							<div class="house_input_address">
+								<span>Address</span>
+								<input type="text" name="address" placeholder="" required>
+							</div>
 							<div class="house_input_discribe">
 								<span>Tell us about your house</span>
-								<input type="text" name="discribe" placeholder="" required>
+								<textarea maxlength="1000" name="discribe" required></textarea>
 							</div>
 							<div class="house_input_feature">
 								<span>Features</span>
 								<div class="input_feature">
-									<input  type="checkbox" name="wifi" value="male">Wifi
+									<input  type="checkbox" name="feature" value="Wifi">Wifi
 								</div>
 								<div class="input_feature">
-									<input type="checkbox" name="pool" value="male">TV
+									<input type="checkbox" name="feature" value="TV">TV
 								</div>
 								<div class="input_feature">
-									<input type="checkbox" name="pool" value="male">NO smoking
+									<input type="checkbox" name="feature" value="NoSmoking">NO smoking
 								</div>
 								<div class="input_feature">
-									<input type="checkbox" name="pool" value="male">For kid
+									<input type="checkbox" name="feature" value="Kid">For kid
 								</div>
 								<div class="input_feature">
-									<input type="checkbox" name="pool" value="male">Washing
+									<input type="checkbox" name="feature" value="Washing">Washing
 								</div>
 							</div>
 							<div class="house_input_style">
 								<span>Home style</span>
 								<div class="input_style">
-									<input type="radio" name="citypad" value="male" required>City pad
+									<input type="radio" name="style" value="CityPad" required>City pad
 								</div>
 								<div class="input_style">
-									<input type="radio" name="bythesea" value="female" required>By the sea
+									<input type="radio" name="style" value="ByTheSea" required>By the sea
 								</div>
 								<div class="input_style">
-									<input type="radio" name="bythesea" value="female" required>Countryside
+									<input type="radio" name="style" value="Countryside" required>Countryside
 								</div>
 								<div class="input_style">
-									<input type="radio" name="bythesea" value="female" required>Mountain
+									<input type="radio" name="style" value="Mountain" required>Mountain
 								</div>
 								<div class="input_style">
-									<input type="radio" name="bythesea" value="female" required>Spring water
+									<input type="radio" name="style" value="SpringWater" required>Spring water
 								</div>
 							</div>
 							<div class="house_input_rooms">
@@ -93,35 +111,16 @@
 										<input type="" name="">
 									</div>
 									<div class="input_number">
-										<span>Sleeps</span>
+										<span>Max Number</span>
 										<input type="" name="">
 									</div>
 								</div>
-								<div class="input_room_allow">
-									<div class="input_allows">
-										<span>Pets</span>
-										<input type="" name="">
+								<div class="input_photo">
+									<div class="photo_add">
+										<span>photo</span>
+										<input type="file" name="file" id="file" class="inputfile" accept="image/*" onchange="changepic(this)" multiple="multiple" />
+										<img src="" id="show" width="180">
 									</div>
-									<div class="input_allows">
-										<span>Kids</span>
-										<input type="" name="">
-									</div>
-								</div>
-							</div>
-							<div class="house_input_photos">
-								<div class="photo_add">
-									<button>Add Photo</button>
-									<span>photo</span>
-									<input type="file" name="file" id="file" class="inputfile" accept="image/*" onchange="changepic(this)" multiple="multiple" />
-									<img src="" id="show" width="200">
-								</div>
-								<div class="show_photo">
-									<img src="../img/logo.png">
-									<span>delete</span>
-								</div>
-								<div class="show_photo">
-									<img src="../img/logo.png">
-									<span>delete</span>
 								</div>
 							</div>
 							<div class="house_submit">
@@ -148,7 +147,8 @@
 				<i class="fab fa-facebook-square fa-2x"></i>
 			</div>
 		</div>
-		<div class="foot">© Copyright 2020</div>
+		<div class="foot"> © Copyright 2020</div>
 	</div>
+<%	} %>
 </body>
 </html>
