@@ -1,3 +1,7 @@
+<%@page import="com.util.Conn"%>
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,11 +16,20 @@
 	<script type="text/javascript" src="style/ShowTime.js"></script>
 </head>
 <body>
+<%	Connection conn = null;
+	Statement stmt = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	Conn DBConn = new Conn();
+	conn = DBConn.getConnection();
+	if(conn != null){
+%>
 	<div class="border_box">
 		<div class="header">
 			<div class="logo"><img src="../img/cloud.png"></div>
 			<div class="title">Cloud Home Exchange</div>
 			<div class="login">
+				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %></a>
 				<a href="../myaccount/login.html">Sign out</a>
 			</div>
 		</div>
@@ -35,42 +48,52 @@
 				<div class="mytitle">
 					<span>My Profile</span>
 				</div>
-				<div class="myprofile">
+				<%	String sql = "select * from user where Uid = ?";
+					pstmt = conn.prepareStatement(sql);
+					String userId = (String)session.getAttribute("userId");
+					pstmt.setString(1, "111111");
+					rs = pstmt.executeQuery();
+					while (rs.next()) { 
+						String NickName = rs.getString(2);
+						int Gender = rs.getInt(4);
+						String Birth = rs.getString(5);
+						String Email = rs.getString(6);
+						int Telephone = rs.getInt(7);
+				%>
+				<div class="myprofile">	
 					<div class="profile_form">
 						<form id="edit_profile" class="edit_profile" method="post" action="../updateUser">
 							<div class="profile_input">
-								<span>First name</span>
-								<input type="text" name="firstname" placeholder="" required>
-							</div>
-							<div class="profile_input">
-								<span>Last name</span>
-								<input type="text" name="lastname" placeholder="">
+								<span>Your name</span>
+								<input type="text" name="firstname" value="<% out.print(NickName); %>" required>
 							</div>
 							<div class="profile_input">
 								<span>Email</span>
-								<input type="text" name="email" placeholder="" required>
+								<input type="text" name="email" value="<% out.print(Email); %>" required disabled>
 							</div>
 							<div class="profile_input">
 								<span>Telephone</span>
-								<input type="text" name="tel" placeholder="" required>
+								<input type="text" name="tel" value="<% out.print(Telephone); %>" required>
 							</div>
 							<div class="profile_input">
 								<span>Date of Birth</span>
-								<input type="text" name="birthday" placeholder="" required>
+								<input type="date" name="birthday" value="<% out.print(Birth); %>" required>
 							</div>
 							<div class="profile_input">
 								<span>Sex</span>
 								<div class="sex">
-									<input type="radio" name="sex" value="male" required>Male
+									<input type="radio" name="sex" value="male" required
+									<%	if (Gender == 1) {%> checked <%	} %>>Male
 								</div>
 								<div class="sex">
-									<input type="radio" name="sex" value="female" required>Female
+									<input type="radio" name="sex" value="female" required 
+									<%	if (Gender == 0) {%> checked <%	} %>>Female
 								</div>
 							</div>
 							<div class="profile_submit">
 								<input type="submit" name="submit" value="Update">
 							</div>
-						</form>
+						</form>	
 					</div>
 					<div class="other_profile">
 						<div class="ty_traval">
@@ -109,6 +132,7 @@
 							<img src="../img/house1.jpg">
 							<p>Click your profile picture to replace it</p>
 						</div>
+						<%	} %>
 					</div>
 				</div>
 			</div>
@@ -129,7 +153,8 @@
 				<i class="fab fa-facebook-square fa-2x"></i>
 			</div>
 		</div>
-		<div class="foot">© Copyright 2020</div>
+		<div class="foot"> © Copyright 2020</div>
 	</div>
+<%	} %>
 </body>
 </html>

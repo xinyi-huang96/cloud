@@ -12,12 +12,14 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="style/index.css">
 	<link rel="stylesheet" href="style/common.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://secure.geobytes.com/AutoCompleteCity?key=7c756203dbb38590a66e01a5a3e1ad96&callback=?"></script>
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="style/ShowTime.js"></script>
+	<script type="text/javascript" src="style/city.js"></script>
 </head>
 <body>
-<%
-	Connection conn = null;
+<%	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
 	Conn DBConn = new Conn();
@@ -30,8 +32,14 @@
 			<div class="title">Welcome
 			<br>Cloud Home Exchange</div>
 			<div class="login">
-				<a><% out.print(session.getAttribute("userId")); %></a>
+			<%	Object userNickName = session.getAttribute("userNickName");
+				if (userNickName != null) {
+			%>
+				<a>Welcome, <% out.print(userNickName); %></a>
 				<a href="myaccount/login.html">Sign out</a>
+			<%	} else { %>
+				<a href="myaccount/login.html">Log in</a>
+			<%	} %>
 			</div>
 		</div>
 		<div class="main_box">
@@ -52,11 +60,11 @@
 						<div class="search_span_info">
 							<div class="search_input">
 								<span>My home is in...</span>
-								<input type="text" name="depart" placeholder="Enter your country or city" required>
+								<input type="text" id="cityjson1" name="depart" placeholder="Enter your country or city" required>
 							</div>
 							<div class="search_input">
 								<span>I'd love to see...</span>
-								<input type="text" name="arrive" placeholder="Anywhere" required>
+								<input type="text" id="cityjson2" name="arrive" placeholder="Anywhere" required>
 							</div>
 						</div>
 						<div class="submit_search">
@@ -95,8 +103,6 @@
 		</div>
 		<div class="foot">© Copyright 2020</div>
 	</div>
-<%			
-	}		
-%>
+<%	} %>
 </body>
 </html>

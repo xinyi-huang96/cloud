@@ -34,14 +34,15 @@ public class UserLoginServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		String email = request.getParameter("email");
 		String password = request.getParameter("psw");
-		UserService us=new UserService();
-		User user=new User();
+		UserService us = new UserService();
+		User user = new User();
 		user.setEmail(email);
 		user.setPsw(password);
 		int flag = us.login(user);
 		if(flag == 4) {	//login success
 			HttpSession session = request.getSession();
 			session.setAttribute("userId", user.getUid());
+			session.setAttribute("userNickName", user.getNickName());
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}else if(flag == -1) {	//user not exist
 			response.getWriter().append("<script language='javascript'>alert('User does not exist.');"

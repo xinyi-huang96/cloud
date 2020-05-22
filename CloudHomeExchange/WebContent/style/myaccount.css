@@ -50,9 +50,10 @@
 }
 
 .profile_input .sex input {
-	width: 10%;
+	width: 15%;
 	float: left;
 	height: 20px;
+	margin-right: 10px;
 }
 
 .profile_submit {
