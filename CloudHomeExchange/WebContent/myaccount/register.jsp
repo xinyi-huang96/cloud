@@ -34,7 +34,7 @@
 		</div>
 		<div class="main_box">
 			<div class="register">
-				<form id="register_form" class="register_form" action="../register" method="post">
+				<form id="register_form" class="register_form" action="../register" method="post" onsubmit="validateForm();">
 					<div class="register_input">
 						<input type="text" name="email" placeholder="   Email Address" required/>
 					</div>

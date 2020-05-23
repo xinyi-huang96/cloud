@@ -17,7 +17,7 @@ public class UserService {
 	}
 	
 	//register
-	public boolean register(User user) {
+	public int register(User user) {
 		return userDao.adduser(user);
 	}
 }

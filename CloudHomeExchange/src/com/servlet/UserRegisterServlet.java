@@ -41,12 +41,17 @@ public class UserRegisterServlet<HttpSession> extends HttpServlet {
 		String birth = request.getParameter("birth");
 		UserServiceImpl us=new UserServiceImpl();
 		User user = new User();
-		
-		if(us.register(email,psw,birth,gender)) {
-			response.getWriter().write("success");
-			request.getRequestDispatcher("../login.html").forward(request, response);
+		int info = us.register(email,psw,birth,gender);
+		if(info == 1 ) {
+			response.getWriter().append("<script language='javascript'>alert('register success');"
+					+ "history.back();</script>");
+			response.sendRedirect("login.jsp" );
+		}else if (info == 0) {
+			response.getWriter().append("<script language='javascript'>alert('user existed');"
+					+ "history.back();</script>");
 		}else {
-			response.getWriter().write("failed "+user.getUid());
+			response.getWriter().append("<script language='javascript'>alert('fail to register');"
+					+ "history.back();</script>");
 		}
 	}
 	

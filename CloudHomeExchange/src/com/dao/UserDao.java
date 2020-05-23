@@ -85,7 +85,7 @@ public class UserDao {
 	}
 	
 	//register add a user
-	public boolean adduser(User user) {
+	public int adduser(User user) {
 		try {
 			PreparedStatement pst1 = con.prepareStatement("INSERT INTO user (email,age,gender) VALUES (?,?,?);");
 			PreparedStatement pst2 = con.prepareStatement("INSERT INTO login (email,password) VALUES (?,?);");
@@ -96,25 +96,33 @@ public class UserDao {
 			
 			pst2.setString(1, user.getEmail());
 			pst2.setString(2, user.getPsw());
-			
+			pst = con.prepareStatement("SELECT * FROM login WHERE email = ? ;");
+			pst.setString(1, user.getEmail());
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				user.setEmail(rs.getString("email"));
+				if (searchUser(user)) {
+					return 0;//user existed
+				}
+			}
 			pst1.executeUpdate();
 			pst2.executeUpdate();
-			return true;
+			return 1;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return false;
+			return 2;
 		}
 	}
 	
 	public boolean searchUser(User user) {
 		try {
-			PreparedStatement pst1 = con.prepareStatement("SELECT * FROM user WHERE uid = ?;");
-			pst1.setString(1, user.getUid());
+			PreparedStatement pst1 = con.prepareStatement("SELECT * FROM user WHERE email = ?;");
+			pst1.setString(1, user.getEmail());
 			ResultSet rs = pst1.executeQuery();
 			if(rs.next()) {
 				user.setNickName(rs.getString("NickName"));
 				user.setGender(rs.getInt("Gender"));
-				user.setBirth(rs.getString("Birth"));
+				user.setBirth(rs.getString("Age"));
 				user.setEmail(rs.getString("Email"));
 				user.setTelephone(rs.getInt("Telephone"));
 				return true;

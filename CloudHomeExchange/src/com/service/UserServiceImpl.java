@@ -4,7 +4,7 @@ import com.dao.UserDao;
 import com.entity.User;
 
 public class UserServiceImpl extends UserService{
-	public boolean register(String email, String psw, String birth,int gender) {
+	public int register(String email, String psw, String birth,int gender) {
         UserDao userDao = new UserDao();
 
         User user = new User();
@@ -13,7 +13,7 @@ public class UserServiceImpl extends UserService{
         user.setPsw(psw);
         user.setBirth(birth);
         user.setGender(gender);
-        boolean info= userDao.adduser(user);
+        int info= userDao.adduser(user);
         return info;
     }
 }
