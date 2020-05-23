@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.entity.User;
 import com.service.UserService;
+import com.service.UserServiceImpl;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -30,18 +31,20 @@ public class UserRegisterServlet<HttpSession> extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		System.out.println("send register servlet service");
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
 		String email = request.getParameter("email");
-		String password = request.getParameter("psw");
+		String psw = request.getParameter("psw");
 		int gender = request.getParameter("sex").equals("male") ? 1 : 0;
-		String birth = request.getParameter("birthday");
-		UserService us=new UserService();
+		String birth = request.getParameter("birth");
+		UserServiceImpl us=new UserServiceImpl();
 		User user = new User();
 		
-		if(us.register(user)) {
-			response.getWriter().write("register success");
+		if(us.register(email,psw,birth,gender)) {
+			response.getWriter().write("success");
+			request.getRequestDispatcher("../login.html").forward(request, response);
 		}else {
 			response.getWriter().write("failed "+user.getUid());
 		}

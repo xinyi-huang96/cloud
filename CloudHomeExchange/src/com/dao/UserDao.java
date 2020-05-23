@@ -87,14 +87,15 @@ public class UserDao {
 	//register add a user
 	public boolean adduser(User user) {
 		try {
-			PreparedStatement pst1 = con.prepareStatement("INSERT INTO user (email,birth,gender) VALUES (?,?,?);");
+			PreparedStatement pst1 = con.prepareStatement("INSERT INTO user (email,age,gender) VALUES (?,?,?);");
 			PreparedStatement pst2 = con.prepareStatement("INSERT INTO login (email,password) VALUES (?,?);");
+			
 			pst1.setString(1, user.getEmail());
 			pst1.setString(2, user.getBirth());
 			pst1.setInt(3, user.getGender());
 			
-			pst2.setString(4, user.getEmail());
-			pst2.setString(5, user.getPsw());
+			pst2.setString(1, user.getEmail());
+			pst2.setString(2, user.getPsw());
 			
 			pst1.executeUpdate();
 			pst2.executeUpdate();
