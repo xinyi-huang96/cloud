@@ -96,6 +96,10 @@
 	height: 220px;
 	float: left;
 }
+.re_house_img img{
+	width: 280px;
+	height: 220px;
+}
 
 .re_house_discribe {
 	width: 98%;
