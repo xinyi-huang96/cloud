@@ -59,7 +59,7 @@
 				</div>
 				<div class="myhouse">
 					<div class="house_form">
-						<form id="edit_house" class="edit_house" action="../houseAdd" method="post">
+						<form id="edit_house" class="edit_house">
 							<div class="house_input_title">
 								<span>Title</span>
 								<input type="text" name="title" placeholder="title" required>

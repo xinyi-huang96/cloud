@@ -18,6 +18,14 @@
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<%	Connection conn = null;
+	Statement stmt = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	Conn DBConn = new Conn();
+	conn = DBConn.getConnection();
+	if(conn != null){
+%>
 	<div class="border_box">
 		<div class="header">
 			<div class="logo"><img src="../img/cloud.png"></div>
@@ -39,7 +47,7 @@
 					<li><a href="../searching/searchhouse.jsp">Search House</a></li>
 					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
 					<li><a href="../myhouse/index.jsp">My House</a></li>
-					<li class="active"><a href="../myapply/index_applied.jsp">My Apply<span>â¶</span></a></li>
+					<li class="active"><a href="../myapply/index_applied.jsp">My Apply<span>▶</span></a></li>
 					<li><a href="../contact/send.jsp">Contact Us</a></li>
 				</ul>
 			</div>
@@ -129,5 +137,6 @@
 		</div>
 		<div class="foot">Â© Copyright 2020</div>
 	</div>
+	<%	} %>
 </body>
 </html>
