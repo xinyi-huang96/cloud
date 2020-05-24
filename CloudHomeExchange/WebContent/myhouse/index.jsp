@@ -48,7 +48,7 @@ jsp<!DOCTYPE html>
 							</div>
 						</div>
 						<div class="house_apply">
-							<button><a href="../myhouse/edithouse.html">Edit</a></button>
+							<button><a href="../myhouse/edithouse.jsp">Edit</a></button>
 						</div>
 					</div>
 				</div>

@@ -1,3 +1,7 @@
+<%@page import="com.util.Conn"%>
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,42 +62,42 @@
 				<div class="recommend_house">
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"></div>
+						<div class="re_house_img"><img src="../img/house1.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">❤❤❤❤❤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"></div>
+						<div class="re_house_img"><img src="../img/house2.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">❤❤❤❤❤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"></div>
+						<div class="re_house_img"><img src="../img/house3.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">❤❤❤❤❤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"></div>
+						<div class="re_house_img"><img src="../img/house4.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">❤❤❤❤❤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"></div>
+						<div class="re_house_img"><img src="../img/house5.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">❤❤❤❤❤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"></div>
+						<div class="re_house_img"><img src="../img/house6.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">❤❤❤❤❤</div>
 						</div>
@@ -121,7 +125,7 @@
 				<i class="fab fa-facebook-square fa-2x"></i>
 			</div>
 		</div>
-		<div class="foot">© Copyright 2020</div>
+		<div class="foot">Â© Copyright 2020</div>
 	</div>
 </body>
 </html>

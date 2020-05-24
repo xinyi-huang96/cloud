@@ -76,7 +76,7 @@
 					<div class="re_title">Recommend House</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"></div>
+						<div class="re_house_img"><img src="img/house1.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">❤❤❤❤❤</div>
 						</div>
