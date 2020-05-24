@@ -79,15 +79,15 @@
 						<form id="edit_house" class="edit_house">
 							<div class="house_input_title">
 								<span>Title</span>
-								<input type="text" name="title" placeholder="title" required>
+								<input type="text" name="title" value="<%=Title %>" required>
 							</div>
 							<div class="house_input_address">
 								<span>Address</span>
-								<input type="text" name="address" placeholder="" required>
+								<input type="text" name="address" value="<%=Address %>" required>
 							</div>
 							<div class="house_input_discribe">
 								<span>Tell us about your house</span>
-								<textarea maxlength="1000" name="discribe" required></textarea>
+								<textarea maxlength="1000" name="discribe" value="<%=Detail %>" required></textarea>
 							</div>
 							<div class="house_input_feature">
 								<span>Features</span>

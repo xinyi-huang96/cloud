@@ -32,10 +32,9 @@
 			<div class="title">Welcome
 			<br>Cloud Home Exchange</div>
 			<div class="login">
-			<%	Object userNickName = session.getAttribute("userNickName");
-				if (userNickName != null) {
+			<%	if (session.getAttribute("userNickName") != null) {
 			%>
-				<a>Welcome, <%=userNickName %></a>
+				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
 				<a href="myaccount/login.html">Sign out</a>
 			<%	} else { %>
 				<a href="myaccount/login.html">Log in</a>
