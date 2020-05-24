@@ -34,9 +34,9 @@
 				<%	if (session.getAttribute("userNickName") != null) {
 			%>
 				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
-				<a href="../myaccount/login.html">Sign out</a>
+				<a href="myaccount/login.html">Sign out</a>
 			<%	} else { %>
-				<a href="../myaccount/login.html">Log in</a>
+				<a href="myaccount/login.html">Log in</a>
 			<%	} %>
 			</div>
 		</div>
@@ -53,71 +53,86 @@
 			</div>
 			<div class="mainsearch">
 				<div class="search">
-					<form id="searchhouse_form" class="searchhouse_form">
+					<form id="searchhouse_form" class="searchhouse_form" action="../searchHouse" method="post">
 						<div class="search_input_city">
 							<span>I'd like to stay in </span>
-							<input type="text" name="depart" placeholder="e.g. Paris, London" required>
+							<input type="text" name="depart" placeholder="e.g. Paris, London">
 						</div>
 						<div class="search_input">
 							<span>Check-in</span>
-							<input type="date" name="indate" required>
+							<input type="date" name="indate">
 						</div>
 						<div class="search_input">
 							<span>Check-out</span>
-							<input type="date" name="outdate" required>
+							<input type="date" name="outdate">
 						</div>
 						<div class="search_input">
 							<span>Sleeping</span>
-							<input type="number" name="number" required>
+							<input type="number" name="number">
 						</div>
 						<div class="submit_search">
 							<input type="submit" name="submit" value="Search">
 						</div>
 					</form>
 				</div>
+				<tbody>
+					<c:forEach var="house" items="${houseList}" varStatus="status">
+						<tr <c:if test="${status.count%2==0 }" class="admin-list-td-h2"</c:if>>
+							<td><a href='../myhouse/housedetail.jsp?id=${house.hid }'>${house.title }</a></td>
+							<td>${house.peopleNum }</td>
+							<td>${house.photo }</td>
+							<td>${house.score }</td>
+						</tr> 
+					</c:forEach>
+					<input type="hidden" id="totalPageCount" name="totalPageCount" value="${totalPageCount }"/>
+				</tbody>
+				
+				
+		<!--  		
 				<div class="recommend_house">
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"></div>
+						<div class="re_house_img"><img src="../img/house1.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"></div>
+						<div class="re_house_img"><img src="../img/house2.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"></div>
+						<div class="re_house_img"><img src="../img/house3.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"></div>
+						<div class="re_house_img"><img src="../img/house4.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"></div>
+						<div class="re_house_img"><img src="../img/house5.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"></div>
+						<div class="re_house_img"><img src="../img/house6.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
 						</div>
 					</div>
+					-->
 				</div>
 				<div class="search_map">
 					
