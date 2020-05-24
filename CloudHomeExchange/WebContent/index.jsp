@@ -32,10 +32,9 @@
 			<div class="title">Welcome
 			<br>Cloud Home Exchange</div>
 			<div class="login">
-			<%	Object userNickName = session.getAttribute("userNickName");
-				if (userNickName != null) {
+			<%	if (session.getAttribute("userNickName") != null) {
 			%>
-				<a>Welcome, <% out.print(userNickName); %></a>
+				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
 				<a href="myaccount/login.html">Sign out</a>
 			<%	} else { %>
 				<a href="myaccount/login.html">Log in</a>
@@ -72,16 +71,41 @@
 						</div>
 					</form>
 				</div>
+				
 				<div class="recommend_house">
 					<div class="re_title">Recommend House</div>
+					<% 
+							String sql = "SELECT * FROM house;";
+							stmt = conn.createStatement();
+							rs = stmt.executeQuery(sql);
+							String Hid;
+							while (rs.next()) { 
+								Hid = rs.getString(1);
+								String Title = rs.getString(3);
+								String Detail = rs.getString(4);
+								String Photo = rs.getString(11);
+								int State = rs.getInt(12);
+						%>
 					<div class="recommandation">
+<<<<<<< HEAD
+						<a href="myhouse/housedetail.jsp?Hid=<%=Hid %>" id="transHid">
+							<div class="re_house">
+								<div class="re_house_img">
+									<img src="img/house/1.jpg" width="300" height="220">
+								</div>
+								<div class="re_house_discribe"><%=Title %></div>
+								<div class="re_house_comment">❤❤❤❤❤</div>
+							</div>
+						</a>
+=======
 						<div class="re_house">
 						<div class="re_house_img"><img src="img/house1.jpg" width="280px" height="220px"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">❤❤❤❤❤</div>
 						</div>
+>>>>>>> refs/remotes/origin/master
 					</div>
-					
+					<% } %>
 				</div>
 			</div>
 		</div>

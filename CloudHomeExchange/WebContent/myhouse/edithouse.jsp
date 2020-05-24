@@ -12,8 +12,10 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/edithouse.css">
 	<link rel="stylesheet" href="../style/common.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://secure.geobytes.com/AutoCompleteCity?key=7c756203dbb38590a66e01a5a3e1ad96&callback=?"></script>
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="../style/showPhoto.js"></script>
 </head>
 <body>
 <%	Connection conn = null;
@@ -29,8 +31,13 @@
 			<div class="logo"><img src="../img/cloud.png"></div>
 			<div class="title">Cloud Home Exchange</div>
 			<div class="login">
-				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %></a>
-				<a href="../myaccount/login.html">Sign out</a>
+				<%	if (session.getAttribute("userNickName") != null) {
+			%>
+				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
+				<a href="myaccount/login.html">Sign out</a>
+			<%	} else { %>
+				<a href="myaccount/login.html">Log in</a>
+			<%	} %>
 			</div>
 		</div>
 		<div class="main_box">
@@ -50,19 +57,37 @@
 					<a href="index.jsp"><button>back</button></a>
 				</div>
 				<div class="myhouse">
+				<%
+    				String Hid = request.getParameter("Hid");
+					String sql = "select * from house where Hid = ?";
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, Hid);
+					rs = pstmt.executeQuery();
+					while (rs.next()) { 
+						String Title = rs.getString(3);
+						String Detail = rs.getString(4);
+						String Features = rs.getString(5);
+						int Style = rs.getInt(6);
+						int bedrooms = rs.getInt(7);
+						int bathrooms = rs.getInt(8);
+						int PeopleNum = rs.getInt(9);
+						String Address = rs.getString(10);
+						String Photo = rs.getString(11);
+						int State = rs.getInt(12);
+				%>
 					<div class="house_form">
 						<form id="edit_house" class="edit_house">
 							<div class="house_input_title">
 								<span>Title</span>
-								<input type="text" name="title" placeholder="title" required>
+								<input type="text" name="title" value="<%=Title %>" required>
 							</div>
 							<div class="house_input_address">
 								<span>Address</span>
-								<input type="text" name="address" placeholder="" required>
+								<input type="text" name="address" value="<%=Address %>" required>
 							</div>
 							<div class="house_input_discribe">
 								<span>Tell us about your house</span>
-								<textarea maxlength="1000" name="discribe" required></textarea>
+								<textarea maxlength="1000" name="discribe" value="<%=Detail %>" required></textarea>
 							</div>
 							<div class="house_input_feature">
 								<span>Features</span>
@@ -128,6 +153,7 @@
 							</div>
 						</form>
 					</div>
+					<% } %>
 				</div>
 			</div>
 		</div>

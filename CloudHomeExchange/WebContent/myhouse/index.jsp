@@ -1,4 +1,8 @@
-jsp<!DOCTYPE html>
+<%@page import="com.util.Conn"%>
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<%@page import="java.sql.*" %>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -8,16 +12,32 @@ jsp<!DOCTYPE html>
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/myhouse.css">
 	<link rel="stylesheet" href="../style/common.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://secure.geobytes.com/AutoCompleteCity?key=7c756203dbb38590a66e01a5a3e1ad96&callback=?"></script>
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="style/ShowTime.js"></script>
 </head>
 <body>
+<%	Connection conn = null;
+	Statement stmt = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	Conn DBConn = new Conn();
+	conn = DBConn.getConnection();
+	if(conn != null){
+%>
 	<div class="border_box">
 		<div class="header">
 			<div class="logo"><img src="../img/cloud.png"></div>
 			<div class="title">Cloud Home Exchange</div>
 			<div class="login">
-				<a href="../myaccount/login.html">Sign out</a>
+				<%	if (session.getAttribute("userNickName") != null) {
+			%>
+				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
+				<a href="myaccount/login.html">Sign out</a>
+			<%	} else { %>
+				<a href="myaccount/login.html">Log in</a>
+			<%	} %>
 			</div>
 		</div>
 		<div class="main_box">
@@ -32,6 +52,18 @@ jsp<!DOCTYPE html>
 				</ul>
 			</div>
 			<div class="main">
+			<%	String sql = "select Hid, Title, Detail, Address, Photo from house where Uid = ?";
+					pstmt = conn.prepareStatement(sql);
+					String userId = (String)session.getAttribute("userId");
+					pstmt.setString(1, userId);
+					rs = pstmt.executeQuery();
+					while (rs.next()) { 
+						String Hid = rs.getString(1);
+						String Title = rs.getString(2);
+						String Detail = rs.getString(3);
+						String Address = rs.getString(4);
+						String Photo = rs.getString(5);
+				%>
 				<div class="myhouse">
 					<div class="house_img">
 						<img src="../img/house1.jpg">
@@ -42,17 +74,21 @@ jsp<!DOCTYPE html>
 								<p>Paris, France</p>
 							</div>
 							<div class="house_contact">
-								<div class="house_contact_loc"></div>
-								<div class="house_contact_mail"></div>
-								<div class="house_contact_tel"></div>
+								<div class="house_contact_loc">Address: <%=Address %></div>
+								<div class="house_contact_mail">Title: <%=Title %></div>
+								<div class="house_contact_tel">Detail: <%=Detail %></div>
 							</div>
 						</div>
 						<div class="house_apply">
+<<<<<<< HEAD
+							<a href="../myhouse/edithouse?Hid=<%=Hid %>.jsp"><button>Edit</button></a>
+=======
 							<button><a href="../myhouse/edithouse.jsp">Edit</a></button>
+>>>>>>> refs/remotes/origin/master
 						</div>
 					</div>
 				</div>
-
+			<% } %>
 			</div>
 		</div>
 		<div class="footer">
@@ -71,7 +107,8 @@ jsp<!DOCTYPE html>
 				<i class="fab fa-facebook-square fa-2x"></i>
 			</div>
 		</div>
-		<div class="foot">© Copyright 2020</div>
+		<div class="foot"> © Copyright 2020</div>
 	</div>
+<%	} %>
 </body>
 </html>
