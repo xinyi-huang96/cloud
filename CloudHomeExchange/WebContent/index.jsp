@@ -34,7 +34,7 @@
 			<div class="login">
 			<%	if (session.getAttribute("userNickName") != null) {
 			%>
-				<a>Welcome, <%=session.getAttribute("userNickName") %><%=session.getAttribute("userId") %></a>
+				<a>Welcome, <%=session.getAttribute("userNickName") %><%=session.getAttribute("userId") %><%=session.getAttribute("userId") %></a>
 				<a href="myaccount/login.html">Sign out</a>
 			<%	} else { %>
 				<a href="myaccount/login.html">Log in</a>
@@ -75,7 +75,7 @@
 				<div class="recommend_house">
 					<div class="re_title">Recommend House</div>
 					<% 
-							String sql = "SELECT Hid, Title, Detail, Photo, State FROM house;";
+							String sql = "SELECT Hid, Title, Detail, Comment, Photo, State FROM house;";
 							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
 							String Hid;

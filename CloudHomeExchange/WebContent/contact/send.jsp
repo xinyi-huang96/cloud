@@ -20,8 +20,12 @@
 <body>
 <%
 	Connection conn = null;
+	Statement stmt = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
 	Conn DBConn = new Conn();
 	conn = DBConn.getConnection();
+	if(conn != null){
 %>
 	<div class="border_box">
 		<div class="header">
@@ -58,11 +62,11 @@
 						<div class="form_input">
 							<div class="contact_input">
 								<span>Name</span>
-								<input type="text" name="name" placeholder="Your name" required>
+								<input type="text" name="name" placeholder="Your name"  required>
 							</div>
 							<div class="contact_input">
 								<span>Email</span>
-								<input type="text" name="email" placeholder="Your email address" required>
+								<input type="text" name="email" placeholder="Your email address"  required>
 							</div>
 							<div class="message_input">
 								<span>Message</span>
@@ -92,7 +96,8 @@
 				<i class="fab fa-facebook-square fa-2x"></i>
 			</div>
 		</div>
-		<div class="foot">Â© Copyright 2020</div>
+		<div class="foot"> © Copyright 2020</div>
 	</div>
+	<%	} %>
 </body>
 </html>

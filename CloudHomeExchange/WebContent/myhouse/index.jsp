@@ -52,7 +52,9 @@
 				</ul>
 			</div>
 			<div class="main">
-			<%	String sql = "select Hid, Title, Detail, Address, Photo from house where Uid = ?";
+			<%	
+			
+			String sql = "select Hid, Title, Detail, Address, Photo from house where Uid = ?";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);

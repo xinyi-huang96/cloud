@@ -72,9 +72,12 @@
 						int bedrooms = rs.getInt(7);
 						int bathrooms = rs.getInt(8);
 						int PeopleNum = rs.getInt(9);
-						String Address = rs.getString(10);
-						String Photo = rs.getString(11);
-						int State = rs.getInt(12);
+						String country = rs.getString(10);
+						String city = rs.getString(11);
+						String Address = rs.getString(12);
+						int Comment = rs.getInt(13);
+						String Photo = rs.getString(14);
+						int State = rs.getInt(15);
 				%>
 					<div class="result_house">
 						<div class="house_img"><img src="../img/house1.jpg">
@@ -82,7 +85,7 @@
 						<div class="house_detail">
 							<div class="house_info">
 								<div class="house_location">
-									<p>Paris,France</p>
+									<p>City: <%=city %>, <%=country %></p>
 									
 								</div>
 								<div class="house_contact">

@@ -16,6 +16,7 @@
 	<script src="https://secure.geobytes.com/AutoCompleteCity?key=7c756203dbb38590a66e01a5a3e1ad96&callback=?"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../style/showPhoto.js"></script>
 </head>
 <body>
 <%	Connection conn = null;
@@ -136,7 +137,7 @@
 									</div>
 									<div class="input_number">
 										<span>Max Number</span>
-										<input type="number" name="mumber" min="1" max="20">
+										<input type="number" name="poeple" min="1" max="20">
 									</div>
 								</div>
 								<div class="input_photo">

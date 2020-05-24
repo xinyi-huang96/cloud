@@ -15,6 +15,7 @@
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
 	<script type="text/javascript" src="../style/myaccount.js"></script>
+	<script type="text/javascript" src="../style/showPhoto.js"></script>
 </head>
 <body>
 <%	Connection conn = null;
@@ -30,7 +31,7 @@
 			<div class="logo"><img src="../img/cloud.png"></div>
 			<div class="title">Cloud Home Exchange</div>
 			<div class="login">
-				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %></a>
+				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %><%=session.getAttribute("userId") %></a>
 				<a href="../myaccount/login.html">Sign out</a>
 			</div>
 		</div>
@@ -51,7 +52,7 @@
 				</div>
 				<%	String sql = "select * from user where Uid = ?";
 					pstmt = conn.prepareStatement(sql);
-					String userId = (String)session.getAttribute("userId");
+					String userId = (String)session.getAttribute("userNickName");
 					pstmt.setString(1, userId);
 					rs = pstmt.executeQuery();
 					while (rs.next()) { 
