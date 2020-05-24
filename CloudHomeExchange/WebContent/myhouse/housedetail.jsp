@@ -32,10 +32,18 @@
 			<div class="logo"><img src="../img/cloud.png"></div>
 			<div class="title">Cloud Home Exchange</div>
 			<div class="login">
-				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %></a>
-				<a href="../myaccount/login.html">Sign out</a>
+				<%	if (session.getAttribute("userNickName") != null) {
+			%>
+				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
+				<a href="myaccount/login.html">Sign out</a>
+			<%	} else { %>
+				<a href="myaccount/login.html">Log in</a>
+			<%	} %>
 			</div>
 		</div>
+		
+		
+		
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
@@ -48,6 +56,13 @@
 				</ul>
 			</div>
 			<div class="mainresult">
+			<%
+			if(session.getAttribute("userNickName") == null) {
+		%>
+		
+		
+		
+		<% } else { %>
 				<div class="result">
 				<%
     				String Hid = request.getParameter("Hid");
@@ -148,9 +163,10 @@
 
 					</div>
 				</div>
-				<% } %>
+				<% } } %>
 			</div>
 		</div>
+		
 		<div class="footer">
 			<div class="footer_logo">
 				<img src="../img/cloud.png">

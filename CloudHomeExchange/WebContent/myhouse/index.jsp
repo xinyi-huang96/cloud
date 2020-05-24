@@ -12,8 +12,10 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/myhouse.css">
 	<link rel="stylesheet" href="../style/common.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://secure.geobytes.com/AutoCompleteCity?key=7c756203dbb38590a66e01a5a3e1ad96&callback=?"></script>
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="style/ShowTime.js"></script>
 </head>
 <body>
 <%	Connection conn = null;
@@ -29,8 +31,13 @@
 			<div class="logo"><img src="../img/cloud.png"></div>
 			<div class="title">Cloud Home Exchange</div>
 			<div class="login">
-				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %></a>
-				<a href="../myaccount/login.html">Sign out</a>
+				<%	if (session.getAttribute("userNickName") != null) {
+			%>
+				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
+				<a href="myaccount/login.html">Sign out</a>
+			<%	} else { %>
+				<a href="myaccount/login.html">Log in</a>
+			<%	} %>
 			</div>
 		</div>
 		<div class="main_box">
