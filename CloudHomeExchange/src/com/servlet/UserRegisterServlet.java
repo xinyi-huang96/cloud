@@ -37,22 +37,29 @@ public class UserRegisterServlet<HttpSession> extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		String email = request.getParameter("email");
 		String psw = request.getParameter("psw");
+		String repsw = request.getParameter("repsw");
 		int gender = request.getParameter("sex").equals("male") ? 1 : 0;
 		String birth = request.getParameter("birth");
 		UserServiceImpl us=new UserServiceImpl();
-		User user = new User();
-		int info = us.register(email,psw,birth,gender);
-		if(info == 1 ) {
-			response.getWriter().append("<script language='javascript'>alert('register success');"
-					+ "history.back();</script>");
-			response.sendRedirect("login.jsp" );
-		}else if (info == 0) {
-			response.getWriter().append("<script language='javascript'>alert('user existed');"
-					+ "history.back();</script>");
+		if (psw.equals(repsw)) {
+			User user = new User();
+			int info = us.register(email,psw,birth,gender);
+			if(info == 1 ) {
+				response.getWriter().append("<script language='javascript'>alert('register success');"
+						+ "history.back();</script>");
+				response.sendRedirect("myaccount/login.jsp" );
+			}else if (info == 0) {
+				response.getWriter().append("<script language='javascript'>alert('user existed');"
+						+ "history.back();</script>");
+			}else {
+				response.getWriter().append("<script language='javascript'>alert('fail to register');"
+						+ "history.back();</script>");
+			}
 		}else {
-			response.getWriter().append("<script language='javascript'>alert('fail to register');"
+			response.getWriter().append("<script language='javascript'>alert('passwords are inconsistent');"
 					+ "history.back();</script>");
 		}
+		
 	}
 	
 

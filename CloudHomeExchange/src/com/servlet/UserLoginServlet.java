@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.entity.User;
 import com.service.UserService;
+import com.util.MD5Utils;
 
 /**
  * Servlet implementation class LoginServlet
@@ -37,13 +38,13 @@ public class UserLoginServlet extends HttpServlet {
 		UserService us = new UserService();
 		User user = new User();
 		user.setEmail(email);
-		user.setPsw(password);
+		user.setPsw(MD5Utils.md5(password));
 		int flag = us.login(user);
 		if(flag == 4) {	//login success
 			HttpSession session = request.getSession();
 			session.setAttribute("userId", user.getUid());
 			session.setAttribute("userNickName", user.getNickName());
-			request.getRequestDispatcher("/index.jsp").forward(request, response);
+			response.sendRedirect("index.jsp" );
 		}else if(flag == -1) {	//user not exist
 			response.getWriter().append("<script language='javascript'>alert('User does not exist.');"
 					+ "history.back();</script>");

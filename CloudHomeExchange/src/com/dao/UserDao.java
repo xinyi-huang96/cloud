@@ -19,18 +19,17 @@ public class UserDao {
 	//valid the username and password
 	public int valiUser(User user){
 		try{
-			pst = con.prepareStatement("SELECT * FROM login WHERE uid = "
-					+ "( SELECT uid FROM USER WHERE email = ? AND usertype = 0);");
+			pst = con.prepareStatement("SELECT * FROM login WHERE email = ? ;");
 			pst.setString(1, user.getEmail());
 			ResultSet rs = pst.executeQuery();
-			if(rs.next()){
+			while(rs.next()){
 				if(user.getPsw().equals(rs.getString("Password"))) {
 					if(rs.getInt("State") == 0)	//if the account is blocked, return 3
 						return 3;
 					else if(rs.getInt("State") == 2)	//if the account is deleted, return -1
 						return -1;
 					else {	//if the account is active & password is right, return 4
-						user.setUid(rs.getString("Uid"));
+						user.setEmail(rs.getString("email"));
 						user.setPsw(rs.getString("Password"));
 						if(searchUser(user)) {
 							return 4;
@@ -56,15 +55,13 @@ public class UserDao {
 						return 3;
 					}
 				}
-			}else {
-				return -1;
 			}
+			return -1;
 		}catch(Exception e){
 			e.printStackTrace();
 			return 0;
 		}
 	}
-
 	//update user information
 	public boolean updateInfo(User user) {
 		try {

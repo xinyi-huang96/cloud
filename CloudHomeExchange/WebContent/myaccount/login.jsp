@@ -10,8 +10,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta http-equiv="X-UA-Comatible" content="ie-edge">
 	<title>Cloud Home Exchange</title>
-	<link rel="stylesheet" href="style/common.css">
-	<link rel="stylesheet" href="style/login.css">
+	<link rel="stylesheet" href="../style/common.css">
+	<link rel="stylesheet" href="../style/login.css">
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="style/ShowTime.js"></script>
 </head>
@@ -24,7 +24,7 @@
 <body>
 	<div class="border_box">
 		<div class="header">
-			<div class="logo_middle"><img src="img/cloud.png">
+			<div class="logo_middle"><img src="../img/cloud.png">
 				<br><span  style="font-size:20px;"><strong>Cloud Home Exchange</strong></span>
 			</div>
 			<div class="login">
