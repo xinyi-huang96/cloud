@@ -7,7 +7,7 @@
 
 .mytitle {
 	width: 98%;
-	height: 85px;
+	height: 50px;
 	float: left;
 	margin-left: 1%;
 }
@@ -48,23 +48,67 @@
 	float: left;
 }
 
-.house_input_address {
+.house_input_city {
+	width: 45%;
+	float: left;
+	margin-top: 10px;
+}
+
+.house_input_city span {
+	display: block;
+	width: 45%;
+	font-size: 16px;
+	float: left;
+}
+
+.house_input_city input {
+	width: 50%;
+	height: 26px;
+	float: left;
+}
+
+.house_input_Cadd {
 	width: 90%;
 	float: left;
 	margin-top: 10px;
 }
 
-.house_input_address span {
+.house_input_Cadd span {
 	display: block;
 	width: 30%;
 	font-size: 20px;
 	float: left;
 }
 
-.house_input_address input {
+.house_input_Cadd input {
 	width: 65%;
 	height: 26px;
 	float: left;
+}
+
+.house_input_add {
+	width: 90%;
+	float: left;
+	margin-top: 10px;
+}
+
+.house_input_address1 {
+	width: 30%;
+	float: left;
+	margin-top: 10px;
+}
+
+.house_input_address1 span {
+	display: block;
+	width: 30%;
+	font-size: 20px;
+	float: left;
+}
+
+.house_input_address2 {
+	width: 65%;
+	float: left;
+	margin-top: 10px;
 }
 
 .house_input_discribe {

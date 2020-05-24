@@ -54,40 +54,39 @@
 			<div class="main">
 				<div class="mytitle">
 					<span>Add house</span>
-					<a href="index.jsp"><button>back</button></a>
+					<!-- <a href="index.jsp"><button>back</button></a> -->
 				</div>
 				<div class="myhouse">
-				<%
-    				String Hid = request.getParameter("Hid");
-					String sql = "select * from house where Hid = ?";
-					pstmt = conn.prepareStatement(sql);
-					pstmt.setString(1, Hid);
-					rs = pstmt.executeQuery();
-					while (rs.next()) { 
-						String Title = rs.getString(3);
-						String Detail = rs.getString(4);
-						String Features = rs.getString(5);
-						int Style = rs.getInt(6);
-						int bedrooms = rs.getInt(7);
-						int bathrooms = rs.getInt(8);
-						int PeopleNum = rs.getInt(9);
-						String Address = rs.getString(10);
-						String Photo = rs.getString(11);
-						int State = rs.getInt(12);
-				%>
 					<div class="house_form">
 						<form id="edit_house" class="edit_house">
 							<div class="house_input_title">
 								<span>Title</span>
-								<input type="text" name="title" value="<%=Title %>" required>
+								<input type="text" name="title" placeholder="title" required>
 							</div>
-							<div class="house_input_address">
-								<span>Address</span>
-								<input type="text" name="address" value="<%=Address %>" required>
+							<div class="house_input_add">
+								<div class="house_input_address1">
+									<span>Address</span>
+								</div>
+								<div class="house_input_address2">
+									<div class="house_input_city">
+									<span>Country</span>
+									<input type="text" name="country" placeholder="" required>
+								</div>
+								<div class="house_input_city">
+									<span>City</span>
+									<input type="text" name="city" placeholder="" required>
+								</div>
+								
+								</div>
+								
 							</div>
+							<div class="house_input_Cadd">
+									<span>Complete Address</span>
+									<input type="text" name="address" placeholder="" required>
+								</div>
 							<div class="house_input_discribe">
 								<span>Tell us about your house</span>
-								<textarea maxlength="1000" name="discribe" value="<%=Detail %>" required></textarea>
+								<textarea maxlength="1000" name="discribe" required></textarea>
 							</div>
 							<div class="house_input_feature">
 								<span>Features</span>
@@ -153,7 +152,6 @@
 							</div>
 						</form>
 					</div>
-					<% } %>
 				</div>
 			</div>
 		</div>
