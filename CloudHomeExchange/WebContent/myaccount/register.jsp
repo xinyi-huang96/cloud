@@ -12,6 +12,8 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/common.css">
 	<link rel="stylesheet" href="../style/register.css">
+	<script type="text/javascript" src="../scripts/jquery-3.4.1.min.js"></script>
+	<script src="/scripts/checkform.js" type="text/javascript"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="style/ShowTime.js"></script>
 </head>
@@ -34,16 +36,16 @@
 		</div>
 		<div class="main_box">
 			<div class="register">
-				<form id="register_form" class="register_form" action="../register" method="post" onsubmit="validateForm();">
+				<form id="register_form" class="register_form" action="../register" method="post">
 					<div class="register_input">
 						<input type="text" name="email" placeholder="   Email Address" required/>
 					</div>
 					<div class="register_input">
-						<input type="password" name="psw" placeholder="   Password" required/>
+						<input type="password" id="psw" name="psw" placeholder="   Password" requir/>
 					</div>
 					<div class="register_input">
-						<input type="password" name="repsw" placeholder="   Confirm Password" required/>
-					</div>
+						<input type="password" id="repsw" name="repsw" placeholder="   Confirm Password" required/>
+					</div><span id="pass_span"></span>
 					<div class="register_input">
 						<input type="date" name="birth" placeholder="   Date of Birth" required/>
 					</div>
