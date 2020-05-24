@@ -26,9 +26,9 @@
 				<%	if (session.getAttribute("userNickName") != null) {
 			%>
 				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
-				<a href="myaccount/login.html">Sign out</a>
+				<a href="../myaccount/login.html">Sign out</a>
 			<%	} else { %>
-				<a href="myaccount/login.html">Log in</a>
+				<a href="../myaccount/login.html">Log in</a>
 			<%	} %>
 			</div>
 		</div>
@@ -46,8 +46,8 @@
 			<div class="main">
 				<div class="mytitle">
 					<a class="active" href="#">Applied</a>
-					<a href="index_received.jsp">Received</a>
-					<a href="index_history.jsp">History</a>
+					<a href="index_received.html">Received</a>
+					<a href="index_history.html">History</a>
 				</div>
 				<div class="myapply">
 					<div class="house_img">

@@ -35,9 +35,9 @@
 				<%	if (session.getAttribute("userNickName") != null) {
 			%>
 				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
-				<a href="myaccount/login.html">Sign out</a>
+				<a href="../myaccount/login.html">Sign out</a>
 			<%	} else { %>
-				<a href="myaccount/login.html">Log in</a>
+				<a href="../myaccount/login.html">Log in</a>
 			<%	} %>
 			</div>
 		</div>
@@ -56,13 +56,7 @@
 				</ul>
 			</div>
 			<div class="mainresult">
-			<%
-			if(session.getAttribute("userNickName") == null) {
-		%>
-		
-		
-		
-		<% } else { %>
+
 				<div class="result">
 				<%
     				String Hid = request.getParameter("Hid");
@@ -163,7 +157,7 @@
 
 					</div>
 				</div>
-				<% } } %>
+				<% }  %>
 			</div>
 		</div>
 		

@@ -34,9 +34,9 @@
 				<%	if (session.getAttribute("userNickName") != null) {
 			%>
 				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
-				<a href="myaccount/login.html">Sign out</a>
+				<a href="../myaccount/login.html">Sign out</a>
 			<%	} else { %>
-				<a href="myaccount/login.html">Log in</a>
+				<a href="../myaccount/login.html">Log in</a>
 			<%	} %>
 			</div>
 		</div>
@@ -54,7 +54,7 @@
 			<div class="main">
 				<div class="mytitle">
 					<span>Add house</span>
-					<a href="index.jsp"><button>back</button></a>
+					<!-- <a href="index.jsp"><button>back</button></a> -->
 				</div>
 				<div class="myhouse">
 					<div class="house_form">
@@ -63,10 +63,27 @@
 								<span>Title</span>
 								<input type="text" name="title" placeholder="title" required>
 							</div>
-							<div class="house_input_address">
-								<span>Address</span>
-								<input type="text" name="address" placeholder="" required>
+							<div class="house_input_add">
+								<div class="house_input_address1">
+									<span>Address</span>
+								</div>
+								<div class="house_input_address2">
+									<div class="house_input_city">
+									<span>Country</span>
+									<input type="text" name="country" placeholder="" required>
+								</div>
+								<div class="house_input_city">
+									<span>City</span>
+									<input type="text" name="city" placeholder="" required>
+								</div>
+								
+								</div>
+								
 							</div>
+							<div class="house_input_Cadd">
+									<span>Complete Address</span>
+									<input type="text" name="address" placeholder="" required>
+								</div>
 							<div class="house_input_discribe">
 								<span>Tell us about your house</span>
 								<textarea maxlength="1000" name="discribe" required></textarea>
@@ -111,15 +128,15 @@
 								<div class="input_room">
 									<div class="input_number">
 										<span>Bedrooms</span>
-										<input type="" name="">
+										<input type="number" name="bedroom" min="1" max="10">
 									</div>
 									<div class="input_number">
 										<span>Bathrooms</span>
-										<input type="" name="">
+										<input type="number" name="bathroom" min="1" max="10">
 									</div>
 									<div class="input_number">
 										<span>Max Number</span>
-										<input type="" name="">
+										<input type="number" name="mumber" min="1" max="20">
 									</div>
 								</div>
 								<div class="input_photo">
