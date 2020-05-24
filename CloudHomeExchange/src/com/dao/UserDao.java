@@ -85,15 +85,11 @@ public class UserDao {
 	public int adduser(User user) {
 		try {
 			PreparedStatement pst1 = con.prepareStatement("INSERT INTO user (email,age,gender) VALUES (?,?,?);");
-			PreparedStatement pst2 = con.prepareStatement("INSERT INTO login (email,password) VALUES (?,?);");
 			
 			pst1.setString(1, user.getEmail());
 			pst1.setString(2, user.getBirth());
 			pst1.setInt(3, user.getGender());
-			
-			pst2.setString(1, user.getEmail());
-			pst2.setString(2, user.getPsw());
-			pst = con.prepareStatement("SELECT * FROM login WHERE email = ? ;");
+			pst = con.prepareStatement("SELECT * FROM user WHERE email = ? ;");
 			pst.setString(1, user.getEmail());
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
@@ -103,7 +99,20 @@ public class UserDao {
 				}
 			}
 			pst1.executeUpdate();
+			
+			PreparedStatement pst0 = con.prepareStatement("SELECT uid FROM user WHERE email = ? ;");
+			pst0.setString(1, user.getEmail());
+			ResultSet result = pst.executeQuery();
+			result.next();
+			int uid = result.getInt("uid");
+			System.out.println(uid);
+			PreparedStatement pst2 = con.prepareStatement("INSERT INTO login (uid,email,password) VALUES (?,?,?);");
+			pst2.setInt(1, result.getInt("uid"));
+			pst2.setString(2, user.getEmail());
+			pst2.setString(3, user.getPsw());
 			pst2.executeUpdate();
+			String userid = String.valueOf(uid);
+			user.setUid(userid);
 			return 1;
 		} catch (SQLException e) {
 			e.printStackTrace();
