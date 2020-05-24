@@ -34,9 +34,9 @@
 				<%	if (session.getAttribute("userNickName") != null) {
 			%>
 				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
-				<a href="myaccount/login.html">Sign out</a>
+				<a href="../myaccount/login.html">Sign out</a>
 			<%	} else { %>
-				<a href="myaccount/login.html">Log in</a>
+				<a href="../myaccount/login.html">Log in</a>
 			<%	} %>
 			</div>
 		</div>
@@ -78,42 +78,42 @@
 				<div class="recommend_house">
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"><img src="../img/house1.jpg" width="280px" height="220px"></div>
+						<div class="re_house_img"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"><img src="../img/house2.jpg" width="280px" height="220px"></div>
+						<div class="re_house_img"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"><img src="../img/house3.jpg" width="280px" height="220px"></div>
+						<div class="re_house_img"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"><img src="../img/house4.jpg" width="280px" height="220px"></div>
+						<div class="re_house_img"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"><img src="../img/house5.jpg" width="280px" height="220px"></div>
+						<div class="re_house_img"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
 						</div>
 					</div>
 					<div class="recommandation">
 						<div class="re_house">
-						<div class="re_house_img"><img src="../img/house6.jpg" width="280px" height="220px"></div>
+						<div class="re_house_img"></div>
 						<div class="re_house_discribe">this is good</div>
 						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
 						</div>
@@ -141,11 +141,7 @@
 				<i class="fab fa-facebook-square fa-2x"></i>
 			</div>
 		</div>
-<<<<<<< HEAD
 		<div class="foot"> © Copyright 2020</div>
-=======
-		<div class="foot">Â© Copyright 2020</div>
->>>>>>> refs/remotes/origin/master
 	</div>
 	<%	} %>
 </body>

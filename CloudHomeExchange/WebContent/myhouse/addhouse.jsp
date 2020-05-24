@@ -34,9 +34,9 @@
 				<%	if (session.getAttribute("userNickName") != null) {
 			%>
 				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
-				<a href="myaccount/login.html">Sign out</a>
+				<a href="../myaccount/login.html">Sign out</a>
 			<%	} else { %>
-				<a href="myaccount/login.html">Log in</a>
+				<a href="../myaccount/login.html">Log in</a>
 			<%	} %>
 			</div>
 		</div>
@@ -128,15 +128,15 @@
 								<div class="input_room">
 									<div class="input_number">
 										<span>Bedrooms</span>
-										<input type="" name="">
+										<input type="number" name="bedroom" min="1" max="10">
 									</div>
 									<div class="input_number">
 										<span>Bathrooms</span>
-										<input type="" name="">
+										<input type="number" name="bathroom" min="1" max="10">
 									</div>
 									<div class="input_number">
 										<span>Max Number</span>
-										<input type="" name="">
+										<input type="number" name="mumber" min="1" max="20">
 									</div>
 								</div>
 								<div class="input_photo">

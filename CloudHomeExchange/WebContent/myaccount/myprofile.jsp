@@ -152,8 +152,11 @@
 						</div>
 						<div class="picture">
 							<span>Profile picture</span>
-							<img src="../img/house1.jpg">
-							<p>Click your profile picture to replace it</p>
+							<div class="photo_add">
+										<span>photo</span>
+										<input type="file" name="file" id="file" class="inputfile" accept="image/*" onchange="changepic(this)" multiple="multiple" />
+										<img src="" id="show" width="180">
+									</div>
 						</div>
 						<%	} %>
 					</div>
