@@ -34,7 +34,7 @@
 			<div class="login">
 			<%	if (session.getAttribute("userNickName") != null) {
 			%>
-				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
+				<a>Welcome, <%=session.getAttribute("userNickName") %><%=session.getAttribute("userId") %></a>
 				<a href="myaccount/login.html">Sign out</a>
 			<%	} else { %>
 				<a href="myaccount/login.html">Log in</a>
@@ -75,19 +75,18 @@
 				<div class="recommend_house">
 					<div class="re_title">Recommend House</div>
 					<% 
-							String sql = "SELECT * FROM house;";
+							String sql = "SELECT Hid, Title, Detail, Photo, State FROM house;";
 							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
 							String Hid;
 							while (rs.next()) { 
 								Hid = rs.getString(1);
-								String Title = rs.getString(3);
-								String Detail = rs.getString(4);
-								String Photo = rs.getString(11);
-								int State = rs.getInt(12);
+								String Title = rs.getString(2);
+								String Detail = rs.getString(3);
+								String Photo = rs.getString(5);
+								int State = rs.getInt(6);
 						%>
 					<div class="recommandation">
-<<<<<<< HEAD
 						<a href="myhouse/housedetail.jsp?Hid=<%=Hid %>" id="transHid">
 							<div class="re_house">
 								<div class="re_house_img">
@@ -97,13 +96,6 @@
 								<div class="re_house_comment">❤❤❤❤❤</div>
 							</div>
 						</a>
-=======
-						<div class="re_house">
-						<div class="re_house_img"><img src="img/house1.jpg" width="280px" height="220px"></div>
-						<div class="re_house_discribe">this is good</div>
-						<div class="re_house_comment">❤❤❤❤❤</div>
-						</div>
->>>>>>> refs/remotes/origin/master
 					</div>
 					<% } %>
 				</div>
