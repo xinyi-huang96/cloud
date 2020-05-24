@@ -50,6 +50,24 @@
 					<a href="index.jsp"><button>back</button></a>
 				</div>
 				<div class="myhouse">
+				<%
+    				String Hid = request.getParameter("Hid");
+					String sql = "select * from house where Hid = ?";
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, Hid);
+					rs = pstmt.executeQuery();
+					while (rs.next()) { 
+						String Title = rs.getString(3);
+						String Detail = rs.getString(4);
+						String Features = rs.getString(5);
+						int Style = rs.getInt(6);
+						int bedrooms = rs.getInt(7);
+						int bathrooms = rs.getInt(8);
+						int PeopleNum = rs.getInt(9);
+						String Address = rs.getString(10);
+						String Photo = rs.getString(11);
+						int State = rs.getInt(12);
+				%>
 					<div class="house_form">
 						<form id="edit_house" class="edit_house">
 							<div class="house_input_title">
@@ -128,6 +146,7 @@
 							</div>
 						</form>
 					</div>
+					<% } %>
 				</div>
 			</div>
 		</div>

@@ -25,7 +25,6 @@
 	width: 48%;
 	height: 100%;
 	float: left;
-	text-align: center;
 }
 
 .house_info {
@@ -37,33 +36,33 @@
 
 .house_location {
 	width: 60%;
-	height: 10%;
+	height: 20%;
 	float: left;
 }
 
 .house_contact {
-	width: 80%;
+	width: 75%;
 	height: 40%;
 	float: left;
 }
 
 .house_contact_loc {
 	width: 100%;
-	height: 10%;
+	height: 15%;
 	margin-top: 2%;
 	float: left;
 }
 
 .house_contact_mail {
 	width: 100%;
-	height: 10%;
+	height: 15%;
 	margin-top: 2%;
 	float: left;
 }
 
 .house_contact_tel {
 	width: 100%;
-	height: 10%;
+	height: 15%;
 	margin-top: 2%;
 	float: left;
 }

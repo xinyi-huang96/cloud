@@ -7,23 +7,11 @@
     overflow-x: hidden;
 }
 
-.btn_back {
-	width: 98%;
-	height: 25px;
-	float: left;
-	margin-left: 1%;
-}
-
-.btn_back button {
-	border: 1px solid lightskyblue;
-	text-align: center;
-	color: white;
-	background: lightskyblue;
-}
 .result{
 	width: 1000px;
 	min-width: 700px;
 	float: left;
+	margin-top: 30px;
 }
 .result_house {
 	width: 98%;
@@ -139,6 +127,7 @@
 	border-top: 1px solid lightgrey;
 	border-bottom: 1px solid lightgrey;
 	margin-left: 1%;
+	margin-top: 30px;
 }
 
 .result_discribe span {

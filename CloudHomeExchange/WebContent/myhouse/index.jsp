@@ -1,4 +1,8 @@
-jsp<!DOCTYPE html>
+<%@page import="com.util.Conn"%>
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<%@page import="java.sql.*" %>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -12,11 +16,20 @@ jsp<!DOCTYPE html>
 	<script type="text/javascript" src="style/ShowTime.js"></script>
 </head>
 <body>
+<%	Connection conn = null;
+	Statement stmt = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	Conn DBConn = new Conn();
+	conn = DBConn.getConnection();
+	if(conn != null){
+%>
 	<div class="border_box">
 		<div class="header">
 			<div class="logo"><img src="../img/cloud.png"></div>
 			<div class="title">Cloud Home Exchange</div>
 			<div class="login">
+				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %></a>
 				<a href="../myaccount/login.html">Sign out</a>
 			</div>
 		</div>
@@ -32,6 +45,18 @@ jsp<!DOCTYPE html>
 				</ul>
 			</div>
 			<div class="main">
+			<%	String sql = "select Hid, Title, Detail, Address, Photo from house where Uid = ?";
+					pstmt = conn.prepareStatement(sql);
+					String userId = (String)session.getAttribute("userId");
+					pstmt.setString(1, userId);
+					rs = pstmt.executeQuery();
+					while (rs.next()) { 
+						String Hid = rs.getString(1);
+						String Title = rs.getString(2);
+						String Detail = rs.getString(3);
+						String Address = rs.getString(4);
+						String Photo = rs.getString(5);
+				%>
 				<div class="myhouse">
 					<div class="house_img">
 						<img src="../img/house1.jpg">
@@ -42,17 +67,17 @@ jsp<!DOCTYPE html>
 								<p>Paris, France</p>
 							</div>
 							<div class="house_contact">
-								<div class="house_contact_loc"></div>
-								<div class="house_contact_mail"></div>
-								<div class="house_contact_tel"></div>
+								<div class="house_contact_loc">Address: <%=Address %></div>
+								<div class="house_contact_mail">Title: <%=Title %></div>
+								<div class="house_contact_tel">Detail: <%=Detail %></div>
 							</div>
 						</div>
 						<div class="house_apply">
-							<button><a href="../myhouse/edithouse.html">Edit</a></button>
+							<a href="../myhouse/edithouse?Hid=<%=Hid %>.jsp"><button>Edit</button></a>
 						</div>
 					</div>
 				</div>
-
+			<% } %>
 			</div>
 		</div>
 		<div class="footer">
@@ -71,7 +96,8 @@ jsp<!DOCTYPE html>
 				<i class="fab fa-facebook-square fa-2x"></i>
 			</div>
 		</div>
-		<div class="foot">© Copyright 2020</div>
+		<div class="foot"> © Copyright 2020</div>
 	</div>
+<%	} %>
 </body>
 </html>
