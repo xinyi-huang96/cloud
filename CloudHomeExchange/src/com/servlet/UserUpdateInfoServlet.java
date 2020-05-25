@@ -33,9 +33,8 @@ public class UserUpdateInfoServlet extends HttpServlet {
 		System.out.println("send update user info servlet service");
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
-//		HttpSession session = request.getSession();
-//		String uid = (String)session.getAttribute("userId");
-		String uid = "123456";
+		HttpSession session = request.getSession();
+		String uid = (String)session.getAttribute("userId");
 		String nickName = request.getParameter("firstname");
 		int gender = request.getParameter("sex").equals("male") ? 1 : 0;
 		String birth = request.getParameter("birthday");
@@ -44,9 +43,11 @@ public class UserUpdateInfoServlet extends HttpServlet {
 		User user = new User(uid, nickName, gender, birth, email, tel);
 		UserService us=new UserService();
 		if(us.update(user)) {
-			response.getWriter().write("success");
+			response.getWriter().append("<script language='javascript'>alert('modify success');"
+					+ "history.back();</script>");
 		}else {
-			response.getWriter().write("failed");
+			response.getWriter().append("<script language='javascript'>alert('fail to modify');"
+					+ "history.back();</script>");
 		}
 	}
 

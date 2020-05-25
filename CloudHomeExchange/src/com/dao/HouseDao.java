@@ -21,7 +21,8 @@ public class HouseDao {
 	//add a new house
 	public boolean addHouse(House house, String uid){
 		try {
-			pst = con.prepareStatement("INSERT INTO house Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+			pst = con.prepareStatement("INSERT INTO house (Uid, Title, Detail, Features, Style, bedrooms, bathrooms, "
+					+ "PeoplNum, Addr_country, Addr_city, Address, Photo, Comment, State) Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
 			pst.setString(1, uid);
 			pst.setString(2, house.getTitle());
 			pst.setString(3, house.getDetail());

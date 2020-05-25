@@ -26,35 +26,51 @@
     <url-pattern>/updateUser</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>UserRegisterServlet</servlet-name>
-  	<servlet-class>com.servlet.UserRegisterServlet</servlet-class>
+    <servlet-name>UserRegisterServlet</servlet-name>
+    <servlet-class>com.servlet.UserRegisterServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>UserRegisterServlet</servlet-name>
-  	<url-pattern>/register</url-pattern>
+    <servlet-name>UserRegisterServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>HouseSearchServlet</servlet-name>
-  	<servlet-class>com.servlet.HouseSearchServlet</servlet-class>
+    <servlet-name>HouseSearchServlet</servlet-name>
+    <servlet-class>com.servlet.HouseSearchServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>HouseSearchServlet</servlet-name>
-  	<url-pattern>/searchHouse</url-pattern>
+    <servlet-name>HouseSearchServlet</servlet-name>
+    <url-pattern>/searchHouse</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>HouseAddServlet</servlet-name>
-  	<servlet-class>com.servlet.HouseAddServlet</servlet-class>
+    <servlet-name>HouseAddServlet</servlet-name>
+    <servlet-class>com.servlet.HouseAddServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>HouseAddServlet</servlet-name>
-  	<url-pattern>/addHouse</url-pattern>
+    <servlet-name>HouseAddServlet</servlet-name>
+    <url-pattern>/addHouse</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>HouseEditServlet</servlet-name>
-  	<servlet-class>com.servlet.HouseEditServlet</servlet-class>
+    <servlet-name>HouseEditServlet</servlet-name>
+    <servlet-class>com.servlet.HouseEditServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>HouseEditServlet</servlet-name>
-  	<url-pattern>/editHouse</url-pattern>
+    <servlet-name>HouseEditServlet</servlet-name>
+    <url-pattern>/editHouse</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserModifyPswServlet</servlet-name>
+    <servlet-class>com.servlet.UserModifyPswServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserModifyPswServlet</servlet-name>
+    <url-pattern>/modifyPsw</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>OrderCreateServlet</servlet-name>
+    <servlet-class>com.servlet.OrderCreateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderCreateServlet</servlet-name>
+    <url-pattern>/createOrder</url-pattern>
   </servlet-mapping>
 </web-app>

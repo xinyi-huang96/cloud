@@ -52,9 +52,12 @@
 				</ul>
 			</div>
 			<div class="main">
-			<%	
+				<div class="mytitle">
+					<a href="addhouse.jsp"><button>add new house</button></a>
+				</div>
 			
-			String sql = "select Hid, Title, Detail, Address, Photo from house where Uid = ?";
+			<%	
+				String sql = "select Hid, Title, Detail, Address, Photo from house where Uid = ?";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);
@@ -82,7 +85,7 @@
 							</div>
 						</div>
 						<div class="house_apply">
-							<a href="../myhouse/edithouse?Hid=<%=Hid %>.jsp"><button>Edit</button></a>
+							<a href="../myhouse/edithouse.jsp?Hid=<%=Hid %>"><button>Edit</button></a>
 						</div>
 					</div>
 				</div>
