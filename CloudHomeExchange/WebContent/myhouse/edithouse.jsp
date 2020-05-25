@@ -63,6 +63,11 @@
 				String Title = rs.getString(3);
 				String Detail = rs.getString(4);
 				String Features = rs.getString(5);
+				
+				String[] feature;
+			    String delimeter = "\\|";
+			    feature = Features.split(delimeter);
+				
 				int Style = rs.getInt(6);
 				int bedrooms = rs.getInt(7);
 				int bathrooms = rs.getInt(8);
@@ -75,12 +80,13 @@
 				int State = rs.getInt(15);
 				%>
 				<div class="mytitle">
-					<span>Add house</span>
+					<span>Edit house</span>
 					<!-- <a href="index.jsp"><button>back</button></a> -->
 				</div>
 				<div class="myhouse">
 					<div class="house_form">
 						<form id="edit_house" class="edit_house" action="../editHouse" method="post">
+							<input type="text" name="hid" value="<%=Hid %>" hidden>
 							<div class="house_input_title">
 								<span>Title</span>
 								<input type="text" name="title" placeholder="title" value="<%=Title %>" required>
@@ -132,19 +138,24 @@
 							<div class="house_input_style">
 								<span>Home style</span>
 								<div class="input_style">
-									<input type="radio" name="style" value="CityPad" required>City pad
+									<input type="radio" name="style" value="CityPad" required
+									<%	if (Style == 1) {%> checked <%	} %>>City pad
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="ByTheSea" required>By the sea
+									<input type="radio" name="style" value="ByTheSea" required
+									<%	if (Style == 2) {%> checked <%	} %>>By the sea
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="Countryside" required>Countryside
+									<input type="radio" name="style" value="Countryside" required
+									<%	if (Style == 3) {%> checked <%	} %>>Countryside
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="Mountain" required>Mountain
+									<input type="radio" name="style" value="Mountain" required
+									<%	if (Style == 4) {%> checked <%	} %>>Mountain
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="SpringWater" required>Spring water
+									<input type="radio" name="style" value="SpringWater" required
+									<%	if (Style == 5) {%> checked <%	} %>>Spring water
 								</div>
 							</div>
 							<div class="house_input_rooms">
@@ -171,7 +182,7 @@
 								</div>
 							</div>
 							<div class="house_submit">
-								<input type="submit" name="submit" value="Add">
+								<input type="submit" name="submit" value="Submit">
 							</div>
 						</form>
 					</div>

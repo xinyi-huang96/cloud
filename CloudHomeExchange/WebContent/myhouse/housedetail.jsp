@@ -68,6 +68,16 @@
 						String Title = rs.getString(3);
 						String Detail = rs.getString(4);
 						String Features = rs.getString(5);
+						
+						String[] feature;
+					    String delimeter = "\\|";
+					    feature = Features.split(delimeter);
+						
+					    for(String x :  feature){
+					         System.out.println(x);
+					         System.out.println("");
+					      }
+					    
 						int Style = rs.getInt(6);
 						int bedrooms = rs.getInt(7);
 						int bathrooms = rs.getInt(8);
@@ -146,18 +156,25 @@
 						<div class="feature_title">
 							<span>Features</span>
 						</div>
+						<% for (String str : feature) {
+							if (str.equals("Wifi")){
+						%>
 						<div class="feature">
 							<i class="fas fa-wifi">  Wifi</i>
 						</div>
+						<% }  if (str.equals("TV")){%>
 						<div class="feature">
 							<i class="fas fa-tv">  TV</i>
 						</div>
+						<% }  if (str.equals("No pet")){%>
 						<div class="feature">
 							<i class="fas fa-paw">  No pet</i>
 						</div>
+						<% }  if (str.equals("No smoking")){%>
 						<div class="feature">
 							<i class="fas fa-smoking-ban">  No smoking</i>
 						</div>
+						<% } }%>
 					</div>
 					<div class="result_host">
 						<div class="dream_title">
