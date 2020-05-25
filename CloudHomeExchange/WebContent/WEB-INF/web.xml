@@ -33,4 +33,28 @@
   	<servlet-name>UserRegisterServlet</servlet-name>
   	<url-pattern>/register</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>HouseSearchServlet</servlet-name>
+  	<servlet-class>com.servlet.HouseSearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>HouseSearchServlet</servlet-name>
+  	<url-pattern>/searchHouse</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>HouseAddServlet</servlet-name>
+  	<servlet-class>com.servlet.HouseAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>HouseAddServlet</servlet-name>
+  	<url-pattern>/addHouse</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>HouseEditServlet</servlet-name>
+  	<servlet-class>com.servlet.HouseEditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>HouseEditServlet</servlet-name>
+  	<url-pattern>/editHouse</url-pattern>
+  </servlet-mapping>
 </web-app>

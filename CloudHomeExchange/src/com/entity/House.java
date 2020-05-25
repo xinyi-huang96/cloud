@@ -1,7 +1,7 @@
 package com.entity;
 
 public class House {
-	private int hid;
+	private String hid;
 	private String title;
 	private String detail;
 	private String features;
@@ -13,13 +13,13 @@ public class House {
 	private String city;
 	private String address;
 	private String photo;
-	private float score;
+	private int Comment;
 	private int state;
 
-	public int getHid() {
+	public String getHid() {
 		return hid;
 	}
-	public void setHid(int hid) {
+	public void setHid(String hid) {
 		this.hid = hid;
 	}
 	public String getTitle() {
@@ -88,11 +88,11 @@ public class House {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	public float getScore() {
-		return score;
+	public int getComment() {
+		return Comment;
 	}
-	public void setScore(float score) {
-		this.score = score;
+	public void setComment(int comment) {
+		Comment = comment;
 	}
 	public int getState() {
 		return state;

@@ -80,7 +80,7 @@
 				</div>
 				<div class="myhouse">
 					<div class="house_form">
-						<form id="edit_house" class="edit_house">
+						<form id="edit_house" class="edit_house" action="../editHouse" method="post">
 							<div class="house_input_title">
 								<span>Title</span>
 								<input type="text" name="title" placeholder="title" value="<%=Title %>" required>
@@ -109,7 +109,7 @@
 								</div>
 							<div class="house_input_discribe">
 								<span>Tell us about your house</span>
-								<textarea maxlength="1000" name="discribe" value="<%=Detail %>" required></textarea>
+								<textarea maxlength="1000" name="describe" value="<%=Detail %>" required></textarea>
 							</div>
 							<div class="house_input_feature">
 								<span>Features</span>
@@ -159,7 +159,7 @@
 									</div>
 									<div class="input_number">
 										<span>Max Number</span>
-										<input type="number" name="poeple" value="<%=PeopleNum %>" min="1" max="10">
+										<input type="number" name="people" value="<%=PeopleNum %>" min="1" max="10">
 									</div>
 								</div>
 								<div class="input_photo">

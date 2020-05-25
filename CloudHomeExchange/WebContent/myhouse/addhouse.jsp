@@ -59,7 +59,7 @@
 				</div>
 				<div class="myhouse">
 					<div class="house_form">
-						<form id="edit_house" class="edit_house">
+						<form id="edit_house" class="edit_house" action="../addHouse" method="post">
 							<div class="house_input_title">
 								<span>Title</span>
 								<input type="text" name="title" placeholder="title" required>
@@ -87,7 +87,7 @@
 								</div>
 							<div class="house_input_discribe">
 								<span>Tell us about your house</span>
-								<textarea maxlength="1000" name="discribe" required></textarea>
+								<textarea maxlength="1000" name="describe" required></textarea>
 							</div>
 							<div class="house_input_feature">
 								<span>Features</span>
@@ -137,7 +137,7 @@
 									</div>
 									<div class="input_number">
 										<span>Max Number</span>
-										<input type="number" name="poeple" min="1" max="20">
+										<input type="number" name="people" min="1" max="20">
 									</div>
 								</div>
 								<div class="input_photo">

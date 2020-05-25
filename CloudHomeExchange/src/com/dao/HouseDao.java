@@ -34,7 +34,7 @@ public class HouseDao {
 			pst.setString(10, house.getCity());
 			pst.setString(11, house.getAddress());
 			pst.setString(12, house.getPhoto());
-			pst.setFloat(13, (float) 0.0);
+			pst.setInt(13, 0);
 			pst.setInt(14, 1);
 			int row = pst.executeUpdate();
 			if(row > 0)
@@ -65,7 +65,7 @@ public class HouseDao {
 			pst.setString(9, house.getCity());
 			pst.setString(10, house.getAddress());
 			pst.setString(11, house.getPhoto());
-			pst.setInt(12, house.getHid());
+			pst.setInt(12, Integer.parseInt(house.getHid()));
 			int row = pst.executeUpdate();
 			if(row > 0)
 				return true;
@@ -86,11 +86,11 @@ public class HouseDao {
 			ResultSet rs = pst.executeQuery();
 			while(rs.next()) {
 				House house = new House();
-				house.setHid(rs.getInt("Hid"));
+				house.setHid(Integer.toString(rs.getInt("Hid")));
 				house.setTitle(rs.getString("Title"));
 				house.setPeopleNum(rs.getInt("PeoplNum"));
 				house.setPhoto(rs.getString("Photo"));
-				house.setScore(rs.getFloat("AvgScore"));
+				house.setComment(rs.getInt("Comment"));
 				houseList.add(house);
 				System.out.println("hid:" + house.getHid());
 			}

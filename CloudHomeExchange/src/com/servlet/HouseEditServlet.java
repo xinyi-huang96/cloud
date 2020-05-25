@@ -37,9 +37,14 @@ public class HouseEditServlet extends HttpServlet {
 		String country = request.getParameter("country");
 		String city = request.getParameter("city");
 		String addr = request.getParameter("address");
-		String detail = request.getParameter("discribe");
-		String feature = request.getParameter("feature");
-		System.out.println("feature: " + feature);
+		String detail = request.getParameter("describe");
+		String[] feature = request.getParameterValues("feature");
+		StringBuffer sb = new StringBuffer(1024);
+		for(String fea:feature){
+			System.out.println(fea);
+			sb.append(fea + "|");
+		} 
+		//System.out.println("feature: " + sb.toString());
 		String style = request.getParameter("style");
 		int styl = 0;
 		if(style.equals("CityPad")) {
@@ -55,12 +60,12 @@ public class HouseEditServlet extends HttpServlet {
 		}
 		int bedroom = Integer.parseInt(request.getParameter("bedroom"));
 		int bathroom = Integer.parseInt(request.getParameter("bathroom"));
-		int num = Integer.parseInt(request.getParameter("number"));
+		int num = Integer.parseInt(request.getParameter("people"));
 		String photo = "path";
 		House house = new House();
 		house.setTitle(title);
 		house.setDetail(detail);
-		house.setFeatures(feature);
+		house.setFeatures(sb.toString());
 		house.setStyle(styl);
 		house.setBedrooms(bedroom);
 		house.setBathrooms(bathroom);
@@ -69,20 +74,13 @@ public class HouseEditServlet extends HttpServlet {
 		house.setCity(city);
 		house.setAddress(addr);
 		house.setPhoto(photo);
-		HttpSession session = request.getSession();
-		String uid = (String) session.getAttribute("userId");
-		if(uid != null) {
-			HouseService hs = new HouseService();
-			boolean flag = hs.add(house, uid);
-			if(flag == true) {
-				response.getWriter().append("<script language='javascript'>alert('Add house success.');"
-						+ "history.back();</script>");
-			}else {
-				response.getWriter().append("<script language='javascript'>alert('failed to add house');"
-						+ "history.back();</script>");
-			}
+		HouseService hs = new HouseService();
+		boolean flag = hs.edit(house);
+		if(flag == true) {
+			response.getWriter().append("<script language='javascript'>alert('Add house success.');"
+					+ "history.back();</script>");
 		}else {
-			response.getWriter().append("<script language='javascript'>alert('error');"
+			response.getWriter().append("<script language='javascript'>alert('failed to add house');"
 					+ "history.back();</script>");
 		}
 	}

@@ -37,9 +37,14 @@ public class HouseAddServlet extends HttpServlet {
 		String country = request.getParameter("country");
 		String city = request.getParameter("city");
 		String addr = request.getParameter("address");
-		String detail = request.getParameter("discribe");
-		String feature = request.getParameter("feature");
-		System.out.println("feature: " + feature);
+		String detail = request.getParameter("describe");
+		String[] feature = request.getParameterValues("feature");
+		StringBuffer sb = new StringBuffer(1024);
+		for(String fea:feature){
+			System.out.println(fea);
+			sb.append(fea + "|");
+		} 
+		//System.out.println("feature: " + sb.toString());
 		String style = request.getParameter("style");
 		int styl = 0;
 		if(style.equals("CityPad")) {
@@ -55,12 +60,12 @@ public class HouseAddServlet extends HttpServlet {
 		}
 		int bedroom = Integer.parseInt(request.getParameter("bedroom"));
 		int bathroom = Integer.parseInt(request.getParameter("bathroom"));
-		int num = Integer.parseInt(request.getParameter("number"));
+		int num = Integer.parseInt(request.getParameter("people"));
 		String photo = "path";
 		House house = new House();
 		house.setTitle(title);
 		house.setDetail(detail);
-		house.setFeatures(feature);
+		house.setFeatures(sb.toString());
 		house.setStyle(styl);
 		house.setBedrooms(bedroom);
 		house.setBathrooms(bathroom);
@@ -71,6 +76,7 @@ public class HouseAddServlet extends HttpServlet {
 		house.setPhoto(photo);
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userId");
+		System.out.println("user:" + uid);
 		if(uid != null) {
 			HouseService hs = new HouseService();
 			boolean flag = hs.add(house, uid);
