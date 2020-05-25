@@ -72,11 +72,6 @@
 						String[] feature;
 					    String delimeter = "\\|";
 					    feature = Features.split(delimeter);
-						
-					    for(String x :  feature){
-					         System.out.println(x);
-					         System.out.println("");
-					      }
 					    
 						int Style = rs.getInt(6);
 						int bedrooms = rs.getInt(7);
@@ -114,7 +109,6 @@
 								</div>
 							</div>
 							<form method="post">
-							<form method="post">
 							<div class="house_apply">
 								<div class="house_apply_input">
 									<span>Check in</span>
@@ -132,23 +126,7 @@
 								<input type="text" name="uid" value="<%=session.getAttribute("userNickName") %>" hidden/>
 							</div>
 							<div class="house_apply">
-								<div class="house_apply_input">
-									<span>Check in</span>
-									<input type="date" name="checkin" required/>
-								</div>
-								<div class="house_apply_input">
-									<span>Check out</span>
-									<input type="date" name="checkout" required/>
-								</div>
-								<div class="house_apply_input">
-									<span>Comment</span>
-									<textarea maxlength="1000" name="comment" ></textarea>
-								</div>
-								<input type="text" name="hid" value="<%=Hid %>" hidden/>
-								<input type="text" name="uid" value="<%=session.getAttribute("userId") %>" hidden/>
-							</div>
-							<div class="house_apply">
-								<input type="button" name="apply" value="Apply" onclick="form.action='../createOrder';form.submit()">
+								<input type="button" name="apply" value="Apply" onclick="form.action='../creatOrder';form.submit()">
 								<input type="button" name="message" value="Message" onclick="form.action='';form.submit()">
 							</div>
 							</form>
