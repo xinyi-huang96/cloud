@@ -31,7 +31,7 @@
 			<div class="logo"><img src="../img/cloud.png"></div>
 			<div class="title">Cloud Home Exchange</div>
 			<div class="login">
-				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %><%=session.getAttribute("userId") %></a>
+				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
 				<a href="../myaccount/login.html">Sign out</a>
 			</div>
 		</div>
@@ -52,7 +52,7 @@
 				</div>
 				<%	String sql = "select * from user where Uid = ?";
 					pstmt = conn.prepareStatement(sql);
-					String userId = (String)session.getAttribute("userNickName");
+					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);
 					rs = pstmt.executeQuery();
 					while (rs.next()) { 

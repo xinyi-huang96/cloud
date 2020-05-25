@@ -1,3 +1,18 @@
+.mytitle button {
+	margin-top: 10px;
+	border-radius: 5px;
+	border: 1px solid black;
+	float: left;
+}
+
+.mytitle {
+	width: 98%;
+	height: 50px;
+	float: left;
+	margin-left: 1%;
+}
+
+
 .myhouse {
 	width: 98%;
 	height: 350px;
