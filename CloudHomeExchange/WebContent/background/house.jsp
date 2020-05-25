@@ -28,8 +28,13 @@
 			<div class="logo"><img src="../img/logo.png"></div>
 			<div class="title">Welcome</div>
 			<div class="login">
-				<a href="#">username</a>
-				<a href="../index-background.html">sign out</a>
+				<%	if (session.getAttribute("userNickName") != null) {
+			%>
+				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
+				<a href="myaccount/login.html">Sign out</a>
+			<%	} else { %>
+				<a href="myaccount/login.html">Log in</a>
+			<%	} %>
 			</div>
 		</div>
 		<div class="main_box">
