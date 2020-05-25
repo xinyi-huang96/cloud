@@ -85,8 +85,7 @@
 						<div class="house_detail">
 							<div class="house_info">
 								<div class="house_location">
-									<p>City: <%=city %>, <%=country %></p>
-									
+									<p>City: <%=city %>, <%=country %></p>	
 								</div>
 								<div class="house_contact">
 									<div class="house_contact_loc">
@@ -104,10 +103,28 @@
 									</div>
 								</div>
 							</div>
+							<form method="post">
 							<div class="house_apply">
-								<button>Apply</button>
-								<button>Message</button>
+								<div class="house_apply_input">
+									<span>Check in</span>
+									<input type="date" name="checkin" required/>
+								</div>
+								<div class="house_apply_input">
+									<span>Check out</span>
+									<input type="date" name="checkout" required/>
+								</div>
+								<div class="house_apply_input">
+									<span>Comment</span>
+									<textarea maxlength="1000" name="comment" ></textarea>
+								</div>
+								<input type="text" name="hid" value="<%=Hid %>" hidden/>
+								<input type="text" name="uid" value="<%=session.getAttribute("userNickName") %>" hidden/>
 							</div>
+							<div class="house_apply">
+								<input type="button" name="apply" value="Apply" onclick="form.action='';form.submit()">
+								<input type="button" name="message" value="Message" onclick="form.action='';form.submit()">
+							</div>
+							</form>
 						</div>
 					</div>
 					<div class="result_rooms">
