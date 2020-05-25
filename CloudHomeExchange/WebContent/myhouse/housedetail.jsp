@@ -72,11 +72,6 @@
 						String[] feature;
 					    String delimeter = "\\|";
 					    feature = Features.split(delimeter);
-						
-					    for(String x :  feature){
-					         System.out.println(x);
-					         System.out.println("");
-					      }
 					    
 						int Style = rs.getInt(6);
 						int bedrooms = rs.getInt(7);
@@ -131,7 +126,7 @@
 								<input type="text" name="uid" value="<%=session.getAttribute("userNickName") %>" hidden/>
 							</div>
 							<div class="house_apply">
-								<input type="button" name="apply" value="Apply" onclick="form.action='';form.submit()">
+								<input type="button" name="apply" value="Apply" onclick="form.action='../creatOrder';form.submit()">
 								<input type="button" name="message" value="Message" onclick="form.action='';form.submit()">
 							</div>
 							</form>
