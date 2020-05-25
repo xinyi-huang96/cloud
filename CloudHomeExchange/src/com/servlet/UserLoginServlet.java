@@ -44,7 +44,10 @@ public class UserLoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("userId", user.getUid());
 			session.setAttribute("userNickName", user.getNickName());
-			response.sendRedirect("index.jsp" );
+			if(user.getType() == 0)
+				response.sendRedirect("index.jsp" );
+			else
+				response.sendRedirect("index-background.html" );
 		}else if(flag == -1) {	//user not exist
 			response.getWriter().append("<script language='javascript'>alert('User does not exist.');"
 					+ "history.back();</script>");
