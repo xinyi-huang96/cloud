@@ -54,7 +54,7 @@
 			</div>
 			<div class="main">
 				<div class="search" style="background:url('img/search_bg.png') no-repeat 0 0;">
-					<form id="search_form" class="search_form">
+					<form id="search_form" class="search_form" action="searching/searchhouse.jsp" method="get/post">
 						<div class="search_span">Le monde est tellement grand, Allez pour voir.</div>
 						<div class="search_span_info">
 							<div class="search_input">
@@ -63,7 +63,7 @@
 							</div>
 							<div class="search_input">
 								<span>I'd love to see...</span>
-								<input type="text" id="cityjson2" name="arrive" placeholder="Anywhere" required>
+								<input type="text" id="cityjson2" name="arrival" placeholder="Anywhere" required>
 							</div>
 						</div>
 						<div class="submit_search">
@@ -75,7 +75,7 @@
 				<div class="recommend_house">
 					<div class="re_title">Recommend House</div>
 					<% 
-							String sql = "SELECT Hid, Title, Detail, Photo, State FROM house;";
+							String sql = "SELECT Hid, Title, Detail, Comment, Photo, State FROM house;";
 							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
 							String Hid;
@@ -83,8 +83,8 @@
 								Hid = rs.getString(1);
 								String Title = rs.getString(2);
 								String Detail = rs.getString(3);
-								String Photo = rs.getString(4);
-								int State = rs.getInt(5);
+								String Photo = rs.getString(5);
+								int State = rs.getInt(6);
 						%>
 					<div class="recommandation">
 						<a href="myhouse/housedetail.jsp?Hid=<%=Hid %>" id="transHid">
@@ -93,6 +93,7 @@
 									<img src="img/house/1.jpg" width="300" height="220">
 								</div>
 								<div class="re_house_discribe"><%=Title %></div>
+								
 								<div class="re_house_comment">❤❤❤❤❤</div>
 							</div>
 						</a>
