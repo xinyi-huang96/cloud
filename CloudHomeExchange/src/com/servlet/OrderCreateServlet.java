@@ -32,7 +32,7 @@ public class OrderCreateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("send register servlet service");
+		System.out.println("send order create servlet service");
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
 		String hid = request.getParameter("hid");
@@ -41,7 +41,7 @@ public class OrderCreateServlet extends HttpServlet {
 		String checkOut = request.getParameter("checkout");
 		String comment = request.getParameter("comment");
 		Date now = new Date();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String time = dateFormat.format(now);
 		Order order = new Order();
 		order.setHid(hid);

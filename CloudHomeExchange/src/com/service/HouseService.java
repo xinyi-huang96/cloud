@@ -17,8 +17,8 @@ public class HouseService {
 	public boolean edit(House house){
 		return houseDao.editHouse(house);
 	}
-	public boolean delete(House house, String hid) {
-		return houseDao.deleteHouse(house, hid);
+	public boolean delete(String hid) {
+		return houseDao.deleteHouse(hid);
 	}
 	
 	//search house

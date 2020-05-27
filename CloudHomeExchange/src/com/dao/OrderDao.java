@@ -23,7 +23,7 @@ public class OrderDao {
 			ResultSet rs = pst1.executeQuery();
 			if(rs.next()) {
 				order.setOwner(Integer.toString(rs.getInt(1)));
-				pst = con.prepareStatement("INSERT INTO order (Hid, Applicant, Owner, CheckIn, CheckOut, Comment)"
+				pst = con.prepareStatement("INSERT INTO orderhouse (Hid, Applicant, Owner, CheckIn, CheckOut, Comment)"
 						+ " VALUES (?,?,?,?,?,?);");
 				pst.setInt(1, Integer.parseInt(order.getHid()));
 				pst.setInt(2, Integer.parseInt(order.getApplicant()));

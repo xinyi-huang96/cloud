@@ -34,15 +34,28 @@ public class HouseSearchServlet extends HttpServlet {
 		System.out.println("Servlet search house start");
 		StringBuffer sb = new StringBuffer(1024);
 		String city = request.getParameter("depart");
-		//String checkIn = request.getParameter("indate");
-		//String checkOut = request.getParameter("outdate");
+		String checkIn = request.getParameter("indate");
+		String checkOut = request.getParameter("outdate");
 		String number = request.getParameter("number");
 		if (city != null && !"".equals(city)) {
 			sb.append(" AND Addr_city like '%" + city + "%'");
 		}
 		if(number != null && !"".equals(number)) {
 			int sleeping = Integer.parseInt(number);
-			sb.append(" AND PeoplNum = " + sleeping + " ");
+			sb.append(" AND PeoplNum >= " + sleeping + " ");
+		}
+		if(checkIn != null && !"".equals(checkIn)) {
+			if(checkOut != null && !"".equals(checkOut)) {
+				sb.append(" AND Hid NOT IN ( " + 
+						"	SELECT Hid FROM orderhouse " + 
+						"	WHERE checkin <= " +  checkIn +
+						"	AND checkout > " + checkOut + ")");
+			}else {
+				sb.append(" AND Hid NOT IN ( " + 
+						"	SELECT Hid FROM orderhouse " + 
+						"	WHERE checkin <= " +  checkIn +
+						"	AND checkout > " + checkIn + ")");
+			}
 		}
 		HouseService hs = new HouseService();
 		int totalCount = hs.getHouseCount(sb.toString());

@@ -60,18 +60,19 @@
 						
 						String cityString = "";
 						int Sleeps = 0;
-					  if (request.getParameter("arrival") != null) {
+					  if (request.getParameter("arrival") != null && !"".equals(request.getParameter("arrival"))) {
 						  cityString = request.getParameter("arrival");
 					  }
-					  if (request.getParameter("number") != null) {
+					  if (request.getParameter("number") != null && !"".equals(request.getParameter("number"))) {
 						  Sleeps = Integer.parseInt(request.getParameter("number"));
+						  System.out.println("sleeps" + Sleeps);
 					  }
 					String Arrival = "%" + cityString + "%"; 
 					%>
 					<form id="searchhouse_form" class="searchhouse_form" action="../searching/searchhouse.jsp" method="get/post">
 						<div class="search_input_city">
 							<span>I'd like to stay in </span>
-							<input type="text" name="arrival" placeholder="e.g. Paris, London" value="<%=cityString %>" required>
+							<input type="text" name="arrival" placeholder="e.g. Paris, London" value="<%=cityString %>" >
 						</div>
 						<div class="search_input">
 							<span>Check-in</span>

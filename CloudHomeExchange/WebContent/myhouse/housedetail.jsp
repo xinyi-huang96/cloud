@@ -60,7 +60,7 @@
 				<div class="result">
 				<%
     				String Hid = request.getParameter("Hid");
-					String sql1 = "select * from house where Hid = ?";					
+					String sql1 = "select * from house where Hid = ? AND State = 1;";					
 					pstmt1 = conn.prepareStatement(sql1);
 					pstmt1.setString(1, Hid);					
 					rs1 = pstmt1.executeQuery();
@@ -137,10 +137,10 @@
 									<textarea maxlength="1000" name="comment" ></textarea>
 								</div>
 								<input type="text" name="hid" value="<%=Hid %>" hidden/>
-								<input type="text" name="uid" value="<%=session.getAttribute("userNickName") %>" hidden/>
+								<input type="text" name="uid" value="<%=session.getAttribute("userId") %>" hidden/>
 							</div>
 							<div class="house_apply">
-								<input type="button" name="apply" value="Apply" onclick="form.action='../creatOrder';form.submit()">
+								<input type="button" name="apply" value="Apply" onclick="this.form.action='../createOrder';this.form.submit()">
 								<input type="button" name="message" value="Message" onclick="form.action='';form.submit()">
 							</div>
 							</form>

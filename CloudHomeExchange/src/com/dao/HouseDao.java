@@ -82,9 +82,9 @@ public class HouseDao {
 	}
 	
 	//delete house
-	public boolean deleteHouse(House house, String hid){
+	public boolean deleteHouse(String hid){
 		try {
-			pst = con.prepareStatement("DELETE FROM house WHERE Hid = ?;");
+			pst = con.prepareStatement("UPDATE house SET State = 0 WHERE Hid = ?;");
 
 			pst.setString(1, hid);
 			
@@ -102,7 +102,7 @@ public class HouseDao {
 	
 	public List<House> searchHouse(String where) {
 		List<House> houseList = new ArrayList<House>();
-		String sql = "SELECT Hid, Title, PeoplNum, Photo, AvgScore FROM house WHERE 1 = 1 " + where;
+		String sql = "SELECT Hid, Title, PeoplNum, Photo, AvgScore FROM house WHERE State = 1 " + where;
 		try {
 			pst = con.prepareStatement(sql);
 			ResultSet rs = pst.executeQuery();

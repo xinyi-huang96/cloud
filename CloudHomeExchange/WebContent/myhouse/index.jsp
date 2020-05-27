@@ -57,7 +57,7 @@
 				</div>
 			
 			<%	
-				String sql = "select Hid, Title, Detail, Address, Photo from house where Uid = ?";
+				String sql = "select Hid, Title, Detail, Address, Photo from house where Uid = ? AND State = 1;";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);
@@ -88,6 +88,7 @@
 							<a href="../myhouse/edithouse.jsp?Hid=<%=Hid %>"><button>Edit</button></a>
 							<!-- <button onClick="confirmDel(<%=Hid %>)">Delete</button> -->
 							<form method="post" action="../deleteHouse">
+							<input type="text" name="hid" value="<%=Hid %>" hidden/>
 							<input type="submit" name="submit" value="delete">
 							</form>
 <script type="text/javascript">  

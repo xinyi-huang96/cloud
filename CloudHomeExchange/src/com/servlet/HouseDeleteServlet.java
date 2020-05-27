@@ -33,14 +33,13 @@ public class HouseDeleteServlet extends HttpServlet {
 		System.out.println("house delete servlet");
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
-		HttpSession session = request.getSession();
-		String hid = (String) session.getAttribute("Hid");
+		String hid = request.getParameter("hid");
 		House house = new House();
 		house.setHid(hid);
 		System.out.println("hid" + hid);
 		if(hid != null) {
 			HouseService hs = new HouseService();
-			boolean flag = hs.delete(house, hid);
+			boolean flag = hs.delete(hid);
 			if(flag == true) {
 				response.getWriter().append("<script language='javascript'>alert('delete house success.');"
 						+ "history.back();</script>");

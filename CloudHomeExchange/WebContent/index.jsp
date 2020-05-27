@@ -75,7 +75,7 @@
 				<div class="recommend_house">
 					<div class="re_title">Recommend House</div>
 					<% 
-							String sql = "SELECT Hid, Uid, Title, Detail, Comment, Photo, State FROM house;";
+							String sql = "SELECT Hid, Uid, Title, Detail, Comment, Photo, State FROM house WHERE State = 1;";
 							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
 							String Hid;
