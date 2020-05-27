@@ -33,6 +33,8 @@ public class HouseEditServlet extends HttpServlet {
 		System.out.println("house edit servlet");
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
+		String hid = request.getParameter("hid");
+		System.out.println("Hid: " + hid);
 		String title = request.getParameter("title");
 		String country = request.getParameter("country");
 		String city = request.getParameter("city");
@@ -63,6 +65,7 @@ public class HouseEditServlet extends HttpServlet {
 		int num = Integer.parseInt(request.getParameter("people"));
 		String photo = "path";
 		House house = new House();
+		house.setHid(hid);
 		house.setTitle(title);
 		house.setDetail(detail);
 		house.setFeatures(sb.toString());

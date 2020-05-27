@@ -6,7 +6,8 @@ import com.util.MD5Utils;
 
 public class UserServiceImpl extends UserService{
 	public int register(String email, String psw, String birth,int gender) {
-        UserDao userDao = new UserDao();
+        
+		UserDao userDao = new UserDao();
 
         User user = new User();
 

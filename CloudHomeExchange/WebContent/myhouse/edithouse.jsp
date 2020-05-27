@@ -75,12 +75,13 @@
 				int State = rs.getInt(15);
 				%>
 				<div class="mytitle">
-					<span>Add house</span>
+					<span>Edit house</span>
 					<!-- <a href="index.jsp"><button>back</button></a> -->
 				</div>
 				<div class="myhouse">
 					<div class="house_form">
 						<form id="edit_house" class="edit_house" action="../editHouse" method="post">
+							<input type="text" name="hid" value="<%=Hid %>" hidden>
 							<div class="house_input_title">
 								<span>Title</span>
 								<input type="text" name="title" placeholder="title" value="<%=Title %>" required>
@@ -171,7 +172,7 @@
 								</div>
 							</div>
 							<div class="house_submit">
-								<input type="submit" name="submit" value="Add">
+								<input type="submit" name="submit" value="Update">
 							</div>
 						</form>
 					</div>

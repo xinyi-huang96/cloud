@@ -20,4 +20,14 @@ public class UserService {
 	public int register(User user) {
 		return userDao.adduser(user);
 	}
+	
+	//modify user password
+	public boolean modifyPsw(User user) {
+		return userDao.modifyPsw(user);	
+	}
+	
+	//valid user password
+	public boolean validPsw(User user) {
+			return userDao.validPsw(user);	
+	}
 }

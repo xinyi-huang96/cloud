@@ -52,6 +52,7 @@
 				</ul>
 			</div>
 			<div class="main">
+			<a href="../myhouse/addhouse.jsp"><button>Add House</button></a>
 			<%	
 			
 			String sql = "select Hid, Title, Detail, Address, Photo from house where Uid = ?";
@@ -60,11 +61,12 @@
 					pstmt.setString(1, userId);
 					rs = pstmt.executeQuery();
 					while (rs.next()) { 
-						String Hid = rs.getString(1);
+						String Hid = String.valueOf(rs.getInt(1));
 						String Title = rs.getString(2);
 						String Detail = rs.getString(3);
 						String Address = rs.getString(4);
 						String Photo = rs.getString(5);
+						System.out.println(Hid);
 				%>
 				<div class="myhouse">
 					<div class="house_img">
@@ -82,7 +84,7 @@
 							</div>
 						</div>
 						<div class="house_apply">
-							<a href="../myhouse/edithouse?Hid=<%=Hid %>.jsp"><button>Edit</button></a>
+							<a href="../myhouse/edithouse.jsp?Hid=<%=Hid %>"><button>Edit</button></a>
 						</div>
 					</div>
 				</div>

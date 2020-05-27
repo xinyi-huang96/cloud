@@ -12,6 +12,8 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/myaccount.css">
 	<link rel="stylesheet" href="../style/common.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="../style/adddream.js" type="text/javascript"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
 	<script type="text/javascript" src="../style/myaccount.js"></script>
@@ -31,7 +33,7 @@
 			<div class="logo"><img src="../img/cloud.png"></div>
 			<div class="title">Cloud Home Exchange</div>
 			<div class="login">
-				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %><%=session.getAttribute("userId") %></a>
+				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %></a>
 				<a href="../myaccount/login.html">Sign out</a>
 			</div>
 		</div>
@@ -52,7 +54,7 @@
 				</div>
 				<%	String sql = "select * from user where Uid = ?";
 					pstmt = conn.prepareStatement(sql);
-					String userId = (String)session.getAttribute("userNickName");
+					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);
 					rs = pstmt.executeQuery();
 					while (rs.next()) { 
@@ -103,15 +105,15 @@
 							<form method="post" action="">
 							<div class="profile_input">
 								<span>Current password</span>
-								<input type="text" name="cpsw" required>
+								<input type="password" name="cpsw" required>
 							</div>
 							<div class="profile_input">
 								<span>New password</span>
-								<input type="text" name="npsw" required>
+								<input type="password" name="npsw" required>
 							</div>
 							<div class="profile_input">
 								<span>Repeat password</span>
-								<input type="text" name="renpsw" required>
+								<input type="password" name="renpsw" required>
 							</div>
 							<div class="profile_submit">
 								<input type="submit" name="submit" value="Modify">
@@ -143,7 +145,7 @@
 										<input type="text" name="loc" placeholder="enter a location" required>
 									</div>
 									<div class="dream_submit">
-										<input type="submit" name="submit" value="Add">
+										<input type="submit" name="submit" value="Add" onClick="adddream()">
 									</div>
 								</form>
 								<div class="show_add">

@@ -147,4 +147,41 @@ public class UserDao {
 			return false;
 		}
 	}
+	
+	//valid user password
+	public boolean validPsw(User user) {
+			try {
+				pst = con.prepareStatement("SELECT password FROM login WHERE uid = ?;");
+				pst.setString(1, user.getUid());
+				ResultSet rs = pst.executeQuery();
+				if(rs.next()) {
+					String psw = rs.getString(1);
+					if(psw.equals(user.getPsw()))
+						return true;
+					else
+						return false;
+				}else
+					return false;
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
+	
+	//modify user password
+	public boolean modifyPsw(User user) {
+		try {
+			pst = con.prepareStatement("UPDATE login SET password = ? WHERE uid = ?;");
+			pst.setString(1, user.getPsw());
+			pst.setString(2, user.getUid());
+			int row = pst.executeUpdate();
+			if(row > 0)
+				return true;
+			else
+				return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 }
