@@ -33,11 +33,7 @@
 			<div class="logo"><img src="../img/cloud.png"></div>
 			<div class="title">Cloud Home Exchange</div>
 			<div class="login">
-<<<<<<< HEAD
 				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %></a>
-=======
-				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
->>>>>>> refs/remotes/origin/master
 				<a href="../myaccount/login.html">Sign out</a>
 			</div>
 		</div>

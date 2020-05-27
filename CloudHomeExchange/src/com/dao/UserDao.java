@@ -95,22 +95,21 @@ public class UserDao {
 			pst1.setString(2, user.getBirth());
 			pst1.setInt(3, user.getGender());
 			pst1.setInt(4, 0);
-			pst = con.prepareStatement("SELECT * FROM user WHERE email = ? ;");
-			pst.setString(1, user.getEmail());
+			pst = con.prepareStatement("SELECT email FROM user ;");
+			//pst.setString(1, user.getEmail());
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				user.setEmail(rs.getString("email"));
-				if (searchUser(user)) {
+				//user.setEmail(rs.getString("email"));
+				if (user.getEmail().equals(rs.getString("email"))) {
 					return 0;//user existed
 				}
-			}
+				}
 			pst1.executeUpdate();
-			
-			PreparedStatement pst0 = con.prepareStatement("SELECT uid FROM user WHERE email = ? ;");
+			PreparedStatement pst0 = con.prepareStatement("SELECT Uid FROM user WHERE email = ? ;");
 			pst0.setString(1, user.getEmail());
-			ResultSet result = pst.executeQuery();
+			ResultSet result = pst0.executeQuery();
 			result.next();
-			int uid = result.getInt("uid");
+			int uid = result.getInt("Uid");
 			System.out.println(uid);
 			PreparedStatement pst2 = con.prepareStatement("INSERT INTO login (uid,email,password) VALUES (?,?,?);");
 			pst2.setInt(1, result.getInt("uid"));
@@ -120,10 +119,10 @@ public class UserDao {
 			String userid = String.valueOf(uid);
 			user.setUid(userid);
 			return 1;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return 2;
-		}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return 2;
+			}
 	}
 	
 	public boolean searchUser(User user) {
