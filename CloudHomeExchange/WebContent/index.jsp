@@ -75,16 +75,17 @@
 				<div class="recommend_house">
 					<div class="re_title">Recommend House</div>
 					<% 
-							String sql = "SELECT Hid, Title, Detail, Comment, Photo, State FROM house;";
+							String sql = "SELECT Hid, Uid, Title, Detail, Comment, Photo, State FROM house;";
 							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
 							String Hid;
 							while (rs.next()) { 
 								Hid = rs.getString(1);
-								String Title = rs.getString(2);
-								String Detail = rs.getString(3);
+								String Uid = rs.getString(2);
+								String Title = rs.getString(3);
+								String Detail = rs.getString(4);
 								String Photo = rs.getString(5);
-								int State = rs.getInt(6);
+								//int State = rs.getInt(6);
 						%>
 					<div class="recommandation">
 						<a href="myhouse/housedetail.jsp?Hid=<%=Hid %>" id="transHid">

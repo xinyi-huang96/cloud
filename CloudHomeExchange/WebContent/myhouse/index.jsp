@@ -86,6 +86,7 @@
 						</div>
 						<div class="house_apply">
 							<a href="../myhouse/edithouse.jsp?Hid=<%=Hid %>"><button>Edit</button></a>
+							<button>Delete</button>
 						</div>
 					</div>
 				</div>

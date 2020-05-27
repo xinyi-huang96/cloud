@@ -21,8 +21,8 @@
 <body>
 <%	Connection conn = null;
 	Statement stmt = null;
-	ResultSet rs = null;
-	PreparedStatement pstmt = null;
+	ResultSet rs1,rs2 = null;
+	PreparedStatement pstmt1,pstmt2 = null;
 	Conn DBConn = new Conn();
 	conn = DBConn.getConnection();
 	if(conn != null){
@@ -60,14 +60,15 @@
 				<div class="result">
 				<%
     				String Hid = request.getParameter("Hid");
-					String sql = "select * from house where Hid = ?";
-					pstmt = conn.prepareStatement(sql);
-					pstmt.setString(1, Hid);
-					rs = pstmt.executeQuery();
-					while (rs.next()) { 
-						String Title = rs.getString(3);
-						String Detail = rs.getString(4);
-						String Features = rs.getString(5);
+					String sql1 = "select * from house where Hid = ?";					
+					pstmt1 = conn.prepareStatement(sql1);
+					pstmt1.setString(1, Hid);					
+					rs1 = pstmt1.executeQuery();
+					while (rs1.next()) { 
+						String Uid = rs1.getString(2);
+						String Title = rs1.getString(3);
+						String Detail = rs1.getString(4);
+						String Features = rs1.getString(5);
 						
 						String[] feature;
 					    String delimeter = "\\|";
@@ -77,17 +78,25 @@
 					         System.out.println(x);
 					         System.out.println("");
 					      }
-					    
-						int Style = rs.getInt(6);
-						int bedrooms = rs.getInt(7);
-						int bathrooms = rs.getInt(8);
-						int PeopleNum = rs.getInt(9);
-						String country = rs.getString(10);
-						String city = rs.getString(11);
-						String Address = rs.getString(12);
-						int Comment = rs.getInt(13);
-						String Photo = rs.getString(14);
-						int State = rs.getInt(15);
+					    					    
+						int Style = rs1.getInt(6);
+						int bedrooms = rs1.getInt(7);
+						int bathrooms = rs1.getInt(8);
+						int PeopleNum = rs1.getInt(9);
+						String country = rs1.getString(10);
+						String city = rs1.getString(11);
+						String Address = rs1.getString(12);
+						int Comment = rs1.getInt(13);
+						String Photo = rs1.getString(14);
+						int State = rs1.getInt(15);
+						String sql2 = "select * from user where Uid = ?";
+						pstmt2 = conn.prepareStatement(sql2);
+						pstmt2.setString(1, Uid);
+						rs2 = pstmt2.executeQuery();
+						rs2.next();
+						String NickName = rs2.getString(2);
+						String Email = rs2.getString(6);
+						String Telephone = rs2.getString(7);
 				%>
 					<div class="result_house">
 						<div class="house_img"><img src="../img/house1.jpg">
@@ -99,73 +108,17 @@
 								</div>
 								<div class="house_contact">
 									<div class="house_contact_loc">
-										<i class="fas fa-search-location">  address: <%=Address %></i>
+										<i class="fas fa-search-location">  Address: <%=Address %></i>
 									</div>
 									<br>
 									<br>
 									<div class="house_contact_mail">
-										<i class="far fa-envelope">  xxx@gmail.com</i>
+										<i class="far fa-envelope">  Email: <%= Email %></i>
 									</div>
 									<br>
 									<br>
 									<div class="house_contact_tel">
-										<i class="fas fa-phone-alt">  3312345678</i>
-									</div>
-								</div>
-							</div>
-							<form method="post">
-							<div class="house_apply">
-								<div class="house_apply_input">
-									<span>Check in</span>
-									<input type="date" name="checkin" required/>
-								</div>
-								<div class="house_apply_input">
-									<span>Check out</span>
-									<input type="date" name="checkout" required/>
-								</div>
-								<div class="house_apply_input">
-									<span>Comment</span>
-									<textarea maxlength="1000" name="comment" ></textarea>
-								</div>
-								<input type="text" name="hid" value="<%=Hid %>" hidden/>
-								<input type="text" name="uid" value="<%=session.getAttribute("userNickName") %>" hidden/>
-							</div>
-							<div class="house_apply">
-								<input type="button" name="apply" value="Apply" onclick="form.action='';form.submit()">
-=======
-					    
-						int Style = rs.getInt(6);
-						int bedrooms = rs.getInt(7);
-						int bathrooms = rs.getInt(8);
-						int PeopleNum = rs.getInt(9);
-						String country = rs.getString(10);
-						String city = rs.getString(11);
-						String Address = rs.getString(12);
-						int Comment = rs.getInt(14);
-						String Photo = rs.getString(13);
-						int State = rs.getInt(15);
-				%>
-					<div class="result_house">
-						<div class="house_img"><img src="../img/house1.jpg">
-						</div>
-						<div class="house_detail">
-							<div class="house_info">
-								<div class="house_location">
-									<p>City: <%=city %>, <%=country %></p>	
-								</div>
-								<div class="house_contact">
-									<div class="house_contact_loc">
-										<i class="fas fa-search-location">  address: <%=Address %></i>
-									</div>
-									<br>
-									<br>
-									<div class="house_contact_mail">
-										<i class="far fa-envelope">  xxx@gmail.com</i>
-									</div>
-									<br>
-									<br>
-									<div class="house_contact_tel">
-										<i class="fas fa-phone-alt">  3312345678</i>
+										<i class="fas fa-phone-alt">  Tel:<%= Telephone %></i>
 									</div>
 								</div>
 							</div>
@@ -188,7 +141,6 @@
 							</div>
 							<div class="house_apply">
 								<input type="button" name="apply" value="Apply" onclick="form.action='../creatOrder';form.submit()">
->>>>>>> refs/remotes/origin/master
 								<input type="button" name="message" value="Message" onclick="form.action='';form.submit()">
 							</div>
 							</form>
@@ -207,7 +159,7 @@
 					</div>
 					<div class="result_discribe">
 						<span>About our home</span>
-						<p>The property is situated in a delightful small development in the vibrant, all year round town of Aviemore, and just a few minutes walk from the MacDonald Country Club Resort. Aviemore is in the heart of the Cairngorm National Park and is well known for its stunning scenery, fabulous skiing and climbing, and its funicular railway. Excellent mountain biking trails and 8 golf courses are nearby. Watersports are available at Loch Insh and Loch Morlich and there is fantastic shopping and dining facilities in the nearby town centre. Aviemore has something for everyone!</p>
+						<p> <%=Detail %></p>
 					</div>
 					<div class="result_feature">
 						<div class="feature_title">

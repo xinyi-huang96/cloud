@@ -23,7 +23,7 @@ public class HouseDao {
 		try {
 			pst = con.prepareStatement("INSERT INTO house (Uid, Title, Detail, Features, Style, bedrooms, bathrooms, "
 
-				     + "PeoplNum, country, city, Address, Photo, Comment, State) Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+				     + "PeoplNum,  Addr_country, Addr_city, Address, Photo, Comment, State) Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
 
 			pst.setString(1, uid);
 			pst.setString(2, house.getTitle());
@@ -55,8 +55,8 @@ public class HouseDao {
 	public boolean editHouse(House house){
 		try {
 			pst = con.prepareStatement("UPDATE house SET Title = ?, Detail = ?, Features = ?, "
-					+ " Style = ?, bedrooms = ?, bathrooms = ?, PeoplNum = ?, country = ?,"
-					+ " city = ?, Address = ?, Photo = ? WHERE Hid = ?;");
+					+ " Style = ?, bedrooms = ?, bathrooms = ?, PeoplNum = ?,  Addr_country = ?,"
+					+ " Addr_city = ?, Address = ?, Photo = ? WHERE Hid = ?;");
 			pst.setString(1, house.getTitle());
 			pst.setString(2, house.getDetail());
 			pst.setString(3, house.getFeatures());
