@@ -65,4 +65,12 @@
     <servlet-name>UserModifyPswServlet</servlet-name>
     <url-pattern>/modifyPsw</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>OrderCreateServlet</servlet-name>
+    <servlet-class>com.servlet.OrderCreateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderCreateServlet</servlet-name>
+    <url-pattern>/createOrder</url-pattern>
+  </servlet-mapping>
 </web-app>

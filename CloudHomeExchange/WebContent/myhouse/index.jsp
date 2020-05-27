@@ -52,21 +52,22 @@
 				</ul>
 			</div>
 			<div class="main">
-			<a href="../myhouse/addhouse.jsp"><button>Add House</button></a>
-			<%	
+				<div class="mytitle">
+					<a href="addhouse.jsp"><button>add new house</button></a>
+				</div>
 			
-			String sql = "select Hid, Title, Detail, Address, Photo from house where Uid = ?";
+			<%	
+				String sql = "select Hid, Title, Detail, Address, Photo from house where Uid = ?";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);
 					rs = pstmt.executeQuery();
 					while (rs.next()) { 
-						String Hid = String.valueOf(rs.getInt(1));
+						String Hid = rs.getString(1);
 						String Title = rs.getString(2);
 						String Detail = rs.getString(3);
 						String Address = rs.getString(4);
 						String Photo = rs.getString(5);
-						System.out.println(Hid);
 				%>
 				<div class="myhouse">
 					<div class="house_img">

@@ -33,7 +33,11 @@
 			<div class="logo"><img src="../img/cloud.png"></div>
 			<div class="title">Cloud Home Exchange</div>
 			<div class="login">
+<<<<<<< HEAD
 				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %></a>
+=======
+				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
+>>>>>>> refs/remotes/origin/master
 				<a href="../myaccount/login.html">Sign out</a>
 			</div>
 		</div>
@@ -102,7 +106,7 @@
 							<button id="modPsw" οnclick="show()">Modify password</button>
 						</div>
 						<div id="edit_psw" class="edit_psw">
-							<form method="post" action="">
+							<form method="post" action="../modifyPsw">
 							<div class="profile_input">
 								<span>Current password</span>
 								<input type="password" name="cpsw" required>

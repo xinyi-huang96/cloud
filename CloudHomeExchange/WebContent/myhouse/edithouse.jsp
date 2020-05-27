@@ -63,6 +63,11 @@
 				String Title = rs.getString(3);
 				String Detail = rs.getString(4);
 				String Features = rs.getString(5);
+				
+				String[] feature;
+			    String delimeter = "\\|";
+			    feature = Features.split(delimeter);
+				
 				int Style = rs.getInt(6);
 				int bedrooms = rs.getInt(7);
 				int bathrooms = rs.getInt(8);
@@ -70,8 +75,8 @@
 				String country = rs.getString(10);
 				String city = rs.getString(11);
 				String Address = rs.getString(12);
-				int Comment = rs.getInt(13);
-				String Photo = rs.getString(14);
+				int Comment = rs.getInt(14);
+				String Photo = rs.getString(13);
 				int State = rs.getInt(15);
 				%>
 				<div class="mytitle">
@@ -110,42 +115,85 @@
 								</div>
 							<div class="house_input_discribe">
 								<span>Tell us about your house</span>
-								<textarea maxlength="1000" name="describe" value="<%=Detail %>" required></textarea>
+								<textarea maxlength="1000" name="discribe" value="<%=Detail %>" required></textarea>
 							</div>
 							<div class="house_input_feature">
 								<span>Features</span>
+								<% boolean b_Wifi = false, b_TV = false, b_NoSmoking = false, b_Kid = false, b_Washing = false; %>
+								<% for (String str : feature) {
+									if (str.equals("Wifi")) {
+									b_Wifi = true;%> 
 								<div class="input_feature">
-									<input  type="checkbox" name="feature" value="Wifi">Wifi
+									<input  type="checkbox" name="feature" value="Wifi" checked>Wifi
 								</div>
+									<% } if (str.equals("TV")) {
+									b_TV = true; %> 
 								<div class="input_feature">
+									<input type="checkbox" name="feature" value="TV" checked>TV
+								</div>
+									<% } if (str.equals("NoSmoking")) {
+										b_NoSmoking = true; %> 
+								<div class="input_feature">
+									<input type="checkbox" name="feature" value="NoSmoking" checked>NO smoking
+								</div>
+									<% } if (str.equals("Kid")) {
+									 b_Kid = true; %> 
+								<div class="input_feature">
+									<input type="checkbox" name="feature" value="Kid" checked>For kid
+								</div>
+									<% } if (str.equals("Washing")) {
+										b_Washing = true; %> 
+								<div class="input_feature">
+									<input type="checkbox" name="feature" value="Washing" checked>Washing
+								</div>
+								<% }} %>
+								<% if (!b_Wifi) { %>
+									<div class="input_feature">
+									<input type="checkbox" name="feature" value="Wifi">Wifi
+								</div>
+								<% } %>
+								<% if (!b_TV) { %>
+									<div class="input_feature">
 									<input type="checkbox" name="feature" value="TV">TV
 								</div>
-								<div class="input_feature">
-									<input type="checkbox" name="feature" value="NoSmoking">NO smoking
+								<% } %>
+								<% if (!b_NoSmoking) { %>
+									<div class="input_feature">
+									<input type="checkbox" name="feature" value="NoSmoking">No Smoking
 								</div>
-								<div class="input_feature">
+								<% } %>
+								<% if (!b_Kid) { %>
+									<div class="input_feature">
 									<input type="checkbox" name="feature" value="Kid">For kid
 								</div>
-								<div class="input_feature">
+								<% } %>
+								<% if (!b_Washing) { %>
+									<div class="input_feature">
 									<input type="checkbox" name="feature" value="Washing">Washing
 								</div>
+								<% } %>
 							</div>
 							<div class="house_input_style">
 								<span>Home style</span>
 								<div class="input_style">
-									<input type="radio" name="style" value="CityPad" required>City pad
+									<input type="radio" name="style" value="CityPad" required
+									<%	if (Style == 1) {%> checked <%	} %>>City pad
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="ByTheSea" required>By the sea
+									<input type="radio" name="style" value="ByTheSea" required
+									<%	if (Style == 2) {%> checked <%	} %>>By the sea
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="Countryside" required>Countryside
+									<input type="radio" name="style" value="Countryside" required
+									<%	if (Style == 3) {%> checked <%	} %>>Countryside
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="Mountain" required>Mountain
+									<input type="radio" name="style" value="Mountain" required
+									<%	if (Style == 4) {%> checked <%	} %>>Mountain
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="SpringWater" required>Spring water
+									<input type="radio" name="style" value="SpringWater" required
+									<%	if (Style == 5) {%> checked <%	} %>>Spring water
 								</div>
 							</div>
 							<div class="house_input_rooms">

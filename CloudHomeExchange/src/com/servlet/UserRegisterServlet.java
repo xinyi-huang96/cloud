@@ -45,8 +45,7 @@ public class UserRegisterServlet<HttpSession> extends HttpServlet {
 			User user = new User();
 			int info = us.register(email,psw,birth,gender);
 			if(info == 1 ) {
-				response.getWriter().append("<script language='javascript'>alert('register success');"
-						+ "history.back();</script>");
+				response.getWriter().append("<script language='javascript'>alert('register success');</script>");
 				response.sendRedirect("myaccount/login.jsp" );
 			}else if (info == 0) {
 				response.getWriter().append("<script language='javascript'>alert('user existed');"
@@ -59,7 +58,6 @@ public class UserRegisterServlet<HttpSession> extends HttpServlet {
 			response.getWriter().append("<script language='javascript'>alert('passwords are inconsistent');"
 					+ "history.back();</script>");
 		}
-		
 	}
 	
 

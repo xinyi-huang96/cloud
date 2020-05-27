@@ -53,9 +53,9 @@
 			</div>
 			<div class="main">
 				<div class="mytitle">
-					<a href="index_applied.html">Applied</a>
-					<a href="index_received.html">Received</a>
-					<a class="active" href="#">History</a>
+					<a href="index_applied">Applied</a>
+					<a href="index_received.jsp">Received</a>
+					<a class="active" href="index_history.jsp">History</a>
 				</div>
 				<div class="myapply">
 					<div class="house_img">

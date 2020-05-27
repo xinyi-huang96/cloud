@@ -22,6 +22,7 @@
 <%	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
+	PreparedStatement pstmt = null;
 	Conn DBConn = new Conn();
 	conn = DBConn.getConnection();
 	if(conn != null){
@@ -34,9 +35,9 @@
 				<%	if (session.getAttribute("userNickName") != null) {
 			%>
 				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
-				<a href="myaccount/login.html">Sign out</a>
+				<a href="../myaccount/login.html">Sign out</a>
 			<%	} else { %>
-				<a href="myaccount/login.html">Log in</a>
+				<a href="../myaccount/login.html">Log in</a>
 			<%	} %>
 			</div>
 		</div>
@@ -53,10 +54,24 @@
 			</div>
 			<div class="mainsearch">
 				<div class="search">
-					<form id="searchhouse_form" class="searchhouse_form" action="../searchHouse" method="post">
+				
+					<%	
+					
+						
+						String cityString = "";
+						int Sleeps = 0;
+					  if (request.getParameter("arrival") != null) {
+						  cityString = request.getParameter("arrival");
+					  }
+					  if (request.getParameter("number") != null) {
+						  Sleeps = Integer.parseInt(request.getParameter("number"));
+					  }
+					String Arrival = "%" + cityString + "%"; 
+					%>
+					<form id="searchhouse_form" class="searchhouse_form" action="../searching/searchhouse.jsp" method="get/post">
 						<div class="search_input_city">
 							<span>I'd like to stay in </span>
-							<input type="text" name="depart" placeholder="e.g. Paris, London">
+							<input type="text" name="arrival" placeholder="e.g. Paris, London" value="<%=cityString %>" required>
 						</div>
 						<div class="search_input">
 							<span>Check-in</span>
@@ -68,76 +83,62 @@
 						</div>
 						<div class="search_input">
 							<span>Sleeping</span>
-							<input type="number" name="number">
+							<input type="number" name="number" <% if (Sleeps != 0) { %>value="<%=Sleeps %>"<%} %>>
 						</div>
 						<div class="submit_search">
 							<input type="submit" name="submit" value="Search">
 						</div>
 					</form>
 				</div>
-				<tbody>
-					<c:forEach var="house" items="${houseList}" varStatus="status">
-						<tr <c:if test="${status.count%2==0 }" class="admin-list-td-h2"</c:if>>
-							<td><a href='../myhouse/housedetail.jsp?id=${house.hid }'>${house.title }</a></td>
-							<td>${house.peopleNum }</td>
-							<td>${house.photo }</td>
-							<td>${house.score }</td>
-						</tr> 
-					</c:forEach>
-					<input type="hidden" id="totalPageCount" name="totalPageCount" value="${totalPageCount }"/>
-				</tbody>
-				
-				
-		<!--  		
 				<div class="recommend_house">
+				<%	String sql = "SELECT Hid, Uid, Title, Detail, Features, Style, bedrooms, bathrooms, PeoplNum, Addr_country, Addr_city, Address, Photo, Comment, State FROM house WHERE Addr_city LIKE ? AND PeoplNum >= ?;";
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, Arrival);
+					pstmt.setInt(2, Sleeps);
+							rs = pstmt.executeQuery();
+							while (rs.next()) { 
+								String Hid = rs.getString(1);
+								String Uid = rs.getString(2);
+								String Title = rs.getString(3);
+								String Detail = rs.getString(4);
+								String Features = rs.getString(5);
+								int Style = rs.getInt(6);
+								int bedrooms = rs.getInt(7);
+								int bathrooms = rs.getInt(8);
+								int PeopleNum = rs.getInt(9);
+								String Country = rs.getString(10);
+								String City = rs.getString(11);
+								String Address = rs.getString(12);
+								String Photo = rs.getString(13);
+								int Score = rs.getInt(14);
+								int State = rs.getInt(15);
+						%>
 					<div class="recommandation">
+						
+						<a href="../myhouse/housedetail.jsp?Hid=<%=Hid %>" id="transHid">
 						<div class="re_house">
-						<div class="re_house_img"><img src="../img/house1.jpg" width="280px" height="220px"></div>
-						<div class="re_house_discribe">this is good</div>
-						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
+							<div class="re_house_img">
+							<img src="../img/house/1.jpg" width="300" height="220"></div>
+							<div class="re_house_discribe"><%=Title %></div>
+							<div class="re_house_discribe"><%=City %>, <%=Country %></div>
+							<div class="re_house_discribe"><%=bedrooms %> bedrooms</div>
+						<div class="re_house_comment">
+						<% for (int i = 0; i < Score; i++) { %>
+							❤
+								
+						<%} %>
+							
+					
+						
 						</div>
+						</div></a>
+						
 					</div>
-					<div class="recommandation">
-						<div class="re_house">
-						<div class="re_house_img"><img src="../img/house2.jpg" width="280px" height="220px"></div>
-						<div class="re_house_discribe">this is good</div>
-						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
-						</div>
-					</div>
-					<div class="recommandation">
-						<div class="re_house">
-						<div class="re_house_img"><img src="../img/house3.jpg" width="280px" height="220px"></div>
-						<div class="re_house_discribe">this is good</div>
-						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
-						</div>
-					</div>
-					<div class="recommandation">
-						<div class="re_house">
-						<div class="re_house_img"><img src="../img/house4.jpg" width="280px" height="220px"></div>
-						<div class="re_house_discribe">this is good</div>
-						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
-						</div>
-					</div>
-					<div class="recommandation">
-						<div class="re_house">
-						<div class="re_house_img"><img src="../img/house5.jpg" width="280px" height="220px"></div>
-						<div class="re_house_discribe">this is good</div>
-						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
-						</div>
-					</div>
-					<div class="recommandation">
-						<div class="re_house">
-						<div class="re_house_img"><img src="../img/house6.jpg" width="280px" height="220px"></div>
-						<div class="re_house_discribe">this is good</div>
-						<div class="re_house_comment">â¤â¤â¤â¤â¤</div>
-						</div>
-					</div>
-					-->
+					<% } %>
 				</div>
 				<div class="search_map">
 					
 				</div>
-
 			</div>
 		</div>
 		<div class="footer">

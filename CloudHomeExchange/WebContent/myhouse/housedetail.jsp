@@ -71,8 +71,8 @@
 						
 						String[] feature;
 					    String delimeter = "\\|";
-					    feature = Features.split(delimeter);
-						
+					    feature = Features.split(delimeter);	
+					    
 					    for(String x :  feature){
 					         System.out.println(x);
 					         System.out.println("");
@@ -132,6 +132,63 @@
 							</div>
 							<div class="house_apply">
 								<input type="button" name="apply" value="Apply" onclick="form.action='';form.submit()">
+=======
+					    
+						int Style = rs.getInt(6);
+						int bedrooms = rs.getInt(7);
+						int bathrooms = rs.getInt(8);
+						int PeopleNum = rs.getInt(9);
+						String country = rs.getString(10);
+						String city = rs.getString(11);
+						String Address = rs.getString(12);
+						int Comment = rs.getInt(14);
+						String Photo = rs.getString(13);
+						int State = rs.getInt(15);
+				%>
+					<div class="result_house">
+						<div class="house_img"><img src="../img/house1.jpg">
+						</div>
+						<div class="house_detail">
+							<div class="house_info">
+								<div class="house_location">
+									<p>City: <%=city %>, <%=country %></p>	
+								</div>
+								<div class="house_contact">
+									<div class="house_contact_loc">
+										<i class="fas fa-search-location">  address: <%=Address %></i>
+									</div>
+									<br>
+									<br>
+									<div class="house_contact_mail">
+										<i class="far fa-envelope">  xxx@gmail.com</i>
+									</div>
+									<br>
+									<br>
+									<div class="house_contact_tel">
+										<i class="fas fa-phone-alt">  3312345678</i>
+									</div>
+								</div>
+							</div>
+							<form method="post">
+							<div class="house_apply">
+								<div class="house_apply_input">
+									<span>Check in</span>
+									<input type="date" name="checkin" required/>
+								</div>
+								<div class="house_apply_input">
+									<span>Check out</span>
+									<input type="date" name="checkout" required/>
+								</div>
+								<div class="house_apply_input">
+									<span>Comment</span>
+									<textarea maxlength="1000" name="comment" ></textarea>
+								</div>
+								<input type="text" name="hid" value="<%=Hid %>" hidden/>
+								<input type="text" name="uid" value="<%=session.getAttribute("userNickName") %>" hidden/>
+							</div>
+							<div class="house_apply">
+								<input type="button" name="apply" value="Apply" onclick="form.action='../creatOrder';form.submit()">
+>>>>>>> refs/remotes/origin/master
 								<input type="button" name="message" value="Message" onclick="form.action='';form.submit()">
 							</div>
 							</form>
