@@ -86,7 +86,19 @@
 						</div>
 						<div class="house_apply">
 							<a href="../myhouse/edithouse.jsp?Hid=<%=Hid %>"><button>Edit</button></a>
-							<button>Delete</button>
+							<!-- <button onClick="confirmDel(<%=Hid %>)">Delete</button> -->
+							<form method="post" action="../deleteHouse">
+							<input type="submit" name="submit" value="delete">
+							</form>
+<script type="text/javascript">  
+function confirmDel(param)
+{
+         if(window.confirm("Are you sure to delete this house？")){
+        	 window.location.href="../deleteHouse?hid="+param;
+        	 }
+ }  
+</script> 
+
 						</div>
 					</div>
 				</div>

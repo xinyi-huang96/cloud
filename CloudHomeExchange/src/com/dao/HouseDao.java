@@ -81,6 +81,25 @@ public class HouseDao {
 		}
 	}
 	
+	//delete house
+	public boolean deleteHouse(House house, String hid){
+		try {
+			pst = con.prepareStatement("DELETE FROM house WHERE Hid = ?;");
+
+			pst.setString(1, hid);
+			
+			int row = pst.executeUpdate();
+			if(row > 0)
+				return true;
+			else
+				return false;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 	public List<House> searchHouse(String where) {
 		List<House> houseList = new ArrayList<House>();
 		String sql = "SELECT Hid, Title, PeoplNum, Photo, AvgScore FROM house WHERE 1 = 1 " + where;

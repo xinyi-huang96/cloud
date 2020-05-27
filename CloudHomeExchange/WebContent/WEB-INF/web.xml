@@ -57,6 +57,14 @@
     <servlet-name>HouseEditServlet</servlet-name>
     <url-pattern>/editHouse</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>HouseDeleteServlet</servlet-name>
+    <servlet-class>com.servlet.HouseDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HouseDeleteServlet</servlet-name>
+    <url-pattern>/deleteHouse</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>UserModifyPswServlet</servlet-name>
     <servlet-class>com.servlet.UserModifyPswServlet</servlet-class>
