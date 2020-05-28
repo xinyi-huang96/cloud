@@ -63,6 +63,11 @@
 	margin: auto;
 	height: 30px;
 	font-size: 15px;
+	border-radius: 5px;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: white;
+	background: lightskyblue;
 }
 
 .recommend_house {

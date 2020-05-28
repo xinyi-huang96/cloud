@@ -53,7 +53,7 @@
 			</div>
 			<div class="main">
 				<div class="mytitle">
-					<a class="active" href="index_applied">Applied</a>
+					<a class="active" href="index_applied.jsp">Applied</a>
 					<a href="index_received.jsp">Received</a>
 					<a href="index_history.jsp">History</a>
 				</div>

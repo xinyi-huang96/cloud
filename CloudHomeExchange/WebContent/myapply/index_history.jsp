@@ -43,7 +43,7 @@
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
-					<li><a href="../index.jspl">Home</a></li>
+					<li><a href="../index.jsp">Home</a></li>
 					<li><a href="../searching/searchhouse.jsp">Search House</a></li>
 					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
 					<li><a href="../myhouse/index.jsp">My House</a></li>
@@ -53,7 +53,7 @@
 			</div>
 			<div class="main">
 				<div class="mytitle">
-					<a href="index_applied">Applied</a>
+					<a href="index_applied.jsp">Applied</a>
 					<a href="index_received.jsp">Received</a>
 					<a class="active" href="index_history.jsp">History</a>
 				</div>

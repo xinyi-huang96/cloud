@@ -43,6 +43,7 @@ public class HouseDeleteServlet extends HttpServlet {
 			if(flag == true) {
 				response.getWriter().append("<script language='javascript'>alert('delete house success.');"
 						+ "history.back();</script>");
+				response.sendRedirect("myhouse/index.jsp" );
 			}else {
 				response.getWriter().append("<script language='javascript'>alert('failed to delete house');"
 						+ "history.back();</script>");

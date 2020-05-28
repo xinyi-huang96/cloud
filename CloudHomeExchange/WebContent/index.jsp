@@ -34,7 +34,7 @@
 			<div class="login">
 			<%	if (session.getAttribute("userNickName") != null) {
 			%>
-				<a>Welcome, <%=session.getAttribute("userNickName") %><%=session.getAttribute("userId") %><%=session.getAttribute("userId") %></a>
+				<a>Welcome, <%=session.getAttribute("userNickName") %><%=session.getAttribute("userId") %></a>
 				<a href="myaccount/login.html">Sign out</a>
 			<%	} else { %>
 				<a href="myaccount/login.html">Log in</a>
@@ -67,7 +67,7 @@
 							</div>
 						</div>
 						<div class="submit_search">
-							<input type="submit" name="submit" value="Show me some choices">
+							<input class="submit" type="submit" name="submit" value="Show me some choices">
 						</div>
 					</form>
 				</div>

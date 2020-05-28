@@ -34,12 +34,11 @@ public class HouseEditServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
 		String hid = request.getParameter("hid");
-		System.out.println("Hid: " + hid);
 		String title = request.getParameter("title");
 		String country = request.getParameter("country");
 		String city = request.getParameter("city");
 		String addr = request.getParameter("address");
-		String detail = request.getParameter("describe");
+		String detail = request.getParameter("detail");
 		String[] feature = request.getParameterValues("feature");
 		StringBuffer sb = new StringBuffer(1024);
 		for(String fea:feature){
@@ -80,10 +79,11 @@ public class HouseEditServlet extends HttpServlet {
 		HouseService hs = new HouseService();
 		boolean flag = hs.edit(house);
 		if(flag == true) {
-			response.getWriter().append("<script language='javascript'>alert('Add house success.');"
+			response.getWriter().append("<script language='javascript'>alert('edit house success.');"
 					+ "history.back();</script>");
+			response.sendRedirect("myhouse/index.jsp" );
 		}else {
-			response.getWriter().append("<script language='javascript'>alert('failed to add house');"
+			response.getWriter().append("<script language='javascript'>alert('failed to edit house');"
 					+ "history.back();</script>");
 		}
 	}

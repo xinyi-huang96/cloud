@@ -43,17 +43,17 @@
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
-					<li><a href="../index.html">Home</a></li>
-					<li><a href="../searching/searchhouse.html">Search House</a></li>
-					<li><a href="../myaccount/myprofile.html">My Account</a></li>
-					<li><a href="../myhouse/index.html">My House</a></li>
-					<li class="active"><a href="../myapply/index_applied.html">My Apply<span>▶</span></a></li>
-					<li><a href="../contact/send.html">Contact Us</a></li>
+					<li><a href="../index.jsp">Home</a></li>
+					<li><a href="../searching/searchhouse.jsp">Search House</a></li>
+					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
+					<li><a href="../myhouse/index.jsp">My House</a></li>
+					<li class="active"><a href="../myapply/index_applied.jsp">My Apply<span>▶</span></a></li>
+					<li><a href="../contact/send.jsp">Contact Us</a></li>
 				</ul>
 			</div>
 			<div class="main">
 				<div class="mytitle">
-					<a href="index_applied">Applied</a>
+					<a href="index_applied.jsp">Applied</a>
 					<a class="active" href="index_received.jsp">Received</a>
 					<a href="index_history.jsp">History</a>
 				</div>
@@ -69,7 +69,6 @@
 								
 						</div>
 						<div class="apply_contact">
-							<img src="">
 							<button>contact</button>
 							<button>accept</button>
 						</div>

@@ -81,6 +81,17 @@
 	height: 10%;
 	float: left;
 }
+.apply_contact button{
+	width: 30%;
+	height: 30px;
+	margin-right: 10%;
+	float: left;
+	border-radius: 5px;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: white;
+	background: lightskyblue;
+}
 
 .order_comment {
 	width: 98%;

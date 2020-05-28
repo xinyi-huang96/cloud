@@ -86,7 +86,7 @@
 						String country = rs1.getString(10);
 						String city = rs1.getString(11);
 						String Address = rs1.getString(12);
-						int Comment = rs1.getInt(13);
+						String Comment = rs1.getString(13);
 						String Photo = rs1.getString(14);
 						int State = rs1.getInt(15);
 						String sql2 = "select * from user where Uid = ?";
@@ -113,7 +113,7 @@
 									<br>
 									<br>
 									<div class="house_contact_mail">
-										<i class="far fa-envelope">  Email: <%= Email %></i>
+										<i class="fas fa-envelope">  Email: <%= Email %></i>
 									</div>
 									<br>
 									<br>

@@ -1,8 +1,11 @@
 .mytitle button {
 	margin-top: 10px;
 	border-radius: 5px;
-	border: 1px solid black;
 	float: left;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: white;
+	background: lightskyblue;
 }
 
 .mytitle {

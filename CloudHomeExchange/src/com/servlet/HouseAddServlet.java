@@ -83,6 +83,7 @@ public class HouseAddServlet extends HttpServlet {
 			if(flag == true) {
 				response.getWriter().append("<script language='javascript'>alert('Add house success.');"
 						+ "history.back();</script>");
+				response.sendRedirect("myhouse/index.jsp" );
 			}else {
 				response.getWriter().append("<script language='javascript'>alert('failed to add house');"
 						+ "history.back();</script>");
