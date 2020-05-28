@@ -12,8 +12,6 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/housedetail.css">
 	<link rel="stylesheet" href="../style/common.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="https://secure.geobytes.com/AutoCompleteCity?key=7c756203dbb38590a66e01a5a3e1ad96&callback=?"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="style/ShowTime.js"></script>
@@ -86,7 +84,7 @@
 						String country = rs1.getString(10);
 						String city = rs1.getString(11);
 						String Address = rs1.getString(12);
-						int Comment = rs1.getInt(13);
+						String Comment = rs1.getString(13);
 						String Photo = rs1.getString(14);
 						int State = rs1.getInt(15);
 						String sql2 = "select * from user where Uid = ?";
@@ -113,7 +111,7 @@
 									<br>
 									<br>
 									<div class="house_contact_mail">
-										<i class="far fa-envelope">  Email: <%= Email %></i>
+										<i class="fas fa-envelope">  Email: <%= Email %></i>
 									</div>
 									<br>
 									<br>

@@ -12,8 +12,6 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="style/index.css">
 	<link rel="stylesheet" href="style/common.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="https://secure.geobytes.com/AutoCompleteCity?key=7c756203dbb38590a66e01a5a3e1ad96&callback=?"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="style/city.js"></script>
@@ -34,7 +32,7 @@
 			<div class="login">
 			<%	if (session.getAttribute("userNickName") != null) {
 			%>
-				<a>Welcome, <%=session.getAttribute("userNickName") %><%=session.getAttribute("userId") %><%=session.getAttribute("userId") %></a>
+				<a>Welcome, <%=session.getAttribute("userNickName") %><%=session.getAttribute("userId") %></a>
 				<a href="myaccount/login.html">Sign out</a>
 			<%	} else { %>
 				<a href="myaccount/login.html">Log in</a>
@@ -67,7 +65,7 @@
 							</div>
 						</div>
 						<div class="submit_search">
-							<input type="submit" name="submit" value="Show me some choices">
+							<input class="submit" type="submit" name="submit" value="Show me some choices">
 						</div>
 					</form>
 				</div>

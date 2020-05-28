@@ -12,8 +12,6 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/myhouse.css">
 	<link rel="stylesheet" href="../style/common.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="https://secure.geobytes.com/AutoCompleteCity?key=7c756203dbb38590a66e01a5a3e1ad96&callback=?"></script>
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 </head>
@@ -69,10 +67,13 @@
 						String Address = rs.getString(4);
 						String Photo = rs.getString(5);
 				%>
+				
 				<div class="myhouse">
+					<a href="housedetail.jsp?Hid=<%=Hid %>" id="transHid">
 					<div class="house_img">
 						<img src="../img/house1.jpg">
 					</div>
+					</a>
 					<div class="house_detail">
 						<div class="house_info">
 							<div class="house_location">
@@ -86,16 +87,16 @@
 						</div>
 						<div class="house_apply">
 							<a href="../myhouse/edithouse.jsp?Hid=<%=Hid %>"><button>Edit</button></a>
-							<!-- <button onClick="confirmDel(<%=Hid %>)">Delete</button> -->
-							<form method="post" action="../deleteHouse">
+							<!-- <form method="post" action="../deleteHouse"> -->
 							<input type="text" name="hid" value="<%=Hid %>" hidden/>
-							<input type="submit" name="submit" value="delete">
-							</form>
+							<!--<input type="submit" name="submit" value="delete">  -->
+							<button onClick="confirmDel(<%=Hid %>)">Delete</button>
+							
 <script type="text/javascript">  
-function confirmDel(param)
+function confirmDel(hid)
 {
          if(window.confirm("Are you sure to delete this house？")){
-        	 window.location.href="../deleteHouse?hid="+param;
+        	 window.location.href="../deleteHouse?hid="+hid;
         	 }
  }  
 </script> 

@@ -62,6 +62,11 @@
 	margin: auto;
 	height: 40px;
 	font-size: 15px;
+	border-radius: 5px;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: white;
+	background: lightskyblue;
 }
 
 .recommend_house {
@@ -74,6 +79,7 @@
     overflow-x: hidden;
     height: 80%;
 }
+
 
 .recommandation {
 	width: 48%;
