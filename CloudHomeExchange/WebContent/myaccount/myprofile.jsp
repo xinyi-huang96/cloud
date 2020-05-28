@@ -15,7 +15,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="../style/adddream.js" type="text/javascript"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
 	<script type="text/javascript" src="../style/myaccount.js"></script>
 	<script type="text/javascript" src="../style/showPhoto.js"></script>
 </head>
