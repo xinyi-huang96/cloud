@@ -73,7 +73,7 @@
 	text-align: left;
 }
 
-.message_input input {
+.message_input textarea {
 	width: 98%;
 	height: 130px;
 	margin-top: 10px;

@@ -32,7 +32,7 @@
 			<div class="login">
 			<%	if (session.getAttribute("userNickName") != null) {
 			%>
-				<a>Welcome, <%=session.getAttribute("userNickName") %><%=session.getAttribute("userId") %></a>
+				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
 				<a href="myaccount/login.html">Sign out</a>
 			<%	} else { %>
 				<a href="myaccount/login.html">Log in</a>
