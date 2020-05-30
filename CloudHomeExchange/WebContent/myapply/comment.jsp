@@ -50,20 +50,15 @@
 				</ul>
 			</div>
 			<div class="main">
-				<div class="apply_index">
-					<ul>
-						<li><a href="index_applied.jsp">Applied</a></li>
-						<li><a href="index_received.jsp">Received</a></li>
-						<li><a class="active" href="index_history.jsp">History</a></li>
-					</ul>
-				</div>
+				<div class="apply_index"></div>
 				<%	
-					String sql = "SELECT Hid, Owner, CheckIn, CheckOut, Comment, OperTime, State, OperComment, orderreview.Oid FROM orderhouse JOIN orderreview ON orderhouse.Oid = orderreview.Oid WHERE (Applicant = ? OR Owner = ?) AND State > 1 ORDER BY OperTime DESC";
+					String Oid = request.getParameter("Oid");
+					
+					String sql = "SELECT Hid, Owner, CheckIn, CheckOut, Comment, OperTime, State, OperComment FROM orderhouse JOIN orderreview ON orderhouse.Oid = orderreview.Oid WHERE orderhouse.Oid = ?";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
-					int uidInt = Integer.parseInt(userId);
-					pstmt.setString(1, userId);
-					pstmt.setString(2, userId);
+					pstmt.setString(1, Oid);
+
 					rs = pstmt.executeQuery();
 					while (rs.next()) { 
 						int Hid = rs.getInt(1);
@@ -110,7 +105,6 @@
 						
 						
 						String OperComment = rs.getString(8);
-						int Oid = rs.getInt(9);
 						PreparedStatement pstmt1 = null;
 						ResultSet rs1 = null;
 						String sql1 = "SELECT Uid, Title, Addr_country, Addr_city, Address, Photo FROM house WHERE Hid = ?";
@@ -137,15 +131,11 @@
 						
 						
 				%>
-				<div class="myapply" <% if(uidInt == Uid){ %> style="background-color: #F7F7F7;"<% } %>>
+				<div class="myapply">
 					<div class="apply_title">
 						<div class="apply_time">Order Time: <%=OperTime %></div>
 						<div class="apply_id">Order Id: <%=Oid+123456789 %></div>
-						<div class="apply_mes">
-						<% if(uidInt == Uid){ %><p style="color: grey;">Your order</p><% } %>
-						<% if(State == 3 && uidInt != Uid){ %>
-						<a href="comment.jsp?Oid=<%=Oid %>"><button>Comment</button></a>
-						<% } %></div>
+						<div class="apply_mes"></div>
 					</div>
 					<div class="apply_info">
 						<a href="../myhouse/housedetail.jsp?Hid=<%=Hid %>">
@@ -169,17 +159,46 @@
 							
 							<div class="apply_detail_2">
 								<div class="apply_date"><%=CheckIn %> - <%=CheckOut %></div>
-								<div class="apply_comment">Comment: <%=OperComment %></div>
+								<div class="apply_comment"></div>
 							</div>
 							
 						</div>
 						
 					</div>
 				</div>
+				
+				
+				
+				<div class="order_comment">
+					<form id="comment_form" class="comment_form" method="post" action="">
+						<div class="input_evaluation">
+							<div class="score_title">Are you satisfied on this exchange?</div>
+							<div class="score_radio">
+
+							<div class="score">
+								<input type="radio" name="score" value="1" required>dissatisfied
+							</div>
+
+							<div class="score">
+								<input type="radio" name="score" value="3" required>satisfied
+							</div>
+
+							<div class="score">
+								<input type="radio" name="score" value="5" required>very satisfied
+							</div>
+							</div>
+						</div>
+						<div class="input_comment">
+							<span>Comment</span>
+							<textarea maxlength="1000" name="comment" required></textarea>
+						</div>
+						<div class="comment_submit">
+							<input type="submit" name="submit" value="submit">
+						</div>
+					</form>
+				</div>
 				<% } %>
 				<div class="blank"></div>
-				
-				
 			</div>
 		</div>
 		<div class="footer">

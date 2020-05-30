@@ -1,35 +1,90 @@
-.mytitle {
+.apply_index {
 	width: 98%;
-	height: 85px;
+	height: 65px;
 	float: left;
-	margin-left: 1%;
+	padding-left: 1%;
 }
 
-.mytitle a {
+.apply_index ul {
+	list-style-type: none;
+} 
+
+.apply_index li {
+	float:left;
+	display: inline-block;
 	width: 150px;
-	height: 50px;
-	display: block;
-	margin-top: 30px;
-	padding-right: 30px;
-	font-size: 22px;
-	float: left;
-	text-decoration:none;
-	color: blue;
+	height: 30px;
+	cursor: pointer;
+	text-align:center;
+	margin-right: 15px;
 }
 
-.mytitle .active {
-	text-decoration: underline;
-	cursor: none;
+.apply_index a {
+	font-size: 20px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+}
+
+.apply_index .active {
+	color: white;
+	background: lightskyblue;
 }
 
 .myapply {
 	width: 98%;
-	height: 250px;
-	float: left;
 	margin-left: 1%;
-	padding-top: 30px;
+	padding-top: 10px;
 	padding-bottom: 10px;
-	border-bottom: 3px solid lightgrey;
+	border-top: 1px solid lightgrey;
+	border-bottom: 2px solid lightgrey;
+	float: left;
+}
+
+.apply_title {
+	width: 100%;
+	height: 30px;
+	float: left;
+	padding-left: 20px;
+}
+
+.apply_info {
+	width: 100%;
+	height: 200px;
+	float: left;
+}
+
+.apply_info a {
+	text-decoration: none;
+	color: black;
+}
+
+.apply_time {
+	width: 30%;
+	float: left;
+}
+
+.apply_id {
+	width: 30%;
+	float: left;
+}
+
+.apply_mes {
+	width: 30%;
+	float: left;
+	text-align: right;
+}
+
+.apply_mes button {
+	height: 30px;
+	margin-right: 10%;
+	border-radius: 5px;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: black;
+	background: lightgrey;
+	cursor: pointer;
 }
 
 .house_img {
@@ -40,86 +95,119 @@
 }
 
 .house_img img{
-	margin-top: 5%;
-	width: 80%;
-	height: 80%;
+	margin-top: 3%;
+	width: 90%;
+	height: 90%;
+}
+
+.house_info {
+	width: 30%;
+	height: 100%;
+	float: left;
+}
+
+.house_title {
+	width:70%;
+	height:80px;
+	margin-top:30px;
+	margin-left:30px;
+}
+
+.house_loc {
+	width:70%;
+	height:30px;
+	margin-top:5px;
+	margin-left:30px;
 }
 
 .apply_detail {
-	width: 48%;
+	width: 30%;
 	height: 100%;
 	float: left;
-	text-align: center;
 }
 
-.house_location {
-	width: 60%;
-	height: 10%;
-	float: left;
+.apply_detail_1 {
+	width:80%;
+	height:50px;
+	margin-top:30px;
 }
 
 .apply_status {
-	width: 60%;
-	height: 10%;
-	float: left;
+	width:90%;
+	margin-top:30px;
 }
 
-.apply_process {
-	width: 60%;
-	height: 10%;
-	float: left;
+.apply_status_bar {
+	width:90%;
+	height:50px;
+	margin-top:5px;
 }
 
-.apply_time {
-	width: 60%;
-	height: 10%;
-	float: left;
+.progress-bar{
+	width:90%;	
+	height: 15px;
+	background-color: #d9ddd9;
+	border-radius: 3px;
+	border: 2px solid lightgrey;
 }
 
-.apply_contact {
-	width: 60%;
-	height: 10%;
-	float: left;
+.progress{
+    height: 100%;
+    border-radius: 3px;
 }
-.apply_contact button{
-	width: 30%;
-	height: 30px;
-	margin-right: 10%;
-	float: left;
-	border-radius: 5px;
-	border: 1px solid lightskyblue;
-	text-align: center;
-	color: white;
-	background: lightskyblue;
+
+.apply_detail_2 {
+	width:90%;
+	height:80px;
+	margin-top:5px;
+}
+
+.apply_date {
+	width:90%;
+	height:20px;
+	margin-top:15px;
+}
+
+.apply_comment {
+	width:90%;
+	margin-top:5px;
 }
 
 .order_comment {
 	width: 98%;
 	float: left;
+	margin-left: 1%;
+	padding-top: 10px;
 }
 
 .input_evaluation {
+	width: 100%;
+	float: left;
+	margin-top: 15px;
+}
+
+.score_title {
 	width: 90%;
 	float: left;
 }
 
-.input_evaluation span {
-	display: block;
-	width: 30%;
-	font-size: 20px;
+.score_radio {
+	width: 90%;
 	float: left;
+	text-align:center;
 }
 
-.input_evaluation input {
-	width: 65%;
-	height: 26px;
-	float: left;
+.score {
+	width:20%;
+	float:left;
+	margin-top: 15px;
+	margin-left: 30px;
 }
 
 .input_comment {
 	width: 90%;
 	float: left;
-	margin-top: 10px;
+	margin-top: 15px;
 }
 
 .input_comment span {
@@ -147,4 +235,19 @@
 	border-radius: 5px;
 	border: 1px solid black;
 	width: 100px;
+}
+
+.input_comment textarea {
+	width: 98%;
+	height: 130px;
+	margin-top: 10px;
+	float: left;
+	border-radius: 5px;
+	border: 2px solid lightgrey;
+}
+
+.blank {
+	width: 98%;
+	height: 3px;
+	float: left;
 }
