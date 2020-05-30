@@ -32,8 +32,9 @@ public class UserDao {
 						user.setEmail(rs.getString("email"));
 						user.setPsw(rs.getString("Password"));
 						user.setUid(Integer.toString(rs.getInt("Uid")));
-						boolean flag = searchUser(user);
-						if(flag) {
+						boolean flag0 = searchUser(user);
+						boolean flag1 = updateErrorTimes(user.getUid());
+						if(flag0 && flag1) {
 							return 4;
 						}else {
 							return -1;
@@ -84,6 +85,24 @@ public class UserDao {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	//update error times
+	public boolean updateErrorTimes(String uid) {
+		try {
+			pst = con.prepareStatement("UPDATE login SET ErrorTimes = 0 WHERE uid = ?;");
+			pst.setString(1, uid);
+			int row = pst.executeUpdate();
+			if(row > 0)
+				return true;
+			else
+				return false;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
 	}
 	
 	//register add a user
