@@ -41,7 +41,7 @@
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
-					<li><a href="../index.html">Home</a></li>
+					<li><a href="../index.jsp">Home</a></li>
 					<li><a href="../searching/searchhouse.html">Search House</a></li>
 					<li><a href="../myaccount/myprofile.html">My Account</a></li>
 					<li><a href="../myhouse/index.html">My House</a></li>
