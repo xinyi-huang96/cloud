@@ -1,127 +1,209 @@
 .mainsearch {
-	width: 80.5%;
+	width: 84%;
 	min-width: 700px;
 	height: 100%;
-	float: left;
+    float: right;
 }
 
 .search {
 	width: 98%;
-	height: 18%;
+	height: 28%;
 	padding-left: 1%;
-	float: left;
+	float: right;
 	min-width: 700px;
 }
 
-.search_input_city {
-	margin-top: 30px;
-	padding-right: 4%;
+.recommend_house {
+	width: 98%;
+	height: 72%;
+	padding-left: 1%;
 	float: left;
-	width: 22%;
+	min-width: 700px;
+	overflow-y:scroll;
+    overflow-x:hidden;
+    margin-top: 10px;
 }
 
-.search_input_city input {
-	margin-top: 5px;
-	width: 100%;
-	height: 35px;
-	font-size: 15px;
-	float: left;
-}
-
-.search_input {
-	margin-top: 30px;
-	padding-right: 4%;
-	float: left;
-	width: 13%;
-}
-
-.search_input span {
-	width: 100%;
-	font-size: 16px;
+.recommandation {
+	width: 98%;
+	height: 250px;
+	margin-left: 1%;
+	
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top: 1px solid lightgrey;
+	border-bottom: 2px solid lightgrey;
 	float: left;
 }
 
-.search_input input {
-	margin-top: 5px;
-	width: 100%;
-	height: 35px;
-	font-size: 15px;
-	float: left;
-}
-
-.submit_search {
-	margin: auto;
-	margin-top: 30px;
+.re_house_img {
+	width: 40%;
+	height: 100%;
 	text-align: center;
-	padding-top: 25px;
 	float: left;
-	width: 15%;
 }
 
-.submit_search input{
-	margin: auto;
-	height: 40px;
-	font-size: 15px;
+.re_house_img img{
+	margin-top: 3%;
+	width: 90%;
+	height: 90%;
+}
+
+.re_house_detail {
+	width: 40%;
+	height: 100%;
+	float: left;
+	padding-left: 30px;
+}
+
+.re_house_title {
+	width: 90%;
+	height: 30px;
+	float: left;
+	padding-top: 10px;
+	color: black;
+	font-size: 22px;
+}
+
+.re_house_loc {
+	width: 90%;
+	height: 30px;
+	float: left;
+	padding-top: 30px;
+	color: black;
+}
+
+.re_house_bed {
+	width: 90%;
+	height: 30px;
+	float: left;
+	padding-top: 10px;
+	color: black;
+}
+
+.re_house_comment {
+	width: 90%;
+	height: 30px;
+	float: left;
+	padding-top: 10px;
+	color: red;
+}
+
+.re_house_link {
+	width: 15%;
+	height: 100%;
+	float: left;	
+}
+
+.re_house_link button {
+	height: 25px;
+	margin-top: 100px;
 	border-radius: 5px;
 	border: 1px solid lightskyblue;
 	text-align: center;
 	color: white;
 	background: lightskyblue;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
-.recommend_house {
-	width: 65%;
-	padding-top: 5px;
-	padding-left: 15px;
-	float: left;
-	min-width: 280px;
-	overflow-y: scroll;
-    overflow-x: hidden;
-    height: 80%;
-}
-
-
-.recommandation {
-	width: 48%;
-	height: 315px;
-	padding-top: 5px;
+.search_input_1 {
+	width: 98%;
+	padding-top: 1%;
 	padding-left: 1%;
-	padding-right: 1%;
 	float: left;
-	min-width: 280px;
 }
 
-.re_house {
+.search_input_2 {
+	width: 98%;
+	padding-top: 1%;
+	padding-left: 1%;
+	float: left;
+}
+
+.search_input_3 {
+	width: 98%;
+	padding-top: 1%;
+	padding-left: 1%;
+	float: left;
+}
+
+.search_input_4 {
+	width: 98%;
+	padding-top: 1%;
+	padding-left: 1%;
+	float: left;
+}
+
+.search_input_city {
+	width: 23%;
+	float: left;
+}
+
+.search_input_city span {
+	height: 15px;
+}
+
+.search_input_date {
+	width: 18%;
+	float: left;
+}
+
+.search_input_date span {
+	height: 15px;
+}
+
+.search_input_date input {
+	width:80%;
+}
+
+.search_input_number {
+	width: 20%;
+	float: left;
+}
+
+.search_input_number span {
+	width: 100%;
+	height: 15px;
+}
+
+.search_input_number select {
+	width:80%;
+}
+
+.search_input_style {
+	height: 30px;
+	padding-top: 10px;
+}
+
+.tit {
 	width: 98%;
 	float: left;
-	padding-top: 5px;
 }
 
-.re_house_img {
+.choose_1 {
 	width: 98%;
-	height: 220px;
 	float: left;
 }
-.re_house_img img{
-	width: 280px;
-	height: 220px;
-}
 
-.re_house_discribe {
-	width: 98%;
-	height: 25px;
+.input_style {
+	width: 15%;
+	margin-left: 15px;
 	float: left;
-	padding-left: 3px;
 }
 
-.re_house_comment {
+.choose_2 {
 	width: 98%;
-	height: 20px;
 	float: left;
-	padding-left: 3px;
-	color: red;
 }
 
-.search_map {
-	width: 34%;
+.input_feature {
+	width: 15%;
+	margin-left: 15px;
+	float: left;
+}
+
+.search_submit {
+	padding-right: 30px;
+	float:right;
 }
