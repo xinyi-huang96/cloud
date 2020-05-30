@@ -39,7 +39,7 @@ public class HouseAddServlet extends HttpServlet {
 		MultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());
         MultipartHttpServletRequest req = resolver.resolveMultipart(request);
 		System.out.println("house add servlet");
-		request.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
 		HttpSession session = request.getSession();
 		String uid = (String) session.getAttribute("userId");
@@ -73,9 +73,11 @@ public class HouseAddServlet extends HttpServlet {
 		int bathroom = Integer.parseInt(req.getParameter("bathroom"));
 		int num = Integer.parseInt(req.getParameter("people"));
 		MultipartFile photo = req.getFile("file");
-		String path = "d:/upload/" + uid;
-		System.out.println("path: " + path);
-		String filePath = FileUpload.upload(photo, path);
+		String filePath = new String();
+		if(photo == null)
+			filePath = null;
+		else
+			filePath = FileUpload.upload(photo, "d://upload/" + uid);
 		System.out.println("file: " + filePath);
 		House house = new House();
 		house.setTitle(title);

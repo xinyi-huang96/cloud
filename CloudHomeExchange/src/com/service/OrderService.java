@@ -13,4 +13,8 @@ public class OrderService {
 	public boolean updateOrderState(Order order) {
 		return orderDao.updateOrderState(order);
 	}
+	
+	public boolean addOrderComment(Order order) {
+		return orderDao.addOrderComment(order);
+	}
 }

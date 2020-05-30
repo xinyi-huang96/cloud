@@ -41,12 +41,12 @@
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
-					<li><a href="../index.html">Home</a></li>
-					<li><a href="../searching/searchhouse.html">Search House</a></li>
-					<li><a href="../myaccount/myprofile.html">My Account</a></li>
-					<li><a href="../myhouse/index.html">My House</a></li>
-					<li class="active"><a href="../myapply/index_applied.html">My Apply<span>▶</span></a></li>
-					<li><a href="../contact/send.html">Contact Us</a></li>
+					<li><a href="../index.jsp">Home</a></li>
+					<li><a href="../searching/searchhouse.jsp">Search House</a></li>
+					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
+					<li><a href="../myhouse/index.jsp">My House</a></li>
+					<li class="active"><a href="../myapply/index_applied.jsp">My Apply<span>▶</span></a></li>
+					<li><a href="../contact/send.jsp">Contact Us</a></li>
 				</ul>
 			</div>
 			<div class="main">
@@ -58,7 +58,10 @@
 					</ul>
 				</div>
 				<%	
-					String sql = "SELECT Hid, Owner, CheckIn, CheckOut, Comment, OperTime, State, OperComment, orderreview.Oid FROM orderhouse JOIN orderreview ON orderhouse.Oid = orderreview.Oid WHERE Owner = ? AND State < 2 ORDER BY OperTime DESC";
+					String sql = "SELECT h.Hid, h.Owner, h.CheckIn, h.CheckOut, h.Comment, r.OperTime, r.State, r.OperComment, r.Oid" 
+							+ " FROM orderhouse h JOIN ( SELECT t.OperTime, t.State, t.OperComment, t.Oid FROM ("
+							+ " SELECT OperTime, State, OperComment, Oid FROM orderreview ORDER BY OperTime DESC )t"
+							+ " GROUP BY t.Oid HAVING t.State < 2 ) r ON h.Oid = r.Oid WHERE h.Owner = ?;";	
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);
@@ -141,7 +144,10 @@
 						<div class="apply_id">Order Id: <%=Oid+123456789 %></div>
 						<div class="apply_mes">
 							<a href="#"><button>Message</button></a>
-							<% if(State == 0) { %><a href="#"><button>Confirm Order</button></a><% } %>
+							<% if(State == 0) { %>
+								<a href="../updateOrder?oid=<%=Oid %>&act=confirm"><button>Confirm Order</button></a>
+								<a href="../updateOrder?oid=<%=Oid %>&act=refuse"><button>Refuse Order</button></a>
+							<% } %>
 						</div>
 					</div>
 					<div class="apply_info">

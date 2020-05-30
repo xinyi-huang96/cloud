@@ -9,21 +9,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.entity.Order;
 import com.service.OrderService;
 
 /**
- * Servlet implementation class OrderProcessServlet
+ * Servlet implementation class CommentAddServlet
  */
-@WebServlet("/OrderProcessServlet")
-public class OrderProcessServlet extends HttpServlet {
-	private static final long serialVersionUID = 4L;
+@WebServlet("/CommentAddServlet")
+public class CommentAddServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OrderProcessServlet() {
+    public CommentAddServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,36 +33,32 @@ public class OrderProcessServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("send order process servlet service");
+		System.out.println("add comment servlet service");
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
 		String oid = request.getParameter("oid");
+		String hid = request.getParameter("hid");
+		HttpSession session = request.getSession();
+		String uid = (String) session.getAttribute("userId");
+		int score = Integer.parseInt(request.getParameter("score"));
 		String comment = request.getParameter("comment");
 		Date now = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String time = dateFormat.format(now);
-		int state = 0;
-		String act = request.getParameter("act");
-		if(act.equals("confirm"))
-			state = 1;
-		else
-			state = 2;
-		System.out.println("act: " + state);
 		Order order = new Order();
 		order.setOid(oid);
+		order.setHid(hid);
+		order.setApplicant(uid);
+		order.setScore(score);
+		order.setComment(comment);
 		order.setOperTime(time);
-		order.setState(state);
-		order.setOperComment(comment);
 		OrderService os = new OrderService();
-		boolean flag = os.updateOrderState(order);
-		if(flag) {
-			if(state == 1) 
-				response.getWriter().append("<script language='javascript'>alert('accept order success');</script>");
-			else
-				response.getWriter().append("<script language='javascript'>alert('refuse order success');</script>");
-			response.sendRedirect("myapply/index_received.jsp" );
+		boolean flag = os.addOrderComment(order);
+		if(flag == true) {
+			response.getWriter().append("<script language='javascript'>alert('add comment success.');</script>");
+			response.sendRedirect("myapply/index_history.jsp" );
 		}else {
-			response.getWriter().append("<script language='javascript'>alert('fail to oper');"
+			response.getWriter().append("<script language='javascript'>alert('failed to add comment');"
 					+ "history.back();</script>");
 		}
 	}

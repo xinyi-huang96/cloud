@@ -58,7 +58,10 @@
 					</ul>
 				</div>
 				<%	
-					String sql = "SELECT Hid, Owner, CheckIn, CheckOut, Comment, OperTime, State, OperComment, orderreview.Oid FROM orderhouse JOIN orderreview ON orderhouse.Oid = orderreview.Oid WHERE Applicant = ? AND State < 2 ORDER BY OperTime DESC";
+					String sql = "SELECT h.Hid, h.Owner, h.CheckIn, h.CheckOut, h.Comment, r.OperTime, r.State, r.OperComment, r.Oid" 
+							+ " FROM orderhouse h JOIN ( SELECT t.OperTime, t.State, t.OperComment, t.Oid FROM ("
+							+ " SELECT OperTime, State, OperComment, Oid FROM orderreview ORDER BY OperTime DESC )t"
+							+ " GROUP BY t.Oid HAVING t.State < 2 ) r ON h.Oid = r.Oid WHERE h.Applicant = ?;";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);
