@@ -8,8 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+
 import com.entity.House;
 import com.service.HouseService;
+import com.util.FileUpload;
 
 /**
  * Servlet implementation class HouseEditServlet
@@ -30,23 +36,25 @@ public class HouseEditServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		MultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());
+        MultipartHttpServletRequest req = resolver.resolveMultipart(request);
 		System.out.println("house edit servlet");
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
-		String hid = request.getParameter("hid");
-		String title = request.getParameter("title");
-		String country = request.getParameter("country");
-		String city = request.getParameter("city");
-		String addr = request.getParameter("address");
-		String detail = request.getParameter("detail");
-		String[] feature = request.getParameterValues("feature");
+		String hid = req.getParameter("hid");
+		String title = req.getParameter("title");
+		String country = req.getParameter("country");
+		String city = req.getParameter("city");
+		String addr = req.getParameter("address");
+		String detail = req.getParameter("detail");
+		String[] feature = req.getParameterValues("feature");
 		StringBuffer sb = new StringBuffer(1024);
 		for(String fea:feature){
 			System.out.println(fea);
 			sb.append(fea + "|");
 		} 
 		//System.out.println("feature: " + sb.toString());
-		String style = request.getParameter("style");
+		String style = req.getParameter("style");
 		int styl = 0;
 		if(style.equals("CityPad")) {
 			styl = 1;
@@ -59,10 +67,16 @@ public class HouseEditServlet extends HttpServlet {
 		}else if(style.equals("SpringWater")) {
 			styl = 5;
 		}
-		int bedroom = Integer.parseInt(request.getParameter("bedroom"));
-		int bathroom = Integer.parseInt(request.getParameter("bathroom"));
-		int num = Integer.parseInt(request.getParameter("people"));
-		String photo = "path";
+		int bedroom = Integer.parseInt(req.getParameter("bedroom"));
+		int bathroom = Integer.parseInt(req.getParameter("bathroom"));
+		int num = Integer.parseInt(req.getParameter("people"));
+		HttpSession session = req.getSession();
+		String uid = (String) session.getAttribute("userId");
+		MultipartFile photo = req.getFile("file");
+		String path = "d:/upload/" + uid;
+		System.out.println("path: " + path);
+		String filePath = FileUpload.upload(photo, path);
+		System.out.println("file: " + filePath);
 		House house = new House();
 		house.setHid(hid);
 		house.setTitle(title);
@@ -75,7 +89,7 @@ public class HouseEditServlet extends HttpServlet {
 		house.setCountry(country);
 		house.setCity(city);
 		house.setAddress(addr);
-		house.setPhoto(photo);
+		house.setPhoto(filePath);
 		HouseService hs = new HouseService();
 		boolean flag = hs.edit(house);
 		if(flag == true) {

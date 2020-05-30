@@ -12,7 +12,7 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/edithouse.css">
 	<link rel="stylesheet" href="../style/common.css">
-	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../style/showPhoto.js"></script>
 </head>
@@ -57,7 +57,7 @@
 				</div>
 				<div class="myhouse">
 					<div class="house_form">
-						<form id="edit_house" class="edit_house" action="../addHouse" method="post">
+						<form id="edit_house" class="edit_house" action="../addHouse" method="post"  enctype="multipart/form-data">
 							<div class="house_input_title">
 								<span>Title</span>
 								<input type="text" name="title" placeholder="title" required>

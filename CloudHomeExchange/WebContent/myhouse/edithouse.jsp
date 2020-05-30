@@ -83,7 +83,7 @@
 				</div>
 				<div class="myhouse">
 					<div class="house_form">
-						<form id="edit_house" class="edit_house" action="../editHouse" method="post">
+						<form id="edit_house" class="edit_house" action="../editHouse" method="post"  enctype="multipart/form-data">
 							<input type="text" name="hid" value="<%=Hid %>" hidden>
 							<div class="house_input_title">
 								<span>Title</span>

@@ -8,7 +8,45 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="D:/Program Files/Apache Software Foundation/Tomcat 9.0/lib/mysql-connector-java-5.1.22-bin.jar"/>
-	<classpathentry kind="lib" path="D:/Program Files/Apache Software Foundation/Tomcat 9.0/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/Apache Software Foundation/Tomcat 9.0/lib/mysql-connector-java-5.1.22-bin.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Program Files/Apache Software Foundation/Tomcat 9.0/lib/servlet-api.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Program Files/spring-5.2.6.RELEASE-dist/spring-framework-5.2.6.RELEASE/libs/spring-web-5.2.6.RELEASE.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Program Files/spring-5.2.6.RELEASE-dist/spring-framework-5.2.6.RELEASE/libs/spring-context-5.2.6.RELEASE.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Program Files/spring-5.2.6.RELEASE-dist/spring-framework-5.2.6.RELEASE/libs/spring-core-5.2.6.RELEASE.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Program Files/spring-5.2.6.RELEASE-dist/spring-framework-5.2.6.RELEASE/libs/spring-beans-5.2.6.RELEASE.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Program Files/Apache Software Foundation/Tomcat 9.0/lib/commons-io-2.6.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Program Files/Apache Software Foundation/Tomcat 9.0/lib/commons-fileupload-1.4.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
