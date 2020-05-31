@@ -40,6 +40,7 @@ public class UserUpdateInfoServlet extends HttpServlet {
 		String birth = request.getParameter("birthday");
 		String email = request.getParameter("email");
 		int tel = Integer.parseInt(request.getParameter("tel"));
+		System.out.println(tel);
 		User user = new User(uid, nickName, gender, birth, email, tel);
 		UserService us=new UserService();
 		if(us.update(user)) {

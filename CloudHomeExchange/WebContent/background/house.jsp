@@ -54,7 +54,7 @@
 					<a href="user.jsp">house info</a>
 				</div>
 				<div class="info">		
-				<form>	
+				
 					<table class="userInfo">
 						<tr>
 							<th>Hid</th>
@@ -62,13 +62,18 @@
 							<th>Title</th>
 							<th>Detail</th>
 							<th>Features</th>
+							
 							<th>Style</th>
 							<th>bedrooms</th>
 							<th>bathrooms</th>
 							<th>PeopleNum</th>
+							<th>Country</th>
+							
+							<th>City</th>
 							<th>Address</th>
-							<th>Photo</th>
+							<th>Comment</th>
 							<th>State</th>
+							
 							<th></th>
 						</tr>
 						<% 
@@ -76,41 +81,84 @@
 							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
 							while (rs.next()) { 
-								String Hid = rs.getString(1);
-								String Uid = rs.getString(2);
+								int Hid = rs.getInt(1);
+								int Uid = rs.getInt(2);
 								String Title = rs.getString(3);
 								String Detail = rs.getString(4);
-								String Features = rs.getString(5);
+								String Features = rs.getString(5);				    					    
 								int Style = rs.getInt(6);
 								int bedrooms = rs.getInt(7);
 								int bathrooms = rs.getInt(8);
 								int PeopleNum = rs.getInt(9);
-								String Address = rs.getString(10);
-								String Photo = rs.getString(11);
-								int State = rs.getInt(12);
+								String Country = rs.getString(10);
+								String City = rs.getString(11);
+								String Address = rs.getString(12);
+								String Photo = rs.getString(13);
+								int Comment = rs.getInt(14);
+								int State = rs.getInt(15);
+								
+								String style = "";
+								if (Style == 1) {
+									style = "City pad";
+								} 
+								if (Style == 2) {
+									style = "By the sea";
+								} 
+								if (Style == 3) {
+									style = "Countryside";
+								} 
+								if (Style == 4) {
+									style = "Mountain";
+								} 
+								if (Style == 5) {
+									style = "Spring water";
+								} 
+								
+								String state = "";
+								if (State == 0) {
+									state = "off shelf";
+								} 
+								if (State == 1 || State == 3) {
+									state = "on shelf";
+								} 
+								if (State == 2) {
+									state = "deleted";
+								} 
+	
 						%>
-						<tr>
-							<td><% out.print(Hid); %></td>
-							<td><% out.print(Uid); %></td>
-							<td><% out.print(Title); %></td>
-							<td><% out.print(Detail); %></td>
-							<td><% out.print(Features); %></td>
-							<td><% out.print(Style); %></td>
-							<td><% out.print(bedrooms); %></td>
-							<td><% out.print(bathrooms); %></td>
-							<td><% out.print(PeopleNum); %></td>
-							<td><% out.print(Address); %></td>
-							<td><% out.print(Photo); %></td>
-							<td><% out.print(State); %></td>
-							<input type="text" name="Uid" value="<%=Uid %>" hidden>
-							<td><input type="submit" value="modify"></td>
+						
+						<tr><form method="post">	
+						<input type="text" name="Hid" value="<%=Hid %>" hidden>
+							<td><%=Hid %></td>
+							<td><%=Uid %></td>
+							<td><%=Title %></td>
+							<td><%=Detail%></td>
+							<td><%=Features %></td>
+							
+							<td><%=style %></td>
+							<td><%=bedrooms %></td>
+							<td><%=bathrooms %></td>
+							<td><%=PeopleNum %></td>
+							<td><%=Country %></td>
+							
+							<td><%=City %></td>
+							<td><%=Address %></td>
+							<td><%=Comment %></td>
+							<td><%=state %></td>
+							
+							<td><%if(State == 0){ %><input type="button" value="In shelf" onclick="form.action='ActiveHouse';form.submit()"><% } %>
+								<%if(State == 1){ %><input type="button" value="Off shelf" onclick="form.action='BlockHouse';form.submit()"><% } %>
+								<%if(State != 2){ %><input type="button" value="delete" onclick="form.action='DeleteHouse';form.submit()"><% } %>
+							</td></form>	
 						</tr>
+						
 						
 						<%
 							}
 						%>
+						
 					</table>
-					</form>	
+					
 				</div>
 			</div>
 		</div>

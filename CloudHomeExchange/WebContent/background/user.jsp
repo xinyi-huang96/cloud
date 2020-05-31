@@ -66,7 +66,7 @@
 							<th></th>
 						</tr>
 						<% 
-							String sql = "SELECT user.Uid, State, NickName, Gender, Age, user.Email, Telephone FROM user JOIN login ON user.Uid = login.Uid WHERE user.UserType = 0;";
+							String sql = "SELECT user.Uid, State, NickName, Gender, Birth, user.Email, Telephone FROM user JOIN login ON user.Uid = login.Uid WHERE user.UserType = 0";
 							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
 							while (rs.next()) { 
