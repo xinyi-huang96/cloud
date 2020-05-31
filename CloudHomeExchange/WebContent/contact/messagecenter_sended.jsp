@@ -52,37 +52,41 @@ if(conn != null){
 			</div>
 			<div class="main">
 				
-					<% String Uid = (String)session.getAttribute("userId"); %>
+				<% String Uid = (String)session.getAttribute("userId"); %>
 				<div class="message_center">
 				<div class="mes_title">
 					<div class="mes_tit">Message Center</div>
-					<div class="center_switch"><a href="messagecenter_sended.jsp">OutBox</a></div>
+					<div class="center_switch"><a href="messagecenter.jsp">InBox</a></div>
 					</div>
+				
+					
 					<div class="messages">
 					<%	
-				String sql = "SELECT Nickname, Sender, Content, Mid FROM message Join user ON message.Sender = user.Uid WHERE Receiver = ? ORDER BY Mid DESC";
+				String sql = "SELECT Nickname, Receiver, Content, Mid FROM message Join user ON message.Sender = user.Uid WHERE Sender = ? ORDER BY Mid DESC";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);
 					rs = pstmt.executeQuery();
 					while (rs.next()) {
-						String Sendername = rs.getString(1);
-						int Sender = rs.getInt(2);
+						String Receivername = rs.getString(1);
+						int Receiver = rs.getInt(2);
 						String Content = rs.getString(3);
 						int Mid = rs.getInt(4);
 
 				%>
 					<div class="message">
 						<div class="contacter">
-						<div><%=Sendername %></div>
+						<div><%=Receivername %></div>
 						</div>
 						
 						<div class="message_content">
-						<a href="message.jsp?Mid=<%=Mid%>"><%=Content %></a>
+						<a><%=Content %></a>
 						</div>
 					</div>
 				<% } %>
+					
 					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -104,6 +108,6 @@ if(conn != null){
 		</div>
 		<div class="foot"><span>© Copyright 2020</span></div>
 	</div>
-	<%} %>
+	<% } %>
 </body>
 </html>

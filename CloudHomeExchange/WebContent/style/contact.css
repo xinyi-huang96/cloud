@@ -111,25 +111,64 @@
 }
 
 .mes_title {
-	width:100%;
+	width:90%;
 	height: 6%;
 	margin-top: 20px;
 	margin-left: 15px;
-	font-size: 20px;
+	float:left;
+	
 }
+
+.mes_tit {
+	font-size: 20px;
+	float:left;
+}
+
+.center_switch {
+	width: 100px;
+	height: 20px;
+	text-align:center;
+	float: right;
+	border-radius: 5px;
+	background-color: lightskyblue;
+}
+
+.center_switch a {
+	text-decoration: none;
+	color:black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.messages {
+	width:100%;
+	height:90%;
+	float:left;
+		overflow-y: scroll;
+}
+
 
 .message {
 	width:100%;
 	float:left;
-	height: 30px;
+	height: 130px;
 	border-top: 1px solid lightskyblue;
-	
+
 	border-bottom: 1px solid lightskyblue;
 }
 
 .contacter {
 	width: 30%;
-	height:25px;
+	height:125px;
 	float:left;
 	text-align:center;
 	padding-top: 5px;
@@ -152,7 +191,7 @@
 
 .contact {
 	width:100%;
-	height:68%;
+	height:50%;
 	float:left;
 	border-top: 1px solid lightskyblue;
 	overflow-y: scroll;
@@ -161,14 +200,14 @@
 
 .message_input1 {
 	width:100%;
-	height:24%;
+	height:40%;
 	float:left;
 	border-top: 1px solid lightskyblue;
 }
 
 .inputform1 textarea {
 	width: 99%;
-	height: 80px;
+	height: 160px;
 	float: left;
 	border-radius: 5px;
 	border: 1px solid lightgrey;

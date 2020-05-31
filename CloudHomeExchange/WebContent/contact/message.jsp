@@ -52,75 +52,33 @@ if(conn != null){
 			</div>
 			<div class="main">
 				<div class="message_center">
-					<div class="mes_title">Message With userid</div>
-				<% String Uid = (String)session.getAttribute("userId"); %>
+					
+				<% String Uid = (String)session.getAttribute("userId"); 
+				String Mid = request.getParameter("Mid");%>
+				<%	
+				String sql = "SELECT Nickname, Sender, Content FROM message Join user ON message.Sender = user.Uid WHERE Mid = ?";
+					pstmt = conn.prepareStatement(sql);
+					String userId = (String)session.getAttribute("userId");
+					pstmt.setString(1, Mid);
+					rs = pstmt.executeQuery();
+					while (rs.next()) {
+						String Sendername = rs.getString(1);
+						int Sender = rs.getInt(2);
+						String Content = rs.getString(3);
+
+				%>
+				<div class="mes_title">Message With <%=Sendername %></div>
 					<div class="contact">
 						<div class="content_receive">
-							<div class="sender">sender name</div>
-							<div class="content">wqeqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
-						
-						</div>
-						<div class="content_deliver">
-							<div class="user">user name</div>
-							<div class="content_user">reqwdfqsfsdfs</div>
+							<div class="sender"><%=Sendername %></div>
+							<div class="content"><%=Content %></div>
 						
 						</div>
 						
-						<div class="content_receive">
-							<div class="sender">sender name</div>
-							<div class="content">wqeqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
 						
-						</div>
-						<div class="content_deliver">
-							<div class="user">user name</div>
-							<div class="content_user">reqwdfqsfsdfs</div>
-						
-						</div>
-						
-						<div class="content_receive">
-							<div class="sender">sender name</div>
-							<div class="content">wqeqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
-						
-						</div>
-						<div class="content_deliver">
-							<div class="user">user name</div>
-							<div class="content_user">reqwdfqsfsdfs</div>
-						
-						</div>
-						
-						<div class="content_receive">
-							<div class="sender">sender name</div>
-							<div class="content">wqeqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
-						
-						</div>
-						<div class="content_deliver">
-							<div class="user">user name</div>
-							<div class="content_user">reqwdfqsfsdfs</div>
-						
-						</div>
-						
-						<div class="content_receive">
-							<div class="sender">sender name</div>
-							<div class="content">wqeqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
-						
-						</div>
-						<div class="content_deliver">
-							<div class="user">user name</div>
-							<div class="content_user">reqwdfqsfsdfs</div>
-						
-						</div>
-						
-						<div class="content_receive">
-							<div class="sender">sender name</div>
-							<div class="content">wqeqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
-						
-						</div>
-						<div class="content_deliver">
-							<div class="user">user name</div>
-							<div class="content_user">reqwdfqsfsdfs</div>
-						
-						</div>
+	
 					</div>
+					<% } %>
 					<div class="message_input1">
 					<form method="post" action="">
 						<input type="text" name="receiver" value="" hidden>
