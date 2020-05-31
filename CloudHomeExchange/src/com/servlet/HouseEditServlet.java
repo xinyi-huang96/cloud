@@ -46,7 +46,7 @@ public class HouseEditServlet extends HttpServlet {
 		String country = req.getParameter("country");
 		String city = req.getParameter("city");
 		String addr = req.getParameter("address");
-		String detail = req.getParameter("detail");
+		String detail = req.getParameter("discribe");
 		String[] feature = req.getParameterValues("feature");
 		StringBuffer sb = new StringBuffer(1024);
 		for(String fea:feature){

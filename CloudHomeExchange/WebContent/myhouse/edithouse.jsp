@@ -74,8 +74,8 @@
 				String country = rs.getString(10);
 				String city = rs.getString(11);
 				String Address = rs.getString(12);
-				int Comment = rs.getInt(14);
-				String Photo = rs.getString(13);
+				int Comment = rs.getInt(13);
+				String Photo = rs.getString(14);
 				int State = rs.getInt(15);
 				%>
 				<div class="mytitle">
@@ -114,7 +114,7 @@
 								</div>
 							<div class="house_input_discribe">
 								<span>Tell us about your house</span>
-								<textarea maxlength="1000" name="discribe" value="<%=Detail %>" required></textarea>
+								<textarea maxlength="1000" name="discribe" required><%=Detail %></textarea>
 							</div>
 							<div class="house_input_feature">
 								<span>Features</span>
