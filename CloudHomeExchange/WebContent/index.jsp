@@ -48,6 +48,7 @@
 					<li><a href="myhouse/index.jsp">My House</a></li>
 					<li><a href="myapply/index_applied.jsp">My Apply</a></li>
 					<li><a href="contact/send.jsp">Contact Us</a></li>
+					<li><a href="contact/messagecenter.jsp">Message</a></li>
 				</ul>
 			</div>
 			<div class="main">
