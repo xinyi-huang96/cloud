@@ -95,8 +95,7 @@ public class HouseAddServlet extends HttpServlet {
 			HouseService hs = new HouseService();
 			boolean flag = hs.add(house, uid);
 			if(flag == true) {
-				response.getWriter().append("<script language='javascript'>alert('Add house success.');"
-						+ "history.back();</script>");
+				response.getWriter().append("<script language='javascript'>alert('Add house success.');</script>");
 				response.sendRedirect("myhouse/index.jsp" );
 			}else {
 				response.getWriter().append("<script language='javascript'>alert('failed to add house');"

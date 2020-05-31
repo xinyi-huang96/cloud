@@ -41,8 +41,7 @@ public class HouseDeleteServlet extends HttpServlet {
 			HouseService hs = new HouseService();
 			boolean flag = hs.delete(hid);
 			if(flag == true) {
-				response.getWriter().append("<script language='javascript'>alert('delete house success.');"
-						+ "history.back();</script>");
+				response.getWriter().append("<script language='javascript'>alert('delete house success.');</script>");
 				response.sendRedirect("myhouse/index.jsp" );
 			}else {
 				response.getWriter().append("<script language='javascript'>alert('failed to delete house');"

@@ -49,8 +49,7 @@ public class UserModifyPswServlet extends HttpServlet {
 				user.setPsw(MD5Utils.md5(npsw));
 				boolean flag0 = us.modifyPsw(user);
 				if(flag0) {
-					response.getWriter().append("<script language='javascript'>alert('modify success');"
-							+ "history.back();</script>");
+					response.getWriter().append("<script language='javascript'>alert('modify success');</script>");
 					response.sendRedirect("myaccount/login.jsp" );
 				}else {
 					response.getWriter().append("<script language='javascript'>alert('fail to modify');"
