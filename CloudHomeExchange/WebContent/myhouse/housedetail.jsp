@@ -67,16 +67,12 @@
 						String Title = rs1.getString(3);
 						String Detail = rs1.getString(4);
 						String Features = rs1.getString(5);
-						
-						String[] feature;
-					    String delimeter = "\\|";
-					    feature = Features.split(delimeter);	
-					    
-					    for(String x :  feature){
-					         System.out.println(x);
-					         System.out.println("");
-					      }
-					    					    
+						String[] feature = {" "};
+						if (Features != null) {
+							
+						    String delimeter = "\\|";
+						    feature = Features.split(delimeter);
+						}					    					    
 						int Style = rs1.getInt(6);
 						int bedrooms = rs1.getInt(7);
 						int bathrooms = rs1.getInt(8);
@@ -84,7 +80,7 @@
 						String country = rs1.getString(10);
 						String city = rs1.getString(11);
 						String Address = rs1.getString(12);
-						String Comment = rs1.getString(13);
+						int Comment = rs1.getInt(13);
 						String Photo = rs1.getString(14);
 						int State = rs1.getInt(15);
 						String sql2 = "select * from user where Uid = ?";
@@ -111,7 +107,7 @@
 									<br>
 									<br>
 									<div class="house_contact_mail">
-										<i class="fas fa-envelope">  Email: <%= Email %></i>
+										<i class="far fa-envelope">  Email: <%= Email %></i>
 									</div>
 									<br>
 									<br>
@@ -173,13 +169,17 @@
 						<div class="feature">
 							<i class="fas fa-tv">  TV</i>
 						</div>
-						<% }  if (str.equals("No pet")){%>
+						<% }  if (str.equals("Kid")){%>
 						<div class="feature">
-							<i class="fas fa-paw">  No pet</i>
+							<i class="fas fa-paw">  For kid</i>
 						</div>
-						<% }  if (str.equals("No smoking")){%>
+						<% }  if (str.equals("NoSmoking")){%>
 						<div class="feature">
 							<i class="fas fa-smoking-ban">  No smoking</i>
+						</div>
+						<% }  if (str.equals("Washing")){%>
+						<div class="feature">
+							<i class="fas fa-paw">  Washing</i>
 						</div>
 						<% } }%>
 					</div>
