@@ -45,6 +45,7 @@
 					<li><a href="../myhouse/index.jsp">My House</a></li>
 					<li><a href="../myapply/index_applied.jsp">My Apply</a></li>
 					<li><a href="../contact/send.jsp">Contact Us</a></li>
+					<li><a href="../contact/messagecenter.jsp">Message</a></li>
 				</ul>
 			</div>
 			<div class="main">
@@ -97,6 +98,8 @@
 								<input type="submit" name="submit" value="Update">
 							</div>
 						</form>
+					</div>
+					<div class="other_profile">
 						<div class="editPassword">
 							<button id="modPsw" οnclick="show()">Modify password</button>
 						</div>
@@ -118,47 +121,6 @@
 								<input type="submit" name="submit" value="Modify">
 							</div>
 						</form>
-						</div>
-					</div>
-					<div class="other_profile">
-						<div class="ty_traval">
-							<span>Type of traveller</span>
-							<div class="type">
-								<input type="radio" name="type" value="family" placeholder="" required>Family
-							</div>
-							<div class="type">
-								<input type="radio" name="type" value="patner" placeholder="" required>Patner
-							</div>
-							<div class="type">
-								<input type="radio" name="type" value="solo" placeholder="" required>Solo
-							</div>
-							<div class="type">
-								<input type="radio" name="type" value="group" placeholder="" required>Group
-							</div>
-						</div>
-						<div class="dream">
-							<span>Dream destinations</span>
-							<div class="destination_add">
-								<form class="add_form" id="add_form">
-									<div class="dream_input">
-										<input type="text" name="loc" placeholder="enter a location" required>
-									</div>
-									<div class="dream_submit">
-										<input type="submit" name="submit" value="Add" onClick="adddream()">
-									</div>
-								</form>
-								<div class="show_add">
-									<i class="fas fa-map-marker-alt">   Paris</i>
-								</div>
-							</div>
-						</div>
-						<div class="picture">
-							<span>Profile picture</span>
-							<div class="photo_add">
-										<span>photo</span>
-										<input type="file" name="file" id="file" class="inputfile" accept="image/*" onchange="changepic(this)" multiple="multiple" />
-										<img src="" id="show" width="180">
-									</div>
 						</div>
 						<%	} %>
 					</div>
