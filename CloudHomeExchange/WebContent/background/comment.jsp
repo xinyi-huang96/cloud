@@ -41,58 +41,44 @@
 			<div class="left_nav">
 				<ul>
 					<li><a href="../index-background.html">Home</a></li>
-					<li class="active"><a href="user.jsp">User</a></li>
+					<li><a href="user.jsp">User</a></li>
 					<li><a href="house.jsp">House</a></li>
 					<li><a href="apply.jsp">Apply</a></li>
-					<li><a href="comment.jsp">Comment</a></li>
+					<li class="active"><a href="comment.jsp">Comment</a></li>
 					<li><a href="message.jsp">Message</a></li>
 					<li><a href="advertive.jsp">Advertice</a></li>
 				</ul>
 			</div>
 			<div class="main">
 				<div class="nav">
-					<a href="user.jsp">user info</a>
+					<a>Comments</a>
 				</div>
 				<div class="info">			
 					<table class="userInfo">
 						<tr>
-							<th>uid</th>
-							<th>nickname</th>
-							<th>gender</th>
-							<th>birthday</th>
-							<th>e-mail</th>
-							<th>telephone</th>
-							<th></th>
+							<th>Cid</th>
+							<th>Hid</th>
+							<th>Uid</th>
+							<th>Score</th>
+							<th>Detail</th>
 						</tr>
 						<% 
-							String sql = "SELECT * FROM user;";
+							String sql = "SELECT * FROM housecomment;";
 							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
 							while (rs.next()) { 
-								String uid = rs.getString(1);
-								String nickname = rs.getString(2);
-								int usertype = rs.getInt(3);
-								int genderNum = rs.getInt(4);
-								String gender = null;
-								if (genderNum == 0)
-									gender = "Female";
-								else
-									gender = "Male";
-								String birth = rs.getString(5);
-								String email = rs.getString(6);
-								int telephone = rs.getInt(7);
+								int Cid = rs.getInt(1);
+								int Hid = rs.getInt(2);
+								int Uid = rs.getInt(3);
+								int Score = rs.getInt(4);
+								String Detail = rs.getString(5);
 						%>
 						<tr>
-							<form>
-								<input type="text" name="uid" value="uid" hidden>
-								<td><% out.print(uid); %></td>
-								<td><% out.print(nickname); %></td>
-								<td><% out.print(gender); %></td>
-								<td><% out.print(birth); %></td>
-								<td><% out.print(email); %></td>
-								<td><% out.print(telephone); %></td>
-								<td><input type="submit" value="modify"></td>
-							</form>	
+							<td><%=Cid %></td>
+							<td><%=Hid %></td>
+							<td><%=Uid %></td>
+							<td><%=Score %></td>
+							<td><%=Detail %></td>
 						</tr>
 						<%
 							}

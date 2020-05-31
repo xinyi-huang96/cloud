@@ -51,48 +51,46 @@
 			</div>
 			<div class="main">
 				<div class="nav">
-					<a href="user.jsp">user info</a>
+					<a>apply</a>
 				</div>
 				<div class="info">			
 					<table class="userInfo">
 						<tr>
-							<th>uid</th>
-							<th>nickname</th>
-							<th>gender</th>
-							<th>birthday</th>
-							<th>e-mail</th>
-							<th>telephone</th>
-							<th></th>
+							<th>Oid</th>
+							<th>Hid</th>
+							<th>Applicant</th>
+							<th>CheckIn</th>
+							<th>ChenkOut</th>
+							<th>Comment</th>
+							<th>OperTime</th>
+							<th>State</th>
 						</tr>
 						<% 
-							String sql = "SELECT order";
+						String sql = "SELECT h.Oid, h.Hid, h.Applicant, h.CheckIn, h.CheckOut, h.Comment, r.OperTime, r.State, r.OperComment, r.Oid" 
+								+ " FROM orderhouse h JOIN ( SELECT t.OperTime, t.State, t.OperComment, t.Oid FROM ("
+								+ " SELECT OperTime, State, OperComment, Oid FROM orderreview ORDER BY OperTime DESC )t"
+								+ " GROUP BY t.Oid HAVING t.State < 2 ) r ON h.Oid = r.Oid ;";
 							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
 							while (rs.next()) { 
-								String uid = rs.getString(1);
-								String nickname = rs.getString(2);
-								int usertype = rs.getInt(3);
-								int genderNum = rs.getInt(4);
-								String gender = null;
-								if (genderNum == 0)
-									gender = "Female";
-								else
-									gender = "Male";
-								String birth = rs.getString(5);
-								String email = rs.getString(6);
-								int telephone = rs.getInt(7);
+								int Oid = rs.getInt(1);
+								int Hid = rs.getInt(2);
+								String Applicant = rs.getString(3);
+								String CheckIn = rs.getString(4);
+								String ChenkOut = rs.getString(5);
+								String Comment = rs.getString(6);
+								String OperTime = rs.getString(7);
+								int State = rs.getInt(8);
 						%>
 						<tr>
-							<form>
-								<input type="text" name="uid" value="uid" hidden>
-								<td><% out.print(uid); %></td>
-								<td><% out.print(nickname); %></td>
-								<td><% out.print(gender); %></td>
-								<td><% out.print(birth); %></td>
-								<td><% out.print(email); %></td>
-								<td><% out.print(telephone); %></td>
-								<td><input type="submit" value="modify"></td>
-							</form>	
+								<td><%=Oid %></td>
+								<td><%=Hid %></td>
+								<td><%=Applicant %></td>
+								<td><%=CheckIn %></td>
+								<td><%=ChenkOut %></td>
+								<td><%=Comment %></td>
+								<td><%=OperTime %></td>
+								<td><%=State %></td>
 						</tr>
 						<%
 							}

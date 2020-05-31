@@ -41,17 +41,17 @@
 			<div class="left_nav">
 				<ul>
 					<li><a href="../index-background.html">Home</a></li>
-					<li class="active"><a href="user.jsp">User</a></li>
+					<li><a href="user.jsp">User</a></li>
 					<li><a href="house.jsp">House</a></li>
 					<li><a href="apply.jsp">Apply</a></li>
 					<li><a href="comment.jsp">Comment</a></li>
-					<li><a href="message.jsp">Message</a></li>
+					<li class="active"><a href="message.jsp">Message</a></li>
 					<li><a href="advertive.jsp">Advertice</a></li>
 				</ul>
 			</div>
 			<div class="main">
 				<div class="nav">
-					<a href="user.jsp">user info</a>
+					<a href="user.jsp">Message</a>
 				</div>
 				<div class="info">			
 					<table class="userInfo">
