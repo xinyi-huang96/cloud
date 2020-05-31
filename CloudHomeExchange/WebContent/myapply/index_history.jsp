@@ -41,7 +41,7 @@
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
-					<li><a href="../index.jsp">Home</a></li>
+					<li><a href="../index.jspl">Home</a></li>
 					<li><a href="../searching/searchhouse.jsp">Search House</a></li>
 					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
 					<li><a href="../myhouse/index.jsp">My House</a></li>
@@ -58,7 +58,10 @@
 					</ul>
 				</div>
 				<%	
-					String sql = "SELECT Hid, Owner, CheckIn, CheckOut, Comment, OperTime, State, OperComment, orderreview.Oid FROM orderhouse JOIN orderreview ON orderhouse.Oid = orderreview.Oid WHERE (Applicant = ? OR Owner = ?) AND State > 1 ORDER BY OperTime DESC";
+					String sql = "SELECT h.Hid, h.Owner, h.CheckIn, h.CheckOut, h.Comment, r.OperTime, r.State, r.OperComment, r.Oid" 
+							+ " FROM orderhouse h JOIN ( SELECT t.OperTime, t.State, t.OperComment, t.Oid FROM ("
+							+ " SELECT OperTime, State, OperComment, Oid FROM orderreview ORDER BY OperTime DESC )t"
+							+ " GROUP BY t.Oid HAVING t.State > 1 ) r ON h.Oid = r.Oid WHERE h.Applicant = ? OR h.Owner = ?;";	
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					int uidInt = Integer.parseInt(userId);

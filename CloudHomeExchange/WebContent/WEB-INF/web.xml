@@ -89,4 +89,12 @@
     <servlet-name>OrderProcessServlet</servlet-name>
     <url-pattern>/updateOrder</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>CommentAddServlet</servlet-name>
+    <servlet-class>com.servlet.CommentAddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CommentAddServlet</servlet-name>
+    <url-pattern>/addComment</url-pattern>
+  </servlet-mapping>
 </web-app>

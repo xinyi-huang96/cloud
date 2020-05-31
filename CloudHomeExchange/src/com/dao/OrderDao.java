@@ -76,4 +76,33 @@ public class OrderDao {
 			return false;
 		}
 	}
+	
+	public boolean addOrderComment(Order order) {
+		try {
+			pst = con.prepareStatement("INSERT INTO housecomment(Hid, Uid, Score, Detail) VALUES (?,?,?,?);");
+			pst.setInt(1, Integer.parseInt(order.getHid()));
+			pst.setInt(2, Integer.parseInt(order.getApplicant()));
+			pst.setInt(3, order.getScore());
+			pst.setString(4, order.getComment());
+			int row1 = pst.executeUpdate();
+			PreparedStatement pst1 = con.prepareStatement("INSERT INTO orderreview(Oid, OperTime, State) VALUES (?,?,?);");
+			pst1.setInt(1, Integer.parseInt(order.getOid()));
+			pst1.setString(2, order.getOperTime());
+			pst1.setInt(3, 4);
+			int row2 = pst1.executeUpdate();
+			PreparedStatement pst2 = con.prepareStatement("UPDATE house SET COMMENT = ( "
+					+ "SELECT AVG(SCORE) FROM housecomment WHERE Hid = ?) WHERE Hid = ?;");
+			pst2.setInt(1, Integer.parseInt(order.getHid()));
+			pst2.setInt(2, Integer.parseInt(order.getHid()));
+			int row3 = pst2.executeUpdate();
+			if((row1 > 0) && (row2 > 0) && (row3 > 0)) {
+				return true;
+			}else
+				return false;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

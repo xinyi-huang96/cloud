@@ -1,15 +1,14 @@
 package com.util;
 
-import java.io.FileInputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Base64;
 import java.util.Base64.Decoder;
-import java.util.Base64.Encoder;
 
 public class Base64ImageUtil {
+	/*
 	//图片转化成base64字符串  
 	public static String GetImageStr(String imgFilePath) {	
 		//将图片文件转化为字节数组字符串，并对其进行Base64编码处理 
@@ -27,26 +26,32 @@ public class Base64ImageUtil {
         String encode = encoder.encodeToString(data);
         return encode;
 	}
-
+*/
 	//base64字符串转化成图片  
-	public static boolean GenerateImage(String imgStr, String savePath, String saveName) {
+	public static boolean GenerateImage(String imgStr, String savePath) throws IOException{
 		if(imgStr == null)
 			return false;
-		Decoder decoder = Base64.getDecoder();
+		File file = new File(savePath);
+		OutputStream out=null;
+		if(!file.getParentFile().exists()) {
+		    //先得到文件的上级目录，并创建上级目录，在创建文件
+           file.getParentFile().mkdirs();
+	     }
 		try {
-			byte[] b = decoder.decode(imgStr);
-			for (int i = 0; i < b.length; i++) {
-				if (b[i] < 0)
-					b[i] += 256;
+			out = new FileOutputStream(file);
+			//Base64解码 
+			Decoder decoder = Base64.getMimeDecoder();
+			byte[] buffer = decoder.decode(imgStr);  
+			for(int i = 0; i < buffer.length; ++i) {  
+				if(buffer[i]<0) {//调整异常数据  
+					buffer[i]+=256;  
+				}  
 			}
-			String imgFilePath = savePath + saveName;
-			OutputStream out = new FileOutputStream(imgFilePath);
-			out.write(b);
+			out.write(buffer);
 			out.flush();
-			out.close();
-		} catch (Exception e) {
+			out.close(); 
+		} catch (IOException e) {
 			e.printStackTrace();
-			return false;
 		}
 		return true;
 	}

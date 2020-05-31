@@ -54,7 +54,9 @@
 				<%	
 					String Oid = request.getParameter("Oid");
 					
-					String sql = "SELECT Hid, Owner, CheckIn, CheckOut, Comment, OperTime, State, OperComment FROM orderhouse JOIN orderreview ON orderhouse.Oid = orderreview.Oid WHERE orderhouse.Oid = ?";
+					String sql = "SELECT Hid, Owner, CheckIn, CheckOut, Comment, OperTime, State, OperComment FROM orderhouse" 
+							+ " JOIN orderreview ON orderhouse.Oid = orderreview.Oid WHERE orderhouse.Oid = ?"
+							+ " ORDER BY OperTime DESC LIMIT 1;";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, Oid);
@@ -170,7 +172,9 @@
 				
 				
 				<div class="order_comment">
-					<form id="comment_form" class="comment_form" method="post" action="">
+					<form id="comment_form" class="comment_form" method="post" action="../addComment">
+						<input type="text" name="oid" value="<%=Oid %>" hidden>
+						<input type="text" name="hid" value="<%=Hid %>" hidden>
 						<div class="input_evaluation">
 							<div class="score_title">Are you satisfied on this exchange?</div>
 							<div class="score_radio">
