@@ -99,7 +99,7 @@
 						<div class="house_detail">
 							<div class="house_info">
 								<div class="house_location">
-									<p>City: <%=city %>, <%=country %></p>	
+									<p> <%=city %>, <%=country %></p>	
 								</div>
 								<div class="house_contact">
 									<div class="house_contact_loc">
@@ -108,7 +108,7 @@
 									<br>
 									<br>
 									<div class="house_contact_mail">
-										<i class="far fa-envelope">  Email: <%= Email %></i>
+										<i class="fas fa-envelope">  Email: <%= Email %></i>
 									</div>
 									<br>
 									<br>
@@ -183,23 +183,6 @@
 							<i class="fas fa-paw">  Washing</i>
 						</div>
 						<% } }%>
-					</div>
-					<div class="result_host">
-						<div class="dream_title">
-							<span>Dream destinations</span>
-						</div>
-						<div class="destination">
-							<i class="fas fa-map-marker-alt">   Paris</i>
-						</div>
-						<br>
-						<div class="destination">
-							<i class="fas fa-map-marker-alt">   London</i>
-						</div>
-						<br>
-						<div class="destination">
-							<i class="fas fa-map-marker-alt">   Berlin</i>
-						</div>
-
 					</div>
 				</div>
 				<% }  %>

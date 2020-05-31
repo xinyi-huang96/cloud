@@ -12,6 +12,7 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/searchhouse.css">
 	<link rel="stylesheet" href="../style/common.css">
+	<link rel="stylesheet" type="text/css" href="../style/magic-check.css">
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="style/city.js"></script>
@@ -145,19 +146,24 @@
 							<div class="tit"><span>House Style</span></div>
 							<div class="choose_1">
 							<div class="input_style">
-									<input type="radio" name="style" value="CityPad" <% if(st.equals("CityPad")) { %> checked<% } %>>City pad
+									<input class="magic-radio" type="radio" name="radio" id="r1"  value="CityPad" <% if(st.equals("CityPad")) { %> checked<% } %>>
+									<label for="r1">City pad</label>
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="ByTheSea" <% if(st.equals("ByTheSea")) { %> checked<% } %>>By the sea
+									<input class="magic-radio" type="radio" name="radio" id="r2" value="ByTheSea" <% if(st.equals("ByTheSea")) { %> checked<% } %>>
+									<label for="r2">By the sea</label>
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="Countryside" <% if(st.equals("Countryside")) { %> checked<% } %>>Countryside
+									<input class="magic-radio" type="radio" name="radio" id="r3" value="Countryside" <% if(st.equals("Countryside")) { %> checked<% } %>>
+									<label for="r3">Countryside</label>
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="Mountain" <% if(st.equals("Mountain")) { %> checked<% } %>>Mountain
+									<input class="magic-radio" type="radio" name="radio" id="r4" value="Mountain" <% if(st.equals("Mountain")) { %> checked<% } %>>
+									<label for="r4">Mountain</label>
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="SpringWater" <% if(st.equals("SpringWater")) { %> checked<% } %>>Spring water
+									<input class="magic-radio" type="radio" name="radio" id="r5" value="SpringWater" <% if(st.equals("SpringWater")) { %> checked<% } %>>
+									<label for="r5">Spring water</label>
 								</div>
 								</div>
 						</div>
@@ -167,19 +173,24 @@
 							<div class="tit"><span>Feature</span></div>
 							<div class="choose_2">
 							<div class="input_feature">
-									<input  type="checkbox" name="feature" value="Wifi">Wifi
+									<input  class="magic-checkbox" type="checkbox" name="layout" id="c1" value="Wifi">
+									<label for="c1">Wifi</label>
 								</div>
 								<div class="input_feature">
-									<input type="checkbox" name="feature" value="TV">TV
+									<input class="magic-checkbox" type="checkbox" name="layout" id="c2" value="TV">
+									<label for="c2">TV</label>
 								</div>
 								<div class="input_feature">
-									<input type="checkbox" name="feature" value="NoSmoking">NO smoking
+									<input class="magic-checkbox" type="checkbox" name="layout" id="c3" value="NoSmoking">
+									<label for="c3">NO smoking</label>
 								</div>
 								<div class="input_feature">
-									<input type="checkbox" name="feature" value="Kid">For kid
+									<input class="magic-checkbox" type="checkbox" name="layout" id="c4" value="Kid">
+									<label for="c4">For kid</label>
 								</div>
 								<div class="input_feature">
-									<input type="checkbox" name="feature" value="Washing">Washing
+									<input class="magic-checkbox" type="checkbox" name="layout" id="c5" value="Washing">
+									<label for="c5">Washing</label>
 								</div></div>
 						</div>
 						</div>

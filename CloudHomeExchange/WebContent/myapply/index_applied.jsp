@@ -144,7 +144,7 @@
 						<div class="apply_time">Order Time: <%=OperTime %></div>
 						<div class="apply_id">Order Id: <%=Oid+123456789 %></div>
 						<div class="apply_mes">
-							<a href="#"><button>Message</button></a>
+							<a href="../contact/message.jsp"><button>Message</button></a>
 						</div>
 					</div>
 					<div class="apply_info">
