@@ -1,8 +1,26 @@
-table, th, td
-{
-    border: 1px solid black;
+table {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #c2d3e5;
+    border-collapse: collapse;
 }
 
-.userInfo {
-	border: 1px solid black;
+table tr:nth-child(even) {
+    background-color: #fefefe;
+}
+
+th {
+	border-width: 1px;
+    border-color: #c2d3e5;
+    padding: 8px;
+    border-style: solid;
+    text-align: left;
+    background-color: #fefefe;
+}
+
+td {
+	border-width: 1px;
+    border-color: #c2d3e5;
+    border-style: solid;
+    text-align: left;
 }

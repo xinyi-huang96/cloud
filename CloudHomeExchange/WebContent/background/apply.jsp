@@ -41,9 +41,9 @@
 			<div class="left_nav">
 				<ul>
 					<li><a href="../index-background.html">Home</a></li>
-					<li class="active"><a href="user.jsp">User</a></li>
+					<li><a href="user.jsp">User</a></li>
 					<li><a href="house.jsp">House</a></li>
-					<li><a href="apply.jsp">Apply</a></li>
+					<li class="active"><a href="apply.jsp">Apply</a></li>
 					<li><a href="comment.jsp">Comment</a></li>
 					<li><a href="message.jsp">Message</a></li>
 					<li><a href="advertive.jsp">Advertice</a></li>
@@ -65,7 +65,7 @@
 							<th></th>
 						</tr>
 						<% 
-							String sql = "SELECT * FROM user;";
+							String sql = "SELECT order";
 							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
 							while (rs.next()) { 
