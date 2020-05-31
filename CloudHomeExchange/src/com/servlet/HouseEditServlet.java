@@ -93,8 +93,7 @@ public class HouseEditServlet extends HttpServlet {
 		HouseService hs = new HouseService();
 		boolean flag = hs.edit(house);
 		if(flag == true) {
-			response.getWriter().append("<script language='javascript'>alert('edit house success.');"
-					+ "history.back();</script>");
+			response.getWriter().append("<script language='javascript'>alert('edit house success.');</script>");
 			response.sendRedirect("myhouse/index.jsp" );
 		}else {
 			response.getWriter().append("<script language='javascript'>alert('failed to edit house');"

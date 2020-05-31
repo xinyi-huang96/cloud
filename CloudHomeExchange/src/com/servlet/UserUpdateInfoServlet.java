@@ -43,8 +43,8 @@ public class UserUpdateInfoServlet extends HttpServlet {
 		User user = new User(uid, nickName, gender, birth, email, tel);
 		UserService us=new UserService();
 		if(us.update(user)) {
-			response.getWriter().append("<script language='javascript'>alert('modify success');"
-					+ "history.back();</script>");
+			response.getWriter().append("<script language='javascript'>alert('modify success');</script>");
+			response.sendRedirect("/myaccount/myprofile.jsp");
 		}else {
 			response.getWriter().append("<script language='javascript'>alert('fail to modify');"
 					+ "history.back();</script>");
