@@ -16,7 +16,6 @@
 .magic-radio + label,
 .magic-checkbox + label {
   position: relative;
-  display: block;
   padding-left: 30px;
   cursor: pointer;
   vertical-align: middle; }
