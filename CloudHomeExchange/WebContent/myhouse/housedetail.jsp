@@ -58,7 +58,7 @@
 				<div class="result">
 				<%
     				String Hid = request.getParameter("Hid");
-					String sql1 = "select * from house where Hid = ? AND State = 1;";					
+					String sql1 = "select * from house where Hid = ? AND (State = 1 or State = 3);";					
 					pstmt1 = conn.prepareStatement(sql1);
 					pstmt1.setString(1, Hid);					
 					rs1 = pstmt1.executeQuery();
@@ -94,12 +94,12 @@
 						String Telephone = rs2.getString(7);
 				%>
 					<div class="result_house">
-						<div class="house_img"><img src="D://upload//<%=userId %>//<%=Photo%>">
+						<div class="house_img"><img src="D://upload//<%=Uid %>//<%=Photo%>">
 						</div>
 						<div class="house_detail">
 							<div class="house_info">
 								<div class="house_location">
-									<p><%=city %>, <%=country %></p>	
+									<p style="font-size:18px;"><%=city %>, <%=country %></p>	
 								</div>
 								<div class="house_contact">
 									<div class="house_contact_loc">
@@ -121,11 +121,11 @@
 							<div class="house_apply">
 								<div class="house_apply_input">
 									<span>Check in</span>
-									<input type="date" name="checkin" required/>
+									<input type="date" name="checkin" style="width:45%;" required/>
 								</div>
 								<div class="house_apply_input">
 									<span>Check out</span>
-									<input type="date" name="checkout" required/>
+									<input type="date" name="checkout" style="width:45%;" required/>
 								</div>
 								<div class="house_apply_input">
 									<span>Comment</span>

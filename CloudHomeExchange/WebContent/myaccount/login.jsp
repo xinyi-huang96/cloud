@@ -20,6 +20,7 @@
 	ResultSet rs = null;
 	Conn DBConn = new Conn();
 	conn = DBConn.getConnection();
+	conn = DBConn.closeConnection(conn);
 %>
 <body>
 	<div class="border_box">
@@ -28,7 +29,7 @@
 				<br><span  style="font-size:20px;"><strong>Cloud Home Exchange</strong></span>
 			</div>
 			<div class="login">
-				<a href="../myaccount/register.html">Sign up</a>
+				<a href="../myaccount/register.jsp">Sign up</a>
 			</div>
 		</div>
 		<div class="main_box">
@@ -52,8 +53,8 @@
 			</div>
 			<div class="footer_nav">
 				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">About us</a></li>
+					<li><a href="../contact/send.jsp">Contact us</a></li>
+					<li><a href="../contact/about.jsp">About us</a></li>
 				</ul>
 			</div>
 			<div class="social_media">
