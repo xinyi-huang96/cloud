@@ -202,4 +202,50 @@ public class UserDao {
 			return false;
 		}
 	}
+	
+	//back office
+	public boolean active(User user) {
+		try {
+			pst = con.prepareStatement("UPDATE login SET State = 1 WHERE uid = ?;");
+			pst.setString(1, user.getUid());
+			int row = pst.executeUpdate();
+			if(row > 0)
+				return true;
+			else
+				return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean delete(User user) {
+		try {
+			pst = con.prepareStatement("UPDATE login SET State = 2 WHERE uid = ?;");
+			pst.setString(1, user.getUid());
+			int row = pst.executeUpdate();
+			if(row > 0)
+				return true;
+			else
+				return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean block(User user) {
+		try {
+			pst = con.prepareStatement("UPDATE login SET State = 0 WHERE uid = ?;");
+			pst.setString(1, user.getUid());
+			int row = pst.executeUpdate();
+			if(row > 0)
+				return true;
+			else
+				return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

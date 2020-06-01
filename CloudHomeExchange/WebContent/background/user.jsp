@@ -40,7 +40,7 @@
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
-					<li><a href="../index-background.html">Home</a></li>
+					<li><a href="../index-background.jsp">Home</a></li>
 					<li class="active"><a href="user.jsp">User</a></li>
 					<li><a href="house.jsp">House</a></li>
 					<li><a href="apply.jsp">Apply</a></li>
@@ -104,11 +104,11 @@
 								<td>
 								<% if (State != 2) {
 								if (State == 0) {%>
-									<input type="button" value="Active" onclick="form.action='ActiveUser';form.submit()">
+									<input type="button" value="Active" onclick="form.action='../ActiveUser';form.submit()">
 								<% }if (State == 1) {%>
-									<input type="button" value="Block" onclick="form.action='BlockUser';form.submit()">
+									<input type="button" value="Block" onclick="form.action='../BlockUser';form.submit()">
 								<% } %>
-									<input type="button" value="Delete" onclick="form.action='DeleteUser';form.submit()">	
+									<input type="button" value="Delete" onclick="form.action='../DeleteUser';form.submit()">	
 								<% } %>
 								</td>
 								</form>

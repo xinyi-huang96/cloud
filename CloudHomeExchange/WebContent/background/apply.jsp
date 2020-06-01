@@ -40,7 +40,7 @@
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
-					<li><a href="../index-background.html">Home</a></li>
+					<li><a href="../index-background.jsp">Home</a></li>
 					<li><a href="user.jsp">User</a></li>
 					<li><a href="house.jsp">House</a></li>
 					<li class="active"><a href="apply.jsp">Apply</a></li>
@@ -81,6 +81,24 @@
 								String Comment = rs.getString(6);
 								String OperTime = rs.getString(7);
 								int State = rs.getInt(8);
+								
+								String state = "";
+								
+								if (State == 0) {
+									state = "unchecked";
+								}
+								if (State == 1) {
+									state = "on going";
+								}
+								if (State == 2) {
+									state = "cancelled";
+								}
+								if (State == 3) {
+									state = "completed";
+								}
+								if (State == 4) {
+									state = "wait comment";
+								}
 						%>
 						<tr>
 								<td><%=Oid %></td>
@@ -90,7 +108,7 @@
 								<td><%=ChenkOut %></td>
 								<td><%=Comment %></td>
 								<td><%=OperTime %></td>
-								<td><%=State %></td>
+								<td><%=state %></td>
 						</tr>
 						<%
 							}

@@ -40,7 +40,7 @@
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
-					<li><a href="../index-background.html">Home</a></li>
+					<li><a href="../index-background.jsp">Home</a></li>
 					<li><a href="user.jsp">User</a></li>
 					<li class="active"><a href="house.jsp">House</a></li>
 					<li><a href="apply.jsp">Apply</a></li>
@@ -128,7 +128,7 @@
 						%>
 						
 						<tr><form method="post">	
-						<input type="text" name="Hid" value="<%=Hid %>" hidden>
+						<input type="text" name="hid" value="<%=Hid %>" hidden>
 							<td><%=Hid %></td>
 							<td><%=Uid %></td>
 							<td><%=Title %></td>
@@ -146,9 +146,8 @@
 							<td><%=Comment %></td>
 							<td><%=state %></td>
 							
-							<td><%if(State == 0){ %><input type="button" value="In shelf" onclick="form.action='ActiveHouse';form.submit()"><% } %>
-								<%if(State == 1){ %><input type="button" value="Off shelf" onclick="form.action='BlockHouse';form.submit()"><% } %>
-								<%if(State != 2){ %><input type="button" value="delete" onclick="form.action='DeleteHouse';form.submit()"><% } %>
+							<td><%if(State == 0){ %><input type="button" value="In shelf" onclick="form.action='../ActiveHouse';form.submit()"><% } %>
+								<%if(State == 1 || State == 3){ %><input type="button" value="Off shelf" onclick="form.action='../BlockHouse';form.submit()"><% } %>
 							</td></form>	
 						</tr>
 						
