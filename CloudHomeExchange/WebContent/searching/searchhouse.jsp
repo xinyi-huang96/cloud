@@ -12,7 +12,6 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/searchhouse.css">
 	<link rel="stylesheet" href="../style/common.css">
-	<link rel="stylesheet" type="text/css" href="../style/magic-check.css">
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="style/city.js"></script>
@@ -90,9 +89,22 @@
 						  st = request.getParameter("style");
 					  }
 					  
-					  
-					  
-						
+					  int style = 0;
+					  if(st.equals("CityPad"))
+						  style = 1;
+					  if(st.equals("ByTheSea"))
+						  style = 2;
+						  if(st.equals("Countryside"))
+							  style = 3;
+							  if(st.equals("Mountain"))
+								  style = 4;
+								  if(st.equals("SpringWater"))
+									  style = 5;
+								  
+								  
+								  
+									
+
 					%>
 					<form id="searchhouse_form" class="searchhouse_form" action="../searching/searchhouse.jsp" method="get/post">
 						<div class="search_input_1">
@@ -139,29 +151,24 @@
 							<div class="tit"><span>House Style</span></div>
 							<div class="choose_1">
 							<div class="input_style">
-									<input class="magic-radio" type="radio" name="radio" id="r1"  value="CityPad" <% if(st.equals("CityPad")) { %> checked<% } %>>
-									<label for="r1">City pad</label>
+									<input type="radio" name="style" value="CityPad" <% if(st.equals("CityPad")) { %> checked<% } %>>City pad
 								</div>
 								<div class="input_style">
-									<input class="magic-radio" type="radio" name="radio" id="r2" value="ByTheSea" <% if(st.equals("ByTheSea")) { %> checked<% } %>>
-									<label for="r2">By the sea</label>
+									<input type="radio" name="style" value="ByTheSea" <% if(st.equals("ByTheSea")) { %> checked<% } %>>By the sea
 								</div>
 								<div class="input_style">
-									<input class="magic-radio" type="radio" name="radio" id="r3" value="Countryside" <% if(st.equals("Countryside")) { %> checked<% } %>>
-									<label for="r3">Countryside</label>
+									<input type="radio" name="style" value="Countryside" <% if(st.equals("Countryside")) { %> checked<% } %>>Countryside
 								</div>
 								<div class="input_style">
-									<input class="magic-radio" type="radio" name="radio" id="r4" value="Mountain" <% if(st.equals("Mountain")) { %> checked<% } %>>
-									<label for="r4">Mountain</label>
+									<input type="radio" name="style" value="Mountain" <% if(st.equals("Mountain")) { %> checked<% } %>>Mountain
 								</div>
 								<div class="input_style">
-									<input class="magic-radio" type="radio" name="radio" id="r5" value="SpringWater" <% if(st.equals("SpringWater")) { %> checked<% } %>>
-									<label for="r5">Spring water</label>
+									<input type="radio" name="style" value="SpringWater" <% if(st.equals("SpringWater")) { %> checked<% } %>>Spring water
 								</div>
 								</div>
 						</div>
 						</div>
-						<!--  <div class="search_input_3">
+						 <div class="search_input_3">
 						<div class="search_input_feature">
 							<div class="tit"><span>Feature</span></div>
 							<div class="choose_2">
@@ -184,9 +191,10 @@
 								<div class="input_feature">
 									<input class="magic-checkbox" type="checkbox" name="layout" id="c5" value="Washing">
 									<label for="c5">Washing</label>
-								</div></div>
+								</div>
+								</div>
 						</div>
-						</div> -->
+						</div>
 						<div class="search_input_4">
 						<div class="search_submit">
 							<input type="submit" name="submit" value="Search">
@@ -195,10 +203,11 @@
 					</form>
 				</div>
 				<div class="recommend_house">
-				<%	String sql = "SELECT Hid, Uid, Title, Detail, Features, Style, bedrooms, bathrooms, PeoplNum, Addr_country, Addr_city, Address, Photo, Comment, State FROM house WHERE Addr_city LIKE ? AND PeoplNum >= ?;";
+				<%	String sql = "SELECT Hid, Uid, Title, Detail, Features, Style, bedrooms, bathrooms, PeoplNum, Addr_country, Addr_city, Address, Photo, Comment, State FROM house WHERE Addr_city LIKE ? AND PeoplNum >= ? and Style = ?;";
 					pstmt = conn.prepareStatement(sql);
 					pstmt.setString(1, Arrival);
 					pstmt.setInt(2, Sleeps);
+					pstmt.setInt(3, style);
 							rs = pstmt.executeQuery();
 							while (rs.next()) { 
 								String Hid = rs.getString(1);
@@ -253,8 +262,8 @@
 			</div>
 			<div class="footer_nav">
 				<ul>
-					<li><a href="../contact/send.jsp">Contact us</a></li>
-					<li><a href="../contact/about.jsp">About us</a></li>
+					<li><a href="contact/send.jsp">Contact us</a></li>
+					<li><a href="contact/about.jsp">About us</a></li>
 				</ul>
 			</div>
 			<div class="social_media">
