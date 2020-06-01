@@ -37,6 +37,7 @@ public class HouseSearchServlet extends HttpServlet {
 		String checkIn = request.getParameter("indate");
 		String checkOut = request.getParameter("outdate");
 		String number = request.getParameter("number");
+		String[] feature = request.getParameterValues("feature");
 		if (city != null && !"".equals(city)) {
 			sb.append(" AND Addr_city like '%" + city + "%'");
 		}
@@ -56,6 +57,16 @@ public class HouseSearchServlet extends HttpServlet {
 						"	WHERE checkin <= " +  checkIn +
 						"	AND checkout > " + checkIn + ")");
 			}
+		}
+		if(feature != null && !"".equals(feature)) {
+			StringBuffer sbu = new StringBuffer(1024);
+			for(String fea:feature){
+				System.out.println(fea);
+				sbu.append(fea + "|");
+			} 
+			String features = sbu.toString();
+			features = features.substring(0, features.length() - 1);
+			 sb.append("features REGEXP " + features);
 		}
 		HouseService hs = new HouseService();
 		int totalCount = hs.getHouseCount(sb.toString());
