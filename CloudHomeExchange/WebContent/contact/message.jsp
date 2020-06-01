@@ -55,8 +55,8 @@ if(conn != null){
 					
 				<% String Uid = (String)session.getAttribute("userId"); 
 				String Receiver = request.getParameter("receiver");
-				String Mid = request.getParameter("Mid");%>
-				<%	
+				String Mid = request.getParameter("Mid");
+				if (Mid != null) {
 				String sql = "SELECT Nickname, Sender, Content FROM message Join user ON message.Sender = user.Uid WHERE Mid = ?";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
@@ -87,6 +87,30 @@ if(conn != null){
 					</form>
 					</div>
 					<%} %>
+					<%}if (Mid == null) { 
+					String sql = "SELECT Nickname FROM user WHERE Uid = ?";
+					pstmt = conn.prepareStatement(sql);
+					String userId = (String)session.getAttribute("userId");
+					pstmt.setString(1, Receiver);
+					rs = pstmt.executeQuery();
+					while (rs.next()) {
+						String Receivername = rs.getString(1);
+
+						%>
+					<div class="mes_title">Message With <%=Receivername %></div>
+
+					<div class="message_input1"  >
+					<form method="post" action="../sendMsg">
+					SEND MESSAGE TO:		<%=Receivername %>
+						<input type="text" name="receiver" value="<%=Receiver %>" hidden>
+						<div class="inputform1" style="margin-top:150px;">
+							<textarea maxlength="1000" name="content" required></textarea>
+						</div>
+						<div class="inputsubmit1"><input type="submit" value="SEND"></div>
+						
+					</form>
+					</div>
+					<% } }%> 
 				</div>
 			</div>
 		</div>
