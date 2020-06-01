@@ -173,7 +173,7 @@
 	font-size: 18px;
 	display: block;
 	text-decoration: none;
-	color: lightskyblue;
+	color: black;
 	margin-left: 13px;
 	margin-top: 25px;
 }
@@ -188,6 +188,7 @@ i {
 	float: left;
 	padding-top: 30px;
 	margin-right: 25px;
+	cursor: pointer;
 }
 
 .foot {
@@ -197,5 +198,4 @@ i {
 	float: left;
 	background-color: lightskyblue;
 	color: grey;
-	padding: 5px;
 }

@@ -61,24 +61,24 @@
 }
 
 .apply_time {
-	width: 30%;
+	width: 25%;
 	float: left;
 }
 
 .apply_id {
-	width: 30%;
+	width: 25%;
 	float: left;
 }
 
 .apply_mes {
-	width: 30%;
+	width: 49%;
 	float: left;
 	text-align: right;
 }
 
 .apply_mes button {
 	height: 30px;
-	margin-right: 10%;
+	margin-right: 5%;
 	border-radius: 5px;
 	border: 1px solid lightskyblue;
 	text-align: center;
