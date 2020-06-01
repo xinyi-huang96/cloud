@@ -20,7 +20,7 @@
 	ResultSet rs = null;
 	Conn DBConn = new Conn();
 	conn = DBConn.getConnection();
-	conn = DBConn.closeConnection(conn);
+	DBConn.closeConnection(conn);
 %>
 <body>
 	<div class="border_box">

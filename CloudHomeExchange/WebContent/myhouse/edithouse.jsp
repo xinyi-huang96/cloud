@@ -59,6 +59,7 @@
 			pstmt.setString(1, Hid);
 			rs = pstmt.executeQuery();
 			while (rs.next()) { 
+				int Uid = rs.getInt(2);
 				String Title = rs.getString(3);
 				String Detail = rs.getString(4);
 				String Features = rs.getString(5);
@@ -228,7 +229,7 @@
 									<div class="photo_add">
 										<span>photo</span>
 										<input type="file" name="file" id="file" class="inputfile" accept="image/*" onchange="changepic(this)" multiple="multiple" />
-										<img src="D://upload//<%=userId %>//<%=Photo%>" id="show" width="180">
+										<img src="D://upload//<%=Uid %>//<%=Photo%>" id="show" width="180">
 									</div>
 								</div>
 							</div>
