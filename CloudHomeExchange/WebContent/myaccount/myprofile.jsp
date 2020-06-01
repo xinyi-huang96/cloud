@@ -33,7 +33,7 @@
 			<div class="title">Cloud Home Exchange</div>
 			<div class="login">
 				<a>Welcome, <% out.print(session.getAttribute("userNickName")); %></a>
-				<a href="../myaccount/login.html">Sign out</a>
+				<a href="../myaccount/login.jsp">Sign out</a>
 			</div>
 		</div>
 		<div class="main_box">

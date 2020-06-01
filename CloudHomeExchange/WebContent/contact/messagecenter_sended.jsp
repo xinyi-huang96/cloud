@@ -41,9 +41,9 @@ if(conn != null){
 				<%	if (session.getAttribute("userNickName") != null) {
 			%>
 				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
-				<a href="../myaccount/login.html">Sign out</a>
+				<a href="../myaccount/login.jsp">Sign out</a>
 			<%	} else { %>
-				<a href="../myaccount/login.html">Log in</a>
+				<a href="../myaccount/login.jsp">Log in</a>
 			<%	} %>
 			</div>
 		</div>

@@ -31,9 +31,9 @@
 				<%	if (session.getAttribute("userNickName") != null) {
 			%>
 				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
-				<a href="myaccount/login.html">Sign out</a>
+				<a href="../myaccount/login.jsp">Sign out</a>
 			<%	} else { %>
-				<a href="myaccount/login.html">Log in</a>
+				<a href="../myaccount/login.jsp">Log in</a>
 			<%	} %>
 			</div>
 		</div>
@@ -46,12 +46,12 @@
 					<li><a href="apply.jsp">Apply</a></li>
 					<li><a href="comment.jsp">Comment</a></li>
 					<li><a href="message.jsp">Message</a></li>
-					<li><a href="advertisement.jsp">Advertisement</a></li>
+					<li><a href="advertisement.jsp">Advertise</a></li>
 				</ul>
 			</div>
 			<div class="main">
 				<div class="nav">
-					<a href="user.jsp">user info</a>
+					<a>user</a>
 				</div>
 				<div class="info">			
 					<table class="userInfo">
