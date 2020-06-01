@@ -65,11 +65,11 @@ if(conn != null){
 				<div class="message_center">
 				<div class="mes_title">
 					<div class="mes_tit">Message Center</div>
-					<div class="center_switch"><a href="messagecenter_sended.jsp">OutBox</a></div>
+					<div class="center_switch"><a href="messagecenter_sended.jsp">SendBox</a></div>
 					</div>
 					<div class="messages" id="new">
 					<%	
-				String sql = "SELECT Nickname, Sender, Content, Mid FROM message Join user ON message.Sender = user.Uid WHERE Receiver = ? ORDER BY Mid DESC";
+				String sql = "SELECT Nickname, Sender, Content, Mid, SendTime FROM message Join user ON message.Sender = user.Uid WHERE Receiver = ? ORDER BY Mid DESC";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);
@@ -79,16 +79,20 @@ if(conn != null){
 						int Sender = rs.getInt(2);
 						String Content = rs.getString(3);
 						int Mid = rs.getInt(4);
-
+						String SendTime = rs.getString(5);
 				%>
 					<div class="message">
 						<div class="contacter">
 						<div><%=Sendername %></div>
+						<p>
+						<div><%=SendTime %></div>
 						</div>
 						
 						<div class="message_content">
 						<a href="message.jsp?Mid=<%=Mid%>"><%=Content %></a>
 						</div>
+
+						
 					</div>
 				<% } %>
 					</div>

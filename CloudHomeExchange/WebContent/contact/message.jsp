@@ -72,26 +72,13 @@ if(conn != null){
 					<div class="contact">
 						<div class="content_receive">
 							<div class="sender"><%=Sendername %></div>
-							<div class="content"><%=Content %></div>
-						
+							<div class="content"><%=Content %></div>						
 						</div>
-						
-						
-	
 					</div>
-					<% } %>
-					<%	
-					sql = "SELECT Nickname FROM user WHERE Uid = ?";
-					pstmt = conn.prepareStatement(sql);
-					pstmt.setString(1, Receiver);
-					rs = pstmt.executeQuery();
-					if (rs.next()) {
-						String nickname = rs.getString(1);
-				%>
 					<div class="message_input1">
 					<form method="post" action="../sendMsg">
-					To: <%=nickname %>
-						<input type="text" name="receiver" value="<%=Receiver %>" hidden>
+					REPLY TO:		<%=Sendername %>
+						<input type="text" name="receiver" value="<%=Sender %>" hidden>
 						<div class="inputform1">
 							<textarea maxlength="1000" name="content" required></textarea>
 						</div>

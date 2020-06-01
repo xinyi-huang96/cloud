@@ -64,13 +64,11 @@ if(conn != null){
 				<div class="message_center">
 				<div class="mes_title">
 					<div class="mes_tit">Message Center</div>
-					<div class="center_switch"><a href="messagecenter.jsp">InBox</a></div>
+					<div class="center_switch"><a href="messagecenter.jsp">ReceiveBox</a></div>
 					</div>
-				
-					
 					<div class="messages" id="new">
 					<%	
-				String sql = "SELECT Nickname, Receiver, Content, Mid FROM message Join user ON message.Sender = user.Uid WHERE Sender = ? ORDER BY Mid DESC";
+					String sql = "SELECT Nickname, Receiver, Content, Mid FROM message Join user ON message.Sender = user.Uid WHERE Sender = ? ORDER BY Mid DESC";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);
