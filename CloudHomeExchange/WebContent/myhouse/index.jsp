@@ -56,7 +56,7 @@
 				</div>
 			
 			<%	
-				String sql = "select Hid, Title, Detail, Address, Photo from house where Uid = ? AND State = 1;";
+				String sql = "select Hid, Title, Detail, Address, Photo , Addr_country, Addr_city from house where Uid = ? AND State = 1;";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);
@@ -67,6 +67,8 @@
 						String Detail = rs.getString(3);
 						String Address = rs.getString(4);
 						String Photo = rs.getString(5);
+						String country = rs.getString(6);
+						String city = rs.getString(7);
 				%>
 				
 				<div class="myhouse">
@@ -78,7 +80,7 @@
 					<div class="house_detail">
 						<div class="house_info">
 							<div class="house_location">
-								<p>Paris, France</p>
+								<p><%=country %>, <%=city %></p>
 							</div>
 							<div class="house_contact">
 								<div class="house_contact_loc">Address: <%=Address %></div>

@@ -108,7 +108,3 @@
 .magic-checkbox:checked[disabled] + label:before {
   border: #c9e2f9;
   background: #c9e2f9; }
-
-
-body{line-height: 2em;
-    padding: 30px;}

@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="../style/myaccount.css">
 	<link rel="stylesheet" href="../style/common.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="../style/adddream.js" type="text/javascript"></script>
+	<script src="../style/check.js" type="text/javascript"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../style/myaccount.js"></script>
 	<script type="text/javascript" src="../style/showPhoto.js"></script>
@@ -69,7 +69,8 @@
 						<form id="edit_profile" class="edit_profile" method="post" action="../updateUser">
 							<div class="profile_input">
 								<span>Your name</span>
-								<input type="text" name="firstname" value="<% out.print(NickName); %>" required>
+								<input type="text" id="user" name="firstname" value="<% out.print(NickName); %>" onblur="checkUser()" required>
+								<div  class="prompt" id="user_prompt"></div>
 							</div>
 							<div class="profile_input">
 								<span>Email</span>
@@ -77,7 +78,8 @@
 							</div>
 							<div class="profile_input">
 								<span>Telephone</span>
-								<input type="text" name="tel" value="<% out.print(Telephone); %>" required>
+								<input type="text" id="mobile" name="tel" value="<% out.print(Telephone); %>" onblur="checkMobile()" required>
+								<div class="prompt" id="mobile_prompt"></div>
 							</div>
 							<div class="profile_input">
 								<span>Date of Birth</span>
