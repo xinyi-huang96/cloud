@@ -59,9 +59,9 @@
 				</div>
 				<%	
 					String sql = "SELECT h.Hid, h.Owner, h.CheckIn, h.CheckOut, h.Comment, r.OperTime, r.State, r.OperComment, r.Oid" 
-							+ " FROM orderhouse h JOIN ( SELECT t.OperTime, t.State, t.OperComment, t.Oid FROM ("
-							+ " SELECT OperTime, State, OperComment, Oid FROM orderreview ORDER BY OperTime DESC )t"
-							+ " GROUP BY t.Oid HAVING t.State > 1 ) r ON h.Oid = r.Oid WHERE h.Applicant = ? OR h.Owner = ?;";	
+							+ " FROM orderhouse h JOIN ( SELECT o.OperTime, o.State, o.OperComment, o.Oid FROM orderreview o"
+							+ " JOIN( SELECT Oid,MAX(OperTime) ot FROM orderreview GROUP BY Oid )t ON o.Oid = t.Oid" 
+							+ " AND o.OperTime = t.ot WHERE o.State > 1 ) r ON h.Oid = r.Oid WHERE h.Applicant = ? OR h.Owner = ?;";	
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					int uidInt = Integer.parseInt(userId);

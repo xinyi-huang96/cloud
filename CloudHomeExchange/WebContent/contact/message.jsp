@@ -54,6 +54,7 @@ if(conn != null){
 				<div class="message_center">
 					
 				<% String Uid = (String)session.getAttribute("userId"); 
+				String Receiver = request.getParameter("receiver");
 				String Mid = request.getParameter("Mid");%>
 				<%	
 				String sql = "SELECT Nickname, Sender, Content FROM message Join user ON message.Sender = user.Uid WHERE Mid = ?";
@@ -71,17 +72,13 @@ if(conn != null){
 					<div class="contact">
 						<div class="content_receive">
 							<div class="sender"><%=Sendername %></div>
-							<div class="content"><%=Content %></div>
-						
+							<div class="content"><%=Content %></div>						
 						</div>
-						
-						
-	
 					</div>
-					<% } %>
 					<div class="message_input1">
-					<form method="post" action="">
-						<input type="text" name="receiver" value="" hidden>
+					<form method="post" action="../sendMsg">
+					REPLY TO:		<%=Sendername %>
+						<input type="text" name="receiver" value="<%=Sender %>" hidden>
 						<div class="inputform1">
 							<textarea maxlength="1000" name="content" required></textarea>
 						</div>
@@ -89,6 +86,7 @@ if(conn != null){
 						
 					</form>
 					</div>
+					<%} %>
 				</div>
 			</div>
 		</div>

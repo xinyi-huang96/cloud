@@ -12,8 +12,17 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/contact.css">
 	<link rel="stylesheet" href="../style/common.css">
-	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript">
+		setInterval(function() {
+		  	$("#new").load(location.href+" #new>*","");
+			}, 6000);
+	</script>
+	
 </head>
 <body>
 <%
@@ -56,11 +65,11 @@ if(conn != null){
 				<div class="message_center">
 				<div class="mes_title">
 					<div class="mes_tit">Message Center</div>
-					<div class="center_switch"><a href="messagecenter_sended.jsp">OutBox</a></div>
+					<div class="center_switch"><a href="messagecenter_sended.jsp">SendBox</a></div>
 					</div>
-					<div class="messages">
+					<div class="messages" id="new">
 					<%	
-				String sql = "SELECT Nickname, Sender, Content, Mid FROM message Join user ON message.Sender = user.Uid WHERE Receiver = ? ORDER BY Mid DESC";
+				String sql = "SELECT Nickname, Sender, Content, Mid, SendTime FROM message Join user ON message.Sender = user.Uid WHERE Receiver = ? ORDER BY Mid DESC";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);
@@ -70,16 +79,20 @@ if(conn != null){
 						int Sender = rs.getInt(2);
 						String Content = rs.getString(3);
 						int Mid = rs.getInt(4);
-
+						String SendTime = rs.getString(5);
 				%>
 					<div class="message">
 						<div class="contacter">
 						<div><%=Sendername %></div>
+						<p>
+						<div><%=SendTime %></div>
 						</div>
 						
 						<div class="message_content">
 						<a href="message.jsp?Mid=<%=Mid%>"><%=Content %></a>
 						</div>
+
+						
 					</div>
 				<% } %>
 					</div>
@@ -92,8 +105,8 @@ if(conn != null){
 			</div>
 			<div class="footer_nav">
 				<ul>
-					<li><a href="contact/send.jsp">Contact us</a></li>
-					<li><a href="contact/about.jsp">About us</a></li>
+					<li><a href="../contact/send.jsp">Contact us</a></li>
+					<li><a href="../contact/about.jsp">About us</a></li>
 				</ul>
 			</div>
 			<div class="social_media">

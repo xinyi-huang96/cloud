@@ -97,4 +97,12 @@
     <servlet-name>CommentAddServlet</servlet-name>
     <url-pattern>/addComment</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>MsgSendServlet</servlet-name>
+    <servlet-class>com.servlet.MsgSendServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MsgSendServlet</servlet-name>
+    <url-pattern>/sendMsg</url-pattern>
+  </servlet-mapping>
 </web-app>
