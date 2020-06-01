@@ -143,7 +143,7 @@
 						<div class="apply_time">Order Time: <%=OperTime %></div>
 						<div class="apply_id">Order Id: <%=Oid+123456789 %></div>
 						<div class="apply_mes">
-							<a href="../contace/message.jsp?receiver=<%=Uid%>"><button>Message</button></a>
+							<a href="../contact/message.jsp?receiver=<%=Uid%>"><button>Message</button></a>
 							<% if(State == 0) { %>
 								<a href="../updateOrder?oid=<%=Oid %>&act=confirm"><button>Confirm Order</button></a>
 								<a href="../updateOrder?oid=<%=Oid %>&act=refuse"><button>Refuse Order</button></a>
