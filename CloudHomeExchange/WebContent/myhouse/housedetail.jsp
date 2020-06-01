@@ -136,7 +136,7 @@
 							</div>
 							<div class="house_apply">
 								<input type="button" name="apply" value="Apply" onclick="this.form.action='../createOrder';this.form.submit()">
-								<input type="button" name="message" value="Message" onclick="form.action='';form.submit()">
+								<input type="button" name="message" value="Message" onclick="this.form.action='../contact/message.jsp?receiver=<%=Uid %>';this.form.submit()">
 							</div>
 							</form>
 						</div>

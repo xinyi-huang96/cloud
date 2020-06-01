@@ -40,7 +40,7 @@
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
-					<li><a href="../index-background.html">Home</a></li>
+					<li><a href="../index-background.jsp">Home</a></li>
 					<li><a href="user.jsp">User</a></li>
 					<li><a href="house.jsp">House</a></li>
 					<li><a href="apply.jsp">Apply</a></li>

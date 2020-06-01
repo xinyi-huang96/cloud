@@ -30,4 +30,15 @@ public class UserService {
 	public boolean validPsw(User user) {
 			return userDao.validPsw(user);	
 	}
+	
+	//back office
+	public boolean active(User user) {
+		return userDao.active(user);	
+	}
+	public boolean delete(User user) {
+		return userDao.delete(user);	
+	}
+	public boolean block(User user) {
+		return userDao.block(user);	
+	}
 }

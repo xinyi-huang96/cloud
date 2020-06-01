@@ -29,4 +29,22 @@ public class HouseService {
 	public int getHouseCount(String where) {
 		return houseDao.houseCount(where);
 	}
+	
+	//back office
+	
+	public boolean active(String hid) {
+		return houseDao.activeHouse(hid);
+	}
+	
+	public boolean block(String hid) {
+		return houseDao.blockHouse(hid);
+	}
+	
+	public boolean advertise(String hid) {
+		return houseDao.advertiseHouse(hid);
+	}
+	
+	public boolean offAdvertise(String hid) {
+		return houseDao.offAdvertiseHouse(hid);
+	}
 }

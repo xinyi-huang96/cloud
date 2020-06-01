@@ -140,4 +140,80 @@ public class HouseDao {
 		}
 		
 	}
+	
+	//active house
+		public boolean activeHouse(String hid){
+			try {
+				pst = con.prepareStatement("UPDATE house SET State = 1 WHERE Hid = ?;");
+
+				pst.setString(1, hid);
+				
+				int row = pst.executeUpdate();
+				if(row > 0)
+					return true;
+				else
+					return false;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+		}
+		
+		//block house
+		public boolean blockHouse(String hid){
+			try {
+				pst = con.prepareStatement("UPDATE house SET State = 0 WHERE Hid = ?;");
+
+				pst.setString(1, hid);
+				
+				int row = pst.executeUpdate();
+				if(row > 0)
+					return true;
+				else
+					return false;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+		}
+		
+		//on advertise house
+		public boolean advertiseHouse(String hid){
+			try {
+				pst = con.prepareStatement("UPDATE house SET State = 3 WHERE Hid = ?;");
+
+				pst.setString(1, hid);
+				
+				int row = pst.executeUpdate();
+				if(row > 0)
+					return true;
+				else
+					return false;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+		}
+		
+		//off advertise house
+		public boolean offAdvertiseHouse(String hid){
+			try {
+				pst = con.prepareStatement("UPDATE house SET State = 1 WHERE Hid = ?;");
+
+				pst.setString(1, hid);
+				
+				int row = pst.executeUpdate();
+				if(row > 0)
+					return true;
+				else
+					return false;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+		}
 }

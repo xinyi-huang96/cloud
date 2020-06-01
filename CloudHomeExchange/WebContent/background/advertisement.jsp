@@ -40,63 +40,104 @@
 		<div class="main_box">
 			<div class="left_nav">
 				<ul>
-					<li><a href="../index-background.html">Home</a></li>
-					<li class="active"><a href="user.jsp">User</a></li>
+					<li><a href="../index-background.jsp">Home</a></li>
+					<li><a href="user.jsp">User</a></li>
 					<li><a href="house.jsp">House</a></li>
 					<li><a href="apply.jsp">Apply</a></li>
 					<li><a href="comment.jsp">Comment</a></li>
 					<li><a href="message.jsp">Message</a></li>
-					<li><a href="advertive.jsp">Advertice</a></li>
+					<li class="active"><a href="advertive.jsp">Advertise</a></li>
 				</ul>
 			</div>
 			<div class="main">
 				<div class="nav">
-					<a href="user.jsp">user info</a>
+					<a>Advertise</a>
 				</div>
 				<div class="info">			
 					<table class="userInfo">
 						<tr>
-							<th>uid</th>
-							<th>nickname</th>
-							<th>gender</th>
-							<th>birthday</th>
-							<th>e-mail</th>
-							<th>telephone</th>
+							<th>Hid</th>
+							<th>Uid</th>
+							<th>Title</th>
+							<th>Detail</th>
+							<th>Features</th>
+							<th>Style</th>
+							<th>Comment</th>
+							<th>State</th>
 							<th></th>
 						</tr>
 						<% 
-							String sql = "SELECT * FROM user;";
+							String sql = "SELECT * FROM house WHERE State = 1 or State = 3;";
 							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
 							while (rs.next()) { 
-								String uid = rs.getString(1);
-								String nickname = rs.getString(2);
-								int usertype = rs.getInt(3);
-								int genderNum = rs.getInt(4);
-								String gender = null;
-								if (genderNum == 0)
-									gender = "Female";
-								else
-									gender = "Male";
-								String birth = rs.getString(5);
-								String email = rs.getString(6);
-								int telephone = rs.getInt(7);
+								int Hid = rs.getInt(1);
+								int Uid = rs.getInt(2);
+								String Title = rs.getString(3);
+								String Detail = rs.getString(4);
+								String Features = rs.getString(5);				    					    
+								int Style = rs.getInt(6);
+								int bedrooms = rs.getInt(7);
+								int bathrooms = rs.getInt(8);
+								int PeopleNum = rs.getInt(9);
+								String Country = rs.getString(10);
+								String City = rs.getString(11);
+								String Address = rs.getString(12);
+								String Photo = rs.getString(13);
+								int Comment = rs.getInt(14);
+								int State = rs.getInt(15);
+								
+								String style = "";
+								if (Style == 1) {
+									style = "City pad";
+								} 
+								if (Style == 2) {
+									style = "By the sea";
+								} 
+								if (Style == 3) {
+									style = "Countryside";
+								} 
+								if (Style == 4) {
+									style = "Mountain";
+								} 
+								if (Style == 5) {
+									style = "Spring water";
+								} 
+								
+								String state = "";
+								if (State == 1) {
+									state = "on shelf";
+								} 
+								if (State == 3) {
+									state = "on advertisement";
+								} 
+	
 						%>
-						<tr>
-							<form>
-								<input type="text" name="uid" value="uid" hidden>
-								<td><% out.print(uid); %></td>
-								<td><% out.print(nickname); %></td>
-								<td><% out.print(gender); %></td>
-								<td><% out.print(birth); %></td>
-								<td><% out.print(email); %></td>
-								<td><% out.print(telephone); %></td>
-								<td><input type="submit" value="modify"></td>
-							</form>	
+						
+						<tr><form method="post">	
+						<input type="text" name="hid" value="<%=Hid %>" hidden>
+							<td><%=Hid %></td>
+							<td><%=Uid %></td>
+							<td><%=Title %></td>
+							<td><%=Detail%></td>
+							<td><%=Features %></td>
+							
+							<td><%=style %></td>
+							
+							<td><%=Comment %></td>
+							<td><%=state %></td>
+							
+							<td><%if(State == 1){ %><input type="button" value="On Advertise" onclick="form.action='../OnAdvertise';form.submit()"><% } %>
+								<%if(State == 3){ %><input type="button" value="Off Advertise" onclick="form.action='../OffAdvertise';form.submit()"><% } %>
+		
+							</td></form>	
 						</tr>
+						
+						
 						<%
 							}
 						%>
+						
 					</table>
 				</div>
 			</div>

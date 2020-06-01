@@ -12,8 +12,16 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/contact.css">
 	<link rel="stylesheet" href="../style/common.css">
-	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		setInterval(function() {
+		  	$("#new").load(location.href+" #new>*","");
+			}, 6000);
+	</script>
+
 </head>
 <body>
 <%
@@ -60,7 +68,7 @@ if(conn != null){
 					</div>
 				
 					
-					<div class="messages">
+					<div class="messages" id="new">
 					<%	
 				String sql = "SELECT Nickname, Receiver, Content, Mid FROM message Join user ON message.Sender = user.Uid WHERE Sender = ? ORDER BY Mid DESC";
 					pstmt = conn.prepareStatement(sql);
