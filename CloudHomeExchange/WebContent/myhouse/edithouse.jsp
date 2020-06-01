@@ -12,6 +12,7 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/edithouse.css">
 	<link rel="stylesheet" href="../style/common.css">
+	<link rel="stylesheet" type="text/css" href="../style/magic-check.css">
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../style/showPhoto.js"></script>
@@ -113,7 +114,7 @@
 								</div>
 							<div class="house_input_discribe">
 								<span>Tell us about your house</span>
-								<textarea maxlength="1000" name="discribe" value="<%=Detail %>" required></textarea>
+								<textarea maxlength="1000" name="discribe"  required><%=Detail %></textarea>
 							</div>
 							<div class="house_input_feature">
 								<span>Features</span>
@@ -122,76 +123,90 @@
 									if (str.equals("Wifi")) {
 									b_Wifi = true;%> 
 								<div class="input_feature">
-									<input  type="checkbox" name="feature" value="Wifi" checked>Wifi
+									<input  class="magic-checkbox" type="checkbox" name="feature" id="c1" value="Wifi" checked>
+									<label for="c1">Wifi</label>
 								</div>
 									<% } if (str.equals("TV")) {
 									b_TV = true; %> 
 								<div class="input_feature">
-									<input type="checkbox" name="feature" value="TV" checked>TV
+									<input class="magic-checkbox" type="checkbox" name="feature" id="c2" value="TV" checked>
+									<label for="c2">TV</label>
 								</div>
 									<% } if (str.equals("NoSmoking")) {
 										b_NoSmoking = true; %> 
 								<div class="input_feature">
-									<input type="checkbox" name="feature" value="NoSmoking" checked>NO smoking
+									<input class="magic-checkbox" type="checkbox" name="feature" id="c3" value="NoSmoking" checked>
+									<label for="c3">NO smoking</label>
 								</div>
 									<% } if (str.equals("Kid")) {
 									 b_Kid = true; %> 
 								<div class="input_feature">
-									<input type="checkbox" name="feature" value="Kid" checked>For kid
+									<input class="magic-checkbox" type="checkbox" name="feature" id="c4" value="Kid" checked>
+									<label for="c4">For kid</label>
 								</div>
 									<% } if (str.equals("Washing")) {
 										b_Washing = true; %> 
 								<div class="input_feature">
-									<input type="checkbox" name="feature" value="Washing" checked>Washing
+									<input class="magic-checkbox" type="checkbox" name="feature" id="c5" value="Washing" checked>
+									<label for="c5">Washing</label>
 								</div>
 								<% }} %>
 								<% if (!b_Wifi) { %>
 									<div class="input_feature">
-									<input type="checkbox" name="feature" value="Wifi">Wifi
+									<input  class="magic-checkbox" type="checkbox" name="feature" id="c1" value="Wifi">
+									<label for="c1">Wifi</label>
 								</div>
 								<% } %>
 								<% if (!b_TV) { %>
 									<div class="input_feature">
-									<input type="checkbox" name="feature" value="TV">TV
+									<input class="magic-checkbox" type="checkbox" name="feature" id="c2" value="TV">
+									<label for="c2">TV</label>
 								</div>
 								<% } %>
 								<% if (!b_NoSmoking) { %>
 									<div class="input_feature">
-									<input type="checkbox" name="feature" value="NoSmoking">No Smoking
+									<input class="magic-checkbox" type="checkbox" name="feature" id="c3" value="NoSmoking">
+									<label for="c3">NO smoking</label>
 								</div>
 								<% } %>
 								<% if (!b_Kid) { %>
 									<div class="input_feature">
-									<input type="checkbox" name="feature" value="Kid">For kid
+									<input class="magic-checkbox" type="checkbox" name="feature" id="c4" value="Kid">
+									<label for="c4">For kid</label>
 								</div>
 								<% } %>
 								<% if (!b_Washing) { %>
 									<div class="input_feature">
-									<input type="checkbox" name="feature" value="Washing">Washing
+									<input class="magic-checkbox" type="checkbox" name="feature" id="c5" value="Washing">
+									<label for="c5">Washing</label>
 								</div>
 								<% } %>
 							</div>
 							<div class="house_input_style">
 								<span>Home style</span>
 								<div class="input_style">
-									<input type="radio" name="style" value="CityPad" required
-									<%	if (Style == 1) {%> checked <%	} %>>City pad
+									<input class="magic-radio" type="radio" name="style" id="r1"  value="CityPad" <%	if (Style == 1) {%> checked <%	} %>>
+									<label for="r1">City pad</label>
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="ByTheSea" required
-									<%	if (Style == 2) {%> checked <%	} %>>By the sea
+									<input  class="magic-radio" type="radio" name="style" id="r2" value="ByTheSea" required
+									<%	if (Style == 2) {%> checked <%	} %>>
+									<label for="r2">By the sea</label>
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="Countryside" required
-									<%	if (Style == 3) {%> checked <%	} %>>Countryside
+									<input  class="magic-radio" type="radio" name="style" id="r3" value="Countryside" required
+									<%	if (Style == 3) {%> checked <%	} %>>
+									<label for="r3">Countryside</label>
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="Mountain" required
-									<%	if (Style == 4) {%> checked <%	} %>>Mountain
+									<input  class="magic-radio" type="radio" name="style" id="r4" value="Mountain" required
+									<%	if (Style == 4) {%> checked <%	} %>>
+									<label for="r4">Mountain</label>
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="SpringWater" required
-									<%	if (Style == 5) {%> checked <%	} %>>Spring water
+									<input  class="magic-radio" type="radio" name="style" id="r5" value="SpringWater" required
+									<%	if (Style == 5) {%> checked <%	} %>>
+									<label for="r5">Spring water</label>
 								</div>
 							</div>
 							<div class="house_input_rooms">

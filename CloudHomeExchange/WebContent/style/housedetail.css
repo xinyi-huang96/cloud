@@ -47,6 +47,8 @@
 }
 
 .house_location {
+	font-size: 26px;
+	font-weight: bold;
 	width: 60%;
 	height: 10%;
 	float: left;
@@ -220,7 +222,7 @@
 }
 
 .house_apply_input input {
-	width: 50%;
+	width: 50px;
 	height: 30px;
 	margin-top: 10px;
 	float: left;
@@ -239,7 +241,7 @@
 
 .house_apply input {
 	border-radius: 5px;
-	border: 1px solid black;
-	width: 100px;
+	border: 1px solid lightgrey;
+	width: 150px;
 	margin-left: 30px;
 }

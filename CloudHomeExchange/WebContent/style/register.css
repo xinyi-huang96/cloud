@@ -71,7 +71,7 @@
 }
 
 .service span {
-	color: lightblue;
+	color: lightskyblue;
 }
 
 .register_submit {
@@ -81,8 +81,18 @@
 }
 
 .register_submit input {
-	width: 80px;
-	height: 25px;
 	border-radius: 5px;
-	border: 1px solid black;
+	width: 200px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: white;
+	background: lightskyblue;
+	cursor: pointer;
 }
+.promt {
+	color:red;
+	font-size:12px;
+	font-weight:bold;
+} 

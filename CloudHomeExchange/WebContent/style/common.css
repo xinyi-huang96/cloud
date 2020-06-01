@@ -1,3 +1,8 @@
+body { 
+	margin: 0; 
+	-webkit-text-size-adjust: 100%; 
+    font-family: 'Bree Serif';
+}
 .border_box {
 	width: 100%;
 	height: 100%;

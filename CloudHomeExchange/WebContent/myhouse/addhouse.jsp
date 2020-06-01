@@ -12,6 +12,7 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/edithouse.css">
 	<link rel="stylesheet" href="../style/common.css">
+	<link rel="stylesheet" type="text/css" href="../style/magic-check.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../style/showPhoto.js"></script>
@@ -90,37 +91,46 @@
 							<div class="house_input_feature">
 								<span>Features</span>
 								<div class="input_feature">
-									<input  type="checkbox" name="feature" value="Wifi">Wifi
+									<input  class="magic-checkbox" type="checkbox" name="feature" id="c1" value="Wifi">
+									<label for="c1">Wifi</label>
 								</div>
 								<div class="input_feature">
-									<input type="checkbox" name="feature" value="TV">TV
+									<input class="magic-checkbox" type="checkbox" name="feature" id="c2" value="TV">
+									<label for="c2">TV</label>								</div>
+								<div class="input_feature">
+									<input class="magic-checkbox" type="checkbox" name="feature" id="c3" value="NoSmoking">
+									<label for="c3">NO smoking</label>
 								</div>
 								<div class="input_feature">
-									<input type="checkbox" name="feature" value="NoSmoking">NO smoking
+									<input class="magic-checkbox" type="checkbox" name="feature" id="c4" value="Kid">
+									<label for="c4">For kid</label>
 								</div>
 								<div class="input_feature">
-									<input type="checkbox" name="feature" value="Kid">For kid
-								</div>
-								<div class="input_feature">
-									<input type="checkbox" name="feature" value="Washing">Washing
+									<input class="magic-checkbox" type="checkbox" name="feature" id="c5" value="Washing">
+									<label for="c5">Washing</label>
 								</div>
 							</div>
 							<div class="house_input_style">
 								<span>Home style</span>
 								<div class="input_style">
-									<input type="radio" name="style" value="CityPad" required>City pad
+									<input class="magic-radio" type="radio" name="style" id="r1" value="CityPad" required>
+									<label for="r1">City pad</label>
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="ByTheSea" required>By the sea
+									<input class="magic-radio" type="radio" name="style" id="r2" value="ByTheSea" required>
+									<label for="r1">By the sea</label>
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="Countryside" required>Countryside
+									<input class="magic-radio" type="radio" name="style" id="r3" value="Countryside" required>
+									<label for="r1">Countryside</label>
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="Mountain" required>Mountain
+									<input class="magic-radio" type="radio" name="style" id="r4" value="Mountain" required>
+									<label for="r1">Mountain</label>
 								</div>
 								<div class="input_style">
-									<input type="radio" name="style" value="SpringWater" required>Spring water
+									<input class="magic-radio" type="radio" name="style" id="r5" value="SpringWater" required>
+									<label for="r1">Spring water</label>
 								</div>
 							</div>
 							<div class="house_input_rooms">
