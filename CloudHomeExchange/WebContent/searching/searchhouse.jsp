@@ -12,7 +12,6 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/searchhouse.css">
 	<link rel="stylesheet" href="../style/common.css">
-	<link rel="stylesheet" type="text/css" href="../style/magic-check.css">
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="style/city.js"></script>
@@ -47,8 +46,7 @@
 					<li  class="active"><a href="../searching/searchhouse.jsp">Search House<span>▶</span></a></li>
 					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
 					<li><a href="../myhouse/index.jsp">My House</a></li>
-					<li ><a href="../myapply/index_applied.jsp">My Apply</a></li>
-					<li><a href="../contact/send.jsp">Contact Us</a></li>
+					<li><a href="../myapply/index_applied.jsp">My Apply</a></li>
 					<li><a href="../contact/messagecenter.jsp">Message</a></li>
 				</ul>
 			</div>
@@ -91,12 +89,6 @@
 						  st = request.getParameter("style");
 					  }
 					  
-					  String[] feature = {""};
-						
-						
-					  if (request.getParameter("feature") != null && !"".equals(request.getParameter("feature"))) {
-						  //cityString = request.getParameter("feature");
-					  }
 					  
 					  
 						
@@ -146,54 +138,44 @@
 							<div class="tit"><span>House Style</span></div>
 							<div class="choose_1">
 							<div class="input_style">
-									<input class="magic-radio" type="radio" name="radio" id="r1"  value="CityPad" <% if(st.equals("CityPad")) { %> checked<% } %>>
-									<label for="r1">City pad</label>
+									<input type="radio" name="style" value="CityPad" <% if(st.equals("CityPad")) { %> checked<% } %>>City pad
 								</div>
 								<div class="input_style">
-									<input class="magic-radio" type="radio" name="radio" id="r2" value="ByTheSea" <% if(st.equals("ByTheSea")) { %> checked<% } %>>
-									<label for="r2">By the sea</label>
+									<input type="radio" name="style" value="ByTheSea" <% if(st.equals("ByTheSea")) { %> checked<% } %>>By the sea
 								</div>
 								<div class="input_style">
-									<input class="magic-radio" type="radio" name="radio" id="r3" value="Countryside" <% if(st.equals("Countryside")) { %> checked<% } %>>
-									<label for="r3">Countryside</label>
+									<input type="radio" name="style" value="Countryside" <% if(st.equals("Countryside")) { %> checked<% } %>>Countryside
 								</div>
 								<div class="input_style">
-									<input class="magic-radio" type="radio" name="radio" id="r4" value="Mountain" <% if(st.equals("Mountain")) { %> checked<% } %>>
-									<label for="r4">Mountain</label>
+									<input type="radio" name="style" value="Mountain" <% if(st.equals("Mountain")) { %> checked<% } %>>Mountain
 								</div>
 								<div class="input_style">
-									<input class="magic-radio" type="radio" name="radio" id="r5" value="SpringWater" <% if(st.equals("SpringWater")) { %> checked<% } %>>
-									<label for="r5">Spring water</label>
+									<input type="radio" name="style" value="SpringWater" <% if(st.equals("SpringWater")) { %> checked<% } %>>Spring water
 								</div>
 								</div>
 						</div>
 						</div>
-						<div class="search_input_3">
+						<!--  <div class="search_input_3">
 						<div class="search_input_feature">
 							<div class="tit"><span>Feature</span></div>
 							<div class="choose_2">
 							<div class="input_feature">
-									<input  class="magic-checkbox" type="checkbox" name="layout" id="c1" value="Wifi">
-									<label for="c1">Wifi</label>
+									<input  type="checkbox" name="feature" value="Wifi">Wifi
 								</div>
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="layout" id="c2" value="TV">
-									<label for="c2">TV</label>
+									<input type="checkbox" name="feature" value="TV">TV
 								</div>
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="layout" id="c3" value="NoSmoking">
-									<label for="c3">NO smoking</label>
+									<input type="checkbox" name="feature" value="NoSmoking">NO smoking
 								</div>
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="layout" id="c4" value="Kid">
-									<label for="c4">For kid</label>
+									<input type="checkbox" name="feature" value="Kid">For kid
 								</div>
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="layout" id="c5" value="Washing">
-									<label for="c5">Washing</label>
+									<input type="checkbox" name="feature" value="Washing">Washing
 								</div></div>
 						</div>
-						</div>
+						</div> -->
 						<div class="search_input_4">
 						<div class="search_submit">
 							<input type="submit" name="submit" value="Search">
@@ -260,8 +242,8 @@
 			</div>
 			<div class="footer_nav">
 				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">About us</a></li>
+					<li><a href="contact/send.jsp">Contact us</a></li>
+					<li><a href="contact/about.jsp">About us</a></li>
 				</ul>
 			</div>
 			<div class="social_media">

@@ -46,7 +46,6 @@
 					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
 					<li class="active"><a href="../myhouse/index.jsp">My House<span>▶</span></a></li>
 					<li ><a href="../myapply/index_applied.jsp">My Apply</a></li>
-					<li><a href="../contact/send.jsp">Contact Us</a></li>
 					<li><a href="../contact/messagecenter.jsp">Message</a></li>
 				</ul>
 			</div>
@@ -56,7 +55,7 @@
 				</div>
 			
 			<%	
-				String sql = "select Hid, Title, Detail, Address, Photo , Addr_country, Addr_city from house where Uid = ? AND State = 1;";
+				String sql = "select Hid, Title, Detail, Address, Photo, Addr_country, Addr_city from house where Uid = ? AND (State = 1 or State = 3);";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
 					pstmt.setString(1, userId);
@@ -67,20 +66,20 @@
 						String Detail = rs.getString(3);
 						String Address = rs.getString(4);
 						String Photo = rs.getString(5);
-						String country = rs.getString(6);
-						String city = rs.getString(7);
+						String Country = rs.getString(6);
+						String City = rs.getString(7);
 				%>
 				
 				<div class="myhouse">
 					<a href="housedetail.jsp?Hid=<%=Hid %>" id="transHid">
 					<div class="house_img">
-						<img src="../img/house1.jpg">
+						<img src="D://upload//<%=userId %>//<%=Photo%>">
 					</div>
 					</a>
 					<div class="house_detail">
 						<div class="house_info">
 							<div class="house_location">
-								<p><%=country %>, <%=city %></p>
+								<p><%=City %>, <%=Country %></p>
 							</div>
 							<div class="house_contact">
 								<div class="house_contact_loc">Address: <%=Address %></div>
@@ -116,8 +115,8 @@ function confirmDel(hid)
 			</div>
 			<div class="footer_nav">
 				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">About us</a></li>
+					<li><a href="contact/send.jsp">Contact us</a></li>
+					<li><a href="contact/about.jsp">About us</a></li>
 				</ul>
 			</div>
 			<div class="social_media">

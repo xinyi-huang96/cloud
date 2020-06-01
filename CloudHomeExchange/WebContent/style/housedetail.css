@@ -47,8 +47,6 @@
 }
 
 .house_location {
-	font-size: 26px;
-	font-weight: bold;
 	width: 60%;
 	height: 10%;
 	float: left;
@@ -85,6 +83,18 @@
 	height: 25%;
 	margin-top: 10px;
 	float: left;
+}
+
+.house_apply button {
+	width: 30%;
+	height: 30px;
+	margin-right: 10%;
+	float: left;
+	border-radius: 5px;
+	border: 1px solid lightskyblue;
+	text-align: center;
+	color: white;
+	background: lightskyblue;
 }
 
 .result_rooms {
@@ -210,7 +220,7 @@
 }
 
 .house_apply_input input {
-	width: 50px;
+	width: 50%;
 	height: 30px;
 	margin-top: 10px;
 	float: left;
@@ -229,18 +239,7 @@
 
 .house_apply input {
 	border-radius: 5px;
-	border: 1px solid lightgrey;
-	width: 150px;
+	border: 1px solid black;
+	width: 100px;
 	margin-left: 30px;
-}
-.house_apply input[style="button"] {
-	width: 30%;
-	height: 30px;
-	margin-right: 10%;
-	float: left;
-	border-radius: 5px;
-	border: 1px solid lightskyblue;
-	text-align: center;
-	color: white;
-	background: lightskyblue;
 }

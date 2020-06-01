@@ -199,7 +199,7 @@
 
 .house_input_rooms {
 	width: 90%;
-	height: 200px;
+	height: 220px;
 	float: left;
 	margin-top: 10px;
 }
@@ -207,7 +207,7 @@
 .input_room {
 	margin-top: 10px;
 	width: 48%;
-	border-right: 2px solid lightskyblue;
+	border-right: 2px solid black;
 	float: left;
 }
 
@@ -240,15 +240,12 @@
 .house_submit {
 	width: 90%;
 	float: left;
+	margin-top: 10px;
 	text-align: center;
 }
 
 .house_submit input {
-	width: 80px;
-	height: 40px;
 	border-radius: 5px;
-	border: 1px solid lightskyblue;
-	text-align: center;
-	color: white;
-	background: lightskyblue;
+	border: 1px solid black;
+	width: 100px;
 }

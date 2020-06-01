@@ -53,13 +53,8 @@
 }
 
 .login_submit input {
-	width: 200px;
-	height: 30px;
+	width: 80px;
+	height: 25px;
 	border-radius: 5px;
-	border: 1px solid lightskyblue;
-	text-align: center;
-	color: white;
-	background: lightskyblue;
-	border-radius: 5px;
-	cursor: pointer;
+	border: 1px solid black;
 }

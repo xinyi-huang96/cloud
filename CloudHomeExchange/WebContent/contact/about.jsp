@@ -47,41 +47,47 @@ if(conn != null){
 					<li ><a href="../myaccount/myprofile.jsp">My Account</a></li>
 					<li><a href="../myhouse/index.jsp">My House</a></li>
 					<li><a href="../myapply/index_applied.jsp">My Apply</a></li>
-					<li class="active"><a href="../contact/messagecenter.jsp">Message<span>▶</span></a></li>
+					<li><a href="../contact/messagecenter.jsp">Message</a></li>
 				</ul>
 			</div>
 			<div class="main">
-				
-					<% String Uid = (String)session.getAttribute("userId"); %>
 				<div class="message_center">
-				<div class="mes_title">
-					<div class="mes_tit">Message Center</div>
-					<div class="center_switch"><a href="messagecenter_sended.jsp">OutBox</a></div>
-					</div>
-					<div class="messages">
-					<%	
-				String sql = "SELECT Nickname, Sender, Content, Mid FROM message Join user ON message.Sender = user.Uid WHERE Receiver = ? ORDER BY Mid DESC";
+					
+				<% String Uid = (String)session.getAttribute("userId"); 
+				String Mid = request.getParameter("Mid");%>
+				<%	
+				String sql = "SELECT Nickname, Sender, Content FROM message Join user ON message.Sender = user.Uid WHERE Mid = ?";
 					pstmt = conn.prepareStatement(sql);
 					String userId = (String)session.getAttribute("userId");
-					pstmt.setString(1, userId);
+					pstmt.setString(1, Mid);
 					rs = pstmt.executeQuery();
 					while (rs.next()) {
 						String Sendername = rs.getString(1);
 						int Sender = rs.getInt(2);
 						String Content = rs.getString(3);
-						int Mid = rs.getInt(4);
 
 				%>
-					<div class="message">
-						<div class="contacter">
-						<div><%=Sendername %></div>
+				<div class="mes_title">Message With <%=Sendername %></div>
+					<div class="contact">
+						<div class="content_receive">
+							<div class="sender"><%=Sendername %></div>
+							<div class="content"><%=Content %></div>
+						
 						</div>
 						
-						<div class="message_content">
-						<a href="message.jsp?Mid=<%=Mid%>"><%=Content %></a>
-						</div>
+						
+	
 					</div>
-				<% } %>
+					<% } %>
+					<div class="message_input1">
+					<form method="post" action="">
+						<input type="text" name="receiver" value="" hidden>
+						<div class="inputform1">
+							<textarea maxlength="1000" name="content" required></textarea>
+						</div>
+						<div class="inputsubmit1"><input type="submit" value="SEND"></div>
+						
+					</form>
 					</div>
 				</div>
 			</div>
@@ -104,6 +110,6 @@ if(conn != null){
 		</div>
 		<div class="foot"><span>© Copyright 2020</span></div>
 	</div>
-	<%} %>
+	<% } %>
 </body>
 </html>

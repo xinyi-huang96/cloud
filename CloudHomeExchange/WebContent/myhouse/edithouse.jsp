@@ -12,7 +12,6 @@
 	<title>Cloud Home Exchange</title>
 	<link rel="stylesheet" href="../style/edithouse.css">
 	<link rel="stylesheet" href="../style/common.css">
-	<link rel="stylesheet" type="text/css" href="../style/magic-check.css">
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../style/showPhoto.js"></script>
@@ -48,7 +47,6 @@
 					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
 					<li class="active"><a href="../myhouse/index.jsp">My House<span>▶</span></a></li>
 					<li ><a href="../myapply/index_applied.jsp">My Apply</a></li>
-					<li><a href="../contact/send.jsp">Contact Us</a></li>
 					<li><a href="../contact/messagecenter.jsp">Message</a></li>
 				</ul>
 			</div>
@@ -75,8 +73,8 @@
 				String country = rs.getString(10);
 				String city = rs.getString(11);
 				String Address = rs.getString(12);
-				int Comment = rs.getInt(13);
-				String Photo = rs.getString(14);
+				int Comment = rs.getInt(14);
+				String Photo = rs.getString(13);
 				int State = rs.getInt(15);
 				%>
 				<div class="mytitle">
@@ -115,7 +113,7 @@
 								</div>
 							<div class="house_input_discribe">
 								<span>Tell us about your house</span>
-								<textarea maxlength="1000" name="discribe" required><%=Detail %></textarea>
+								<textarea maxlength="1000" name="discribe" value="<%=Detail %>" required></textarea>
 							</div>
 							<div class="house_input_feature">
 								<span>Features</span>
@@ -124,91 +122,76 @@
 									if (str.equals("Wifi")) {
 									b_Wifi = true;%> 
 								<div class="input_feature">
-									<input  class="magic-checkbox" type="checkbox" name="feature" id="c1" value="Wifi" checked>
-									<label for="c1">Wifi</label>
+									<input  type="checkbox" name="feature" value="Wifi" checked>Wifi
 								</div>
 									<% } if (str.equals("TV")) {
 									b_TV = true; %> 
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="feature" id="c2" value="TV" checked>
-									<label for="c2">TV</label>
+									<input type="checkbox" name="feature" value="TV" checked>TV
 								</div>
 									<% } if (str.equals("NoSmoking")) {
 										b_NoSmoking = true; %> 
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="feature" id="c3" value="NoSmoking" checked>
-									<label for="c3">NO smoking</label>
+									<input type="checkbox" name="feature" value="NoSmoking" checked>NO smoking
 								</div>
 									<% } if (str.equals("Kid")) {
 									 b_Kid = true; %> 
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="feature" id="c4" value="Kid" checked>
-									<label for="c4">For kid</label>
+									<input type="checkbox" name="feature" value="Kid" checked>For kid
 								</div>
 									<% } if (str.equals("Washing")) {
 										b_Washing = true; %> 
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="feature" id="c5" value="Washing" checked>
-									<label for="c5">Washing</label>
+									<input type="checkbox" name="feature" value="Washing" checked>Washing
 								</div>
 								<% }} %>
 								<% if (!b_Wifi) { %>
 									<div class="input_feature">
-									<input  class="magic-checkbox" type="checkbox" name="feature" id="c1" value="Wifi">
-									<label for="c1">Wifi</label>
+									<input type="checkbox" name="feature" value="Wifi">Wifi
 								</div>
 								<% } %>
 								<% if (!b_TV) { %>
-								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="feature" id="c2" value="TV">
-									<label for="c2">TV</label>
+									<div class="input_feature">
+									<input type="checkbox" name="feature" value="TV">TV
 								</div>
 								<% } %>
 								<% if (!b_NoSmoking) { %>
-								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="feature" id="c3" value="NoSmoking">
-									<label for="c3">NO smoking</label>
+									<div class="input_feature">
+									<input type="checkbox" name="feature" value="NoSmoking">No Smoking
 								</div>
 								<% } %>
 								<% if (!b_Kid) { %>
-								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="feature" id="c4" value="Kid">
-									<label for="c4">For kid</label>
+									<div class="input_feature">
+									<input type="checkbox" name="feature" value="Kid">For kid
 								</div>
 								<% } %>
 								<% if (!b_Washing) { %>
-								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="feature" id="c5" value="Washing">
-									<label for="c5">Washing</label>
+									<div class="input_feature">
+									<input type="checkbox" name="feature" value="Washing">Washing
 								</div>
 								<% } %>
-								</div>
 							</div>
 							<div class="house_input_style">
 								<span>Home style</span>
 								<div class="input_style">
-									<input class="magic-radio" type="radio" name="style" id="r1"  value="CityPad" <%	if (Style == 1) {%> checked <%	} %>>
-									<label for="r1">City pad</label>
+									<input type="radio" name="style" value="CityPad" required
+									<%	if (Style == 1) {%> checked <%	} %>>City pad
 								</div>
 								<div class="input_style">
-									<input  class="magic-radio" type="radio" name="style" id="r2" value="ByTheSea" required
-									<%	if (Style == 2) {%> checked <%	} %>>
-									<label for="r2">By the sea</label>
+									<input type="radio" name="style" value="ByTheSea" required
+									<%	if (Style == 2) {%> checked <%	} %>>By the sea
 								</div>
 								<div class="input_style">
-									<input  class="magic-radio" type="radio" name="style" id="r3" value="Countryside" required
-									<%	if (Style == 3) {%> checked <%	} %>>
-									<label for="r3">Countryside</label>
+									<input type="radio" name="style" value="Countryside" required
+									<%	if (Style == 3) {%> checked <%	} %>>Countryside
 								</div>
 								<div class="input_style">
-									<input  class="magic-radio" type="radio" name="style" id="r4" value="Mountain" required
-									<%	if (Style == 4) {%> checked <%	} %>>
-									<label for="r4">Mountain</label>
+									<input type="radio" name="style" value="Mountain" required
+									<%	if (Style == 4) {%> checked <%	} %>>Mountain
 								</div>
 								<div class="input_style">
-									<input  class="magic-radio" type="radio" name="style" id="r5" value="SpringWater" required
-									<%	if (Style == 5) {%> checked <%	} %>>
-									<label for="r5">Spring water</label>
+									<input type="radio" name="style" value="SpringWater" required
+									<%	if (Style == 5) {%> checked <%	} %>>Spring water
 								</div>
 							</div>
 							<div class="house_input_rooms">
@@ -249,8 +232,8 @@
 			</div>
 			<div class="footer_nav">
 				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">About us</a></li>
+					<li><a href="contact/send.jsp">Contact us</a></li>
+					<li><a href="contact/about.jsp">About us</a></li>
 				</ul>
 			</div>
 			<div class="social_media">

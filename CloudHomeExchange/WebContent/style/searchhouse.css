@@ -7,13 +7,15 @@
 
 .search {
 	width: 98%;
+	height: 28%;
 	padding-left: 1%;
+	float: right;
 	min-width: 700px;
 }
 
 .recommend_house {
 	width: 98%;
-	height: 58%;
+	height: 72%;
 	padding-left: 1%;
 	float: left;
 	min-width: 700px;
@@ -204,14 +206,4 @@
 .search_submit {
 	padding-right: 30px;
 	float:right;
-}
-.search_submit input{
-	height: 25px;
-	border-radius: 5px;
-	border: 1px solid skyblue;
-	text-align: center;
-	color: white;
-	background: lightskyblue;
-	border-radius: 5px;
-	cursor: pointer;
 }
