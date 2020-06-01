@@ -41,7 +41,7 @@ public class HouseBlockServlet extends HttpServlet {
 			boolean flag = hs.block(hid);
 			if(flag == true) {
 				response.getWriter().append("<script language='javascript'>alert('block house success.');</script>");
-				response.sendRedirect("background/house.jsp" );
+				response.sendRedirect("./background/house.jsp" );
 			}else {
 				response.getWriter().append("<script language='javascript'>alert('failed to block house');"
 						+ "history.back();</script>");

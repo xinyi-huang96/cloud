@@ -35,9 +35,9 @@
 				<%	if (session.getAttribute("userNickName") != null) {
 			%>
 				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
-				<a href="../myaccount/login.html">Sign out</a>
+				<a href="../myaccount/login.jsp">Sign out</a>
 			<%	} else { %>
-				<a href="../myaccount/login.html">Log in</a>
+				<a href="../myaccount/login.jsp">Log in</a>
 			<%	} %>
 			</div>
 		</div>
@@ -56,20 +56,29 @@
 				<div class="search">
 					<%		
 						String cityString = "";
-						
+						StringBuffer sb = new StringBuffer(1024);
 						
 					  if (request.getParameter("arrival") != null && !"".equals(request.getParameter("arrival"))) {
 						  cityString = request.getParameter("arrival");
+						  sb.append(" AND Addr_city like '%" + cityString + "%'");
 					  }
-					  String Arrival = "%" + cityString + "%"; 
+					  //String Arrival = "%" + cityString + "%"; 
 					  
 					  String checkIn = "";
 					  String checkOut = "";
 					  if (request.getParameter("indate") != null && !"".equals(request.getParameter("indate"))) {
 						  checkIn = request.getParameter("indate");
+						  sb.append(" AND Hid NOT IN ( " + 
+									"	SELECT Hid FROM orderhouse " + 
+									"	WHERE checkin <= " +  checkIn +
+									"	AND checkout > " + checkIn + ")");
 					  }
 					  if (request.getParameter("outdate") != null && !"".equals(request.getParameter("outdate"))) {
 						  checkOut = request.getParameter("outdate");
+						  sb.append(" AND Hid NOT IN ( " + 
+									"	SELECT Hid FROM orderhouse " + 
+									"	WHERE checkin <= " +  checkIn +
+									"	AND checkout > " + checkOut + ")");
 					  }
 
 					  
@@ -77,11 +86,13 @@
 						
 					  if (request.getParameter("sleeps") != null && !"".equals(request.getParameter("bedrooms"))) {
 						  Sleeps = Integer.parseInt(request.getParameter("sleeps"));
+						  sb.append(" AND PeoplNum >= " + Sleeps + " ");
 					  }
 					  
 					  int Bedrooms = 0;
 					  if (request.getParameter("bedrooms") != null && !"".equals(request.getParameter("bedrooms"))) {
 						  Bedrooms = Integer.parseInt(request.getParameter("bedrooms"));
+						  sb.append(" AND bedrooms >= " + Bedrooms + " ");
 					  }
 					  
 					  String st = "";
@@ -89,22 +100,42 @@
 						
 					  if (request.getParameter("style") != null && !"".equals(request.getParameter("style"))) {
 						  st = request.getParameter("style");
+						  sb.append(" AND style = ");
+						  if(st.equals("CityPad")) {
+							  sb.append("1 ");
+						  }if(st.equals("ByTheSea")) {
+							  sb.append("2 ");
+						  }if(st.equals("Countryside")) {
+							  sb.append("3 ");
+						  }if(st.equals("Mountain")) {
+							  sb.append("4 ");
+						  }if(st.equals("SpringWater")) {
+							  sb.append("5 ");
+						  }
 					  }
 					  
-					  int style = 0;
-					  if(st.equals("CityPad"))
-						  style = 1;
-					  if(st.equals("ByTheSea"))
-						  style = 2;
-						  if(st.equals("Countryside"))
-							  style = 3;
-							  if(st.equals("Mountain"))
-								  style = 4;
-								  if(st.equals("SpringWater"))
-									  style = 5;
-								  
-								  
-								  
+					  
+						boolean[] flag = {false, false, false, false, false};		
+						if(request.getParameter("feature") != null && !"".equals(request.getParameter("feature"))) {
+							String[] feature = request.getParameterValues("feature");
+							StringBuffer sbu = new StringBuffer(1024);
+							for(String fea:feature){
+								System.out.println(fea);
+								sbu.append(fea + "|");
+							} 
+							String features = sbu.toString();
+							sb.append("features REGEXP " + features.substring(0, features.length() - 1));
+							 if(features.contains("Wifi"))
+								 flag[0] = true;
+							 if(features.contains("TV"))
+								 flag[1] = true;
+							 if(features.contains("NoSmoking"))
+								 flag[2] = true;
+							 if(features.contains("Kid"))
+								 flag[3] = true;
+							 if(features.contains("Washing"))
+								 flag[4] = true;
+						}  
 									
 
 					%>
@@ -175,23 +206,23 @@
 							<div class="tit"><span>Feature</span></div>
 							<div class="choose_2">
 							<div class="input_feature">
-									<input  class="magic-checkbox" type="checkbox" name="layout" id="c1" value="Wifi">
+									<input  class="magic-checkbox" type="checkbox" name="layout" id="c1" value="Wifi"<% if(flag[0] == true) { %> checked<% } %>>
 									<label for="c1">Wifi</label>
 								</div>
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="layout" id="c2" value="TV">
+									<input class="magic-checkbox" type="checkbox" name="layout" id="c2" value="TV"<% if(flag[1] == true) { %> checked<% } %>>
 									<label for="c2">TV</label>
 								</div>
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="layout" id="c3" value="NoSmoking">
+									<input class="magic-checkbox" type="checkbox" name="layout" id="c3" value="NoSmoking"<% if(flag[2] == true) { %> checked<% } %>>
 									<label for="c3">NO smoking</label>
 								</div>
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="layout" id="c4" value="Kid">
+									<input class="magic-checkbox" type="checkbox" name="layout" id="c4" value="Kid"<% if(flag[3] == true) { %> checked<% } %>>
 									<label for="c4">For kid</label>
 								</div>
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="layout" id="c5" value="Washing">
+									<input class="magic-checkbox" type="checkbox" name="layout" id="c5" value="Washing"<% if(flag[4] == true) { %> checked<% } %>>
 									<label for="c5">Washing</label>
 								</div>
 								</div>
@@ -205,11 +236,9 @@
 					</form>
 				</div>
 				<div class="recommend_house">
-				<%	String sql = "SELECT Hid, Uid, Title, Detail, Features, Style, bedrooms, bathrooms, PeoplNum, Addr_country, Addr_city, Address, Photo, Comment, State FROM house WHERE Addr_city LIKE ? AND PeoplNum >= ? and Style = ?;";
+				<%	String sql = "SELECT Hid, Uid, Title, Detail, Features, Style, bedrooms, bathrooms, PeoplNum, Addr_country, Addr_city, Address, Photo, Comment, State FROM house WHERE State = 1"
+								+ sb.toString();
 					pstmt = conn.prepareStatement(sql);
-					pstmt.setString(1, Arrival);
-					pstmt.setInt(2, Sleeps);
-					pstmt.setInt(3, style);
 							rs = pstmt.executeQuery();
 							while (rs.next()) { 
 								String Hid = rs.getString(1);
