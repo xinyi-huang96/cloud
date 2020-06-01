@@ -56,43 +56,32 @@
 				<div class="info">			
 					<table class="userInfo">
 						<tr>
-							<th>uid</th>
-							<th>nickname</th>
-							<th>gender</th>
-							<th>birthday</th>
-							<th>e-mail</th>
-							<th>telephone</th>
-							<th></th>
+							<th>Mid</th>
+							<th>Sender</th>
+							<th>Receiver</th>
+							<th>Content</th>
+							<th>SendTime</th>
 						</tr>
 						<% 
-							String sql = "SELECT * FROM user;";
+							String sql = "SELECT * FROM message ORDER BY Mid DESC;";
 							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
 							while (rs.next()) { 
-								String uid = rs.getString(1);
-								String nickname = rs.getString(2);
-								int usertype = rs.getInt(3);
-								int genderNum = rs.getInt(4);
-								String gender = null;
-								if (genderNum == 0)
-									gender = "Female";
-								else
-									gender = "Male";
-								String birth = rs.getString(5);
-								String email = rs.getString(6);
-								int telephone = rs.getInt(7);
+								String Mid = rs.getString(1);
+								String Sender = rs.getString(2);
+								String Receiver = rs.getString(3);
+								String Type = rs.getString(4);
+								String IsRead = rs.getString(5);
+								String Content = rs.getString(6);
+								String SendTime = rs.getString(7);
+								
 						%>
 						<tr>
-							<form>
-								<input type="text" name="uid" value="uid" hidden>
-								<td><% out.print(uid); %></td>
-								<td><% out.print(nickname); %></td>
-								<td><% out.print(gender); %></td>
-								<td><% out.print(birth); %></td>
-								<td><% out.print(email); %></td>
-								<td><% out.print(telephone); %></td>
-								<td><input type="submit" value="modify"></td>
-							</form>	
+							<td><%=Mid %></td>
+							<td><%=Sender %></td>
+							<td><%=Receiver %></td>
+							<td><%=Content %></td>
+							<td><%=SendTime %></td>
 						</tr>
 						<%
 							}
