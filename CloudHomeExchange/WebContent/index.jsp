@@ -91,7 +91,7 @@
 						<a href="myhouse/housedetail.jsp?Hid=<%=Hid %>" id="transHid">
 							<div class="re_house">
 								<div class="re_house_img">
-									<img src="D://upload//<%=Uid %>//<%=Photo %>" width="300" height="220">
+									<img src="/file/<%=Uid %>/<%=Photo %>" width="300" height="220">
 								</div>
 								<div class="re_house_discribe"><%=Title %></div>
 								

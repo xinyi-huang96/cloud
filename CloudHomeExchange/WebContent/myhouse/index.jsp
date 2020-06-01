@@ -73,7 +73,7 @@
 				<div class="myhouse">
 					<a href="housedetail.jsp?Hid=<%=Hid %>" id="transHid">
 					<div class="house_img">
-						<img src="D://upload//<%=userId %>//<%=Photo%>">
+						<img src="/file/<%=userId %>/<%=Photo%>">
 					</div>
 					</a>
 					<div class="house_detail">

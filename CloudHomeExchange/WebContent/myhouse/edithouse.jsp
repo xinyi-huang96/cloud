@@ -229,7 +229,7 @@
 									<div class="photo_add">
 										<span>photo</span>
 										<input type="file" name="file" id="file" class="inputfile" accept="image/*" onchange="changepic(this)" multiple="multiple" />
-										<img src="D://upload//<%=Uid %>//<%=Photo%>" id="show" width="180">
+										<img src="/file/<%=Uid %>/<%=Photo%>" id="show" width="180">
 									</div>
 								</div>
 							</div>

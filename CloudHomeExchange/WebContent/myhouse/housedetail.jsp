@@ -94,7 +94,7 @@
 						String Telephone = rs2.getString(7);
 				%>
 					<div class="result_house">
-						<div class="house_img"><img src="D://upload//<%=Uid %>//<%=Photo%>">
+						<div class="house_img"><img src="/file/<%=Uid %>/<%=Photo%>">
 						</div>
 						<div class="house_detail">
 							<div class="house_info">

@@ -149,7 +149,7 @@
 					<div class="apply_info">
 						<a href="../myhouse/housedetail.jsp?Hid=<%=Hid %>">
 						<div class="house_img">
-							<img src="../img/house1.jpg">
+							<img src="/file/<%=Uid %>/<%=Photo%>">
 						</div>
 						<div class="house_info">
 							<div class="house_title"><%=Title %></div>

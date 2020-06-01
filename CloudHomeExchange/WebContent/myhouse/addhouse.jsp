@@ -118,19 +118,19 @@
 								</div>
 								<div class="input_style">
 									<input class="magic-radio" type="radio" name="style" id="r2" value="ByTheSea" required>
-									<label for="r1">By the sea</label>
+									<label for="r2">By the sea</label>
 								</div>
 								<div class="input_style">
 									<input class="magic-radio" type="radio" name="style" id="r3" value="Countryside" required>
-									<label for="r1">Countryside</label>
+									<label for="r3">Countryside</label>
 								</div>
 								<div class="input_style">
 									<input class="magic-radio" type="radio" name="style" id="r4" value="Mountain" required>
-									<label for="r1">Mountain</label>
+									<label for="r4">Mountain</label>
 								</div>
 								<div class="input_style">
 									<input class="magic-radio" type="radio" name="style" id="r5" value="SpringWater" required>
-									<label for="r1">Spring water</label>
+									<label for="r5">Spring water</label>
 								</div>
 							</div>
 							<div class="house_input_rooms">
