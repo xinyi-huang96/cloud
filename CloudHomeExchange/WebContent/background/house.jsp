@@ -51,7 +51,7 @@
 			</div>
 			<div class="main">
 				<div class="nav">
-					<a href="user.jsp">house info</a>
+					<a>house</a>
 				</div>
 				<div class="info">		
 				
@@ -64,9 +64,9 @@
 							<th>Features</th>
 							
 							<th>Style</th>
-							<th>bedrooms</th>
-							<th>bathrooms</th>
-							<th>PeopleNum</th>
+							<th>bed</th>
+							<th>bath</th>
+							<th>Peo</th>
 							<th>Country</th>
 							
 							<th>City</th>

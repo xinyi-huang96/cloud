@@ -46,7 +46,7 @@
 					<li><a href="apply.jsp">Apply</a></li>
 					<li><a href="comment.jsp">Comment</a></li>
 					<li><a href="message.jsp">Message</a></li>
-					<li class="active"><a href="advertive.jsp">Advertise</a></li>
+					<li class="active"><a href="advertisement.jsp">Advertise</a></li>
 				</ul>
 			</div>
 			<div class="main">

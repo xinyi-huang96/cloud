@@ -47,7 +47,7 @@ public class UserLoginServlet extends HttpServlet {
 			if(user.getType() == 0)
 				response.sendRedirect("index.jsp" );
 			else
-				response.sendRedirect("index-background.html" );
+				response.sendRedirect("index-background.jsp" );
 		}else if(flag == -1) {	//user not exist
 			response.getWriter().append("<script language='javascript'>alert('User does not exist.');"
 					+ "history.back();</script>");

@@ -51,7 +51,7 @@
 			</div>
 			<div class="main">
 				<div class="nav">
-					<a href="user.jsp">user info</a>
+					<a>user</a>
 				</div>
 				<div class="info">			
 					<table class="userInfo">
