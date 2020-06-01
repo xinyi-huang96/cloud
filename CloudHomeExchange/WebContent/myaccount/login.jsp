@@ -1,3 +1,7 @@
+<%@page import="com.util.Conn"%>
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +15,12 @@
 	<script src="https://kit.fontawesome.com/f3dde35be0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="style/ShowTime.js"></script>
 </head>
+<%	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	Conn DBConn = new Conn();
+	conn = DBConn.getConnection();
+%>
 <body>
 	<div class="border_box">
 		<div class="header">
@@ -18,7 +28,6 @@
 				<br><span  style="font-size:20px;"><strong>Cloud Home Exchange</strong></span>
 			</div>
 			<div class="login">
-				<a>don't have account?</a>
 				<a href="../myaccount/register.html">Sign up</a>
 			</div>
 		</div>
@@ -43,8 +52,8 @@
 			</div>
 			<div class="footer_nav">
 				<ul>
-					<li><a href="contact/send.jsp">Contact us</a></li>
-					<li><a href="contact/about.jsp">About us</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">About us</a></li>
 				</ul>
 			</div>
 			<div class="social_media">

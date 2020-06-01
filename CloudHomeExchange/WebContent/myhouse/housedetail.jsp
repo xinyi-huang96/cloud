@@ -50,7 +50,6 @@
 					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
 					<li class="active"><a href="../myhouse/index.jsp">My House<span>▶</span></a></li>
 					<li ><a href="../myapply/index_applied.jsp">My Apply</a></li>
-					<li><a href="../contact/send.jsp">Contact Us</a></li>
 					<li><a href="../contact/messagecenter.jsp">Message</a></li>
 				</ul>
 			</div>
@@ -81,8 +80,9 @@
 						String country = rs1.getString(10);
 						String city = rs1.getString(11);
 						String Address = rs1.getString(12);
-						int Comment = rs1.getInt(13);
-						String Photo = rs1.getString(14);
+						String Photo = rs1.getString(13);
+						int Comment = rs1.getInt(14);
+						
 						int State = rs1.getInt(15);
 						String sql2 = "select * from user where Uid = ?";
 						pstmt2 = conn.prepareStatement(sql2);
@@ -212,8 +212,8 @@
 			</div>
 			<div class="footer_nav">
 				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">About us</a></li>
+					<li><a href="contact/send.jsp">Contact us</a></li>
+					<li><a href="contact/about.jsp">About us</a></li>
 				</ul>
 			</div>
 			<div class="social_media">

@@ -46,7 +46,6 @@
 					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
 					<li><a href="../myhouse/index.jsp">My House</a></li>
 					<li class="active"><a href="../myapply/index_applied.jsp">My Apply<span>▶</span></a></li>
-					<li><a href="../contact/send.jsp">Contact Us</a></li>
 					<li><a href="../contact/messagecenter.jsp">Message</a></li>
 				</ul>
 			</div>
@@ -146,7 +145,7 @@
 						<div class="apply_time">Order Time: <%=OperTime %></div>
 						<div class="apply_id">Order Id: <%=Oid+123456789 %></div>
 						<div class="apply_mes">
-						<% if(uidInt == Uid){ %><p style="color: grey;">Your order</p><% } %>
+						<% if(uidInt == Uid){ %><div style="color: grey; padding-right: 50px;">Your order</div><% } %>
 						<% if(State == 3 && uidInt != Uid){ %>
 						<a href="comment.jsp?Oid=<%=Oid %>"><button>Comment</button></a>
 						<% } %></div>
@@ -192,8 +191,8 @@
 			</div>
 			<div class="footer_nav">
 				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">About us</a></li>
+					<li><a href="contact/send.jsp">Contact us</a></li>
+					<li><a href="contact/about.jsp">About us</a></li>
 				</ul>
 			</div>
 			<div class="social_media">

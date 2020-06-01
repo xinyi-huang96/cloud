@@ -46,8 +46,7 @@
 					<li  class="active"><a href="../searching/searchhouse.jsp">Search House<span>▶</span></a></li>
 					<li><a href="../myaccount/myprofile.jsp">My Account</a></li>
 					<li><a href="../myhouse/index.jsp">My House</a></li>
-					<li ><a href="../myapply/index_applied.jsp">My Apply</a></li>
-					<li><a href="../contact/send.jsp">Contact Us</a></li>
+					<li><a href="../myapply/index_applied.jsp">My Apply</a></li>
 					<li><a href="../contact/messagecenter.jsp">Message</a></li>
 				</ul>
 			</div>
@@ -90,12 +89,6 @@
 						  st = request.getParameter("style");
 					  }
 					  
-					  String[] feature = {""};
-						
-						
-					  if (request.getParameter("feature") != null && !"".equals(request.getParameter("feature"))) {
-						  //cityString = request.getParameter("feature");
-					  }
 					  
 					  
 						
@@ -162,7 +155,7 @@
 								</div>
 						</div>
 						</div>
-						<div class="search_input_3">
+						<!--  <div class="search_input_3">
 						<div class="search_input_feature">
 							<div class="tit"><span>Feature</span></div>
 							<div class="choose_2">
@@ -182,7 +175,7 @@
 									<input type="checkbox" name="feature" value="Washing">Washing
 								</div></div>
 						</div>
-						</div>
+						</div> -->
 						<div class="search_input_4">
 						<div class="search_submit">
 							<input type="submit" name="submit" value="Search">
@@ -249,8 +242,8 @@
 			</div>
 			<div class="footer_nav">
 				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">About us</a></li>
+					<li><a href="contact/send.jsp">Contact us</a></li>
+					<li><a href="contact/about.jsp">About us</a></li>
 				</ul>
 			</div>
 			<div class="social_media">

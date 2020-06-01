@@ -30,8 +30,7 @@
 			<div class="title">Welcome
 			<br>Cloud Home Exchange</div>
 			<div class="login">
-			<%	if (session.getAttribute("userNickName") != null) {
-			%>
+			<%	if (session.getAttribute("userNickName") != null) {%>
 				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
 				<a href="myaccount/login.html">Sign out</a>
 			<%	} else { %>
@@ -47,7 +46,6 @@
 					<li><a href="myaccount/myprofile.jsp">My Account</a></li>
 					<li><a href="myhouse/index.jsp">My House</a></li>
 					<li><a href="myapply/index_applied.jsp">My Apply</a></li>
-					<li><a href="contact/send.jsp">Contact Us</a></li>
 					<li><a href="contact/messagecenter.jsp">Message</a></li>
 				</ul>
 			</div>
@@ -56,7 +54,7 @@
 					<form id="search_form" class="search_form" action="searching/searchhouse.jsp" method="get/post">
 						<div class="search_span">Le monde est tellement grand, Allez pour voir.</div>
 						<div class="search_span_info">
-							<div class="search_input">
+							<div class="search_input" style="z-index: 2;">
 								<span>My home is in...</span>
 								<input type="text" id="cityjson1" name="depart" placeholder="Enter your country or city" required>
 							</div>
@@ -74,27 +72,32 @@
 				<div class="recommend_house">
 					<div class="re_title">Recommend House</div>
 					<% 
-							String sql = "SELECT Hid, Uid, Title, Detail, Comment, Photo, State FROM house WHERE State = 1;";
+							String sql = "SELECT Hid, Uid, Title, Detail, Comment, Photo, State FROM house WHERE State = 3;";
 							stmt = conn.createStatement();
 							rs = stmt.executeQuery(sql);
-							String Hid;
+							
 							while (rs.next()) { 
-								Hid = rs.getString(1);
-								String Uid = rs.getString(2);
+								int Hid = rs.getInt(1);
+								int Uid = rs.getInt(2);
 								String Title = rs.getString(3);
 								String Detail = rs.getString(4);
-								String Photo = rs.getString(5);
-								//int State = rs.getInt(6);
+								int Comment = rs.getInt(5);
+								String Photo = rs.getString(6);
+								int State = rs.getInt(7);
 						%>
 					<div class="recommandation">
 						<a href="myhouse/housedetail.jsp?Hid=<%=Hid %>" id="transHid">
 							<div class="re_house">
 								<div class="re_house_img">
-									<img src="img/house/1.jpg" width="300" height="220">
+									<img src="D://upload//<%=Uid %>//<%=Photo %>" width="300" height="220">
 								</div>
 								<div class="re_house_discribe"><%=Title %></div>
 								
-								<div class="re_house_comment">❤❤❤❤❤</div>
+								<div class="re_house_comment">
+								<% for(int i = 0; i < Comment; i++) { %>
+								
+								❤
+								<% } %></div>
 							</div>
 						</a>
 					</div>
@@ -108,8 +111,8 @@
 			</div>
 			<div class="footer_nav">
 				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">About us</a></li>
+					<li><a href="contact/send.jsp">Contact us</a></li>
+					<li><a href="contact/about.jsp">About us</a></li>
 				</ul>
 			</div>
 			<div class="social_media">
@@ -118,7 +121,7 @@
 				<i class="fab fa-facebook-square fa-2x"></i>
 			</div>
 		</div>
-		<div class="foot">© Copyright 2020</div>
+		<div class="foot"> © Copyright 2020</div>
 	</div>
 <%	} %>
 </body>

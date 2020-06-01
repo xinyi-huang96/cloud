@@ -68,6 +68,7 @@
 	text-align: center;
 	color: white;
 	background: lightskyblue;
+	cursor: pointer;
 }
 
 .recommend_house {
@@ -84,6 +85,10 @@
 	padding-top: 5px;
 	padding-left: 1%;
 	float: left;
+}
+
+.recommandation a {
+	color:black;
 }
 
 .re_title {
