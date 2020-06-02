@@ -253,7 +253,8 @@
 					
 					
 					String sql = "SELECT Hid, Uid, Title, Detail, Features, Style, bedrooms, bathrooms, PeoplNum, Addr_country, Addr_city, Address, Photo, Comment, State "
-					+ " FROM house WHERE Addr_city LIKE ? AND PeoplNum >= ? AND Bedrooms >= ? " + featureString1 + featureString2 + featureString3 + featureString4 + featureString5 + styleString + " AND State <> 2;";
+					+ " FROM house WHERE Addr_city LIKE ? AND PeoplNum >= ? AND Bedrooms >= ? " + featureString1 + featureString2 + featureString3 + featureString4 + featureString5 + styleString + 
+							" AND State <> 2 ;";
 					
 											
 					pstmt = conn.prepareStatement(sql);

@@ -53,7 +53,7 @@ public class MsgSendServlet extends HttpServlet {
 		boolean flag = ms.sendMessage(msg);
 		if(flag == true) {
 			response.getWriter().append("<script language='javascript'>alert('send message success.');"
-					+ "history.back()</script>");
+					+ "history.go(-2)</script>");
 		}else {
 			response.getWriter().append("<script language='javascript'>alert('failed to send message');"
 					+ "history.back();</script>");
