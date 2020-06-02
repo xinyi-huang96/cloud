@@ -34,9 +34,9 @@
 				<%	if (session.getAttribute("userNickName") != null) {
 			%>
 				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
-				<a href="../myaccount/login.jsp">Sign out</a>
+				<a href="../myaccount/login.html">Sign out</a>
 			<%	} else { %>
-				<a href="../myaccount/login.jsp">Log in</a>
+				<a href="../myaccount/login.html">Log in</a>
 			<%	} %>
 			</div>
 		</div>
@@ -96,7 +96,8 @@
 								</div>
 								<div class="input_feature">
 									<input class="magic-checkbox" type="checkbox" name="feature" id="c2" value="TV">
-									<label for="c2">TV</label>								</div>
+									<label for="c2">TV</label>								
+								</div>
 								<div class="input_feature">
 									<input class="magic-checkbox" type="checkbox" name="feature" id="c3" value="NoSmoking">
 									<label for="c3">NO smoking</label>
@@ -118,19 +119,19 @@
 								</div>
 								<div class="input_style">
 									<input class="magic-radio" type="radio" name="style" id="r2" value="ByTheSea" required>
-									<label for="r1">By the sea</label>
+									<label for="r2">By the sea</label>
 								</div>
 								<div class="input_style">
 									<input class="magic-radio" type="radio" name="style" id="r3" value="Countryside" required>
-									<label for="r1">Countryside</label>
+									<label for="r3">Countryside</label>
 								</div>
 								<div class="input_style">
 									<input class="magic-radio" type="radio" name="style" id="r4" value="Mountain" required>
-									<label for="r1">Mountain</label>
+									<label for="r4">Mountain</label>
 								</div>
 								<div class="input_style">
 									<input class="magic-radio" type="radio" name="style" id="r5" value="SpringWater" required>
-									<label for="r1">Spring water</label>
+									<label for="r5">Spring water</label>
 								</div>
 							</div>
 							<div class="house_input_rooms">

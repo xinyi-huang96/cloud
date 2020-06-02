@@ -1,3 +1,4 @@
+<%@page import="org.omg.PortableServer.POA"%>
 <%@page import="com.util.Conn"%>
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
@@ -56,29 +57,20 @@
 				<div class="search">
 					<%		
 						String cityString = "";
-						StringBuffer sb = new StringBuffer(1024);
+						
 						
 					  if (request.getParameter("arrival") != null && !"".equals(request.getParameter("arrival"))) {
 						  cityString = request.getParameter("arrival");
-						  sb.append(" AND Addr_city like '%" + cityString + "%'");
 					  }
-					  //String Arrival = "%" + cityString + "%"; 
+					  String Arrival = "%" + cityString + "%"; 
 					  
 					  String checkIn = "";
 					  String checkOut = "";
 					  if (request.getParameter("indate") != null && !"".equals(request.getParameter("indate"))) {
 						  checkIn = request.getParameter("indate");
-						  sb.append(" AND Hid NOT IN ( " + 
-									"	SELECT Hid FROM orderhouse " + 
-									"	WHERE checkin <= " +  checkIn +
-									"	AND checkout > " + checkIn + ")");
 					  }
 					  if (request.getParameter("outdate") != null && !"".equals(request.getParameter("outdate"))) {
 						  checkOut = request.getParameter("outdate");
-						  sb.append(" AND Hid NOT IN ( " + 
-									"	SELECT Hid FROM orderhouse " + 
-									"	WHERE checkin <= " +  checkIn +
-									"	AND checkout > " + checkOut + ")");
 					  }
 
 					  
@@ -86,13 +78,11 @@
 						
 					  if (request.getParameter("sleeps") != null && !"".equals(request.getParameter("bedrooms"))) {
 						  Sleeps = Integer.parseInt(request.getParameter("sleeps"));
-						  sb.append(" AND PeoplNum >= " + Sleeps + " ");
 					  }
 					  
 					  int Bedrooms = 0;
 					  if (request.getParameter("bedrooms") != null && !"".equals(request.getParameter("bedrooms"))) {
 						  Bedrooms = Integer.parseInt(request.getParameter("bedrooms"));
-						  sb.append(" AND bedrooms >= " + Bedrooms + " ");
 					  }
 					  
 					  String st = "";
@@ -100,43 +90,21 @@
 						
 					  if (request.getParameter("style") != null && !"".equals(request.getParameter("style"))) {
 						  st = request.getParameter("style");
-						  sb.append(" AND style = ");
-						  if(st.equals("CityPad")) {
-							  sb.append("1 ");
-						  }if(st.equals("ByTheSea")) {
-							  sb.append("2 ");
-						  }if(st.equals("Countryside")) {
-							  sb.append("3 ");
-						  }if(st.equals("Mountain")) {
-							  sb.append("4 ");
-						  }if(st.equals("SpringWater")) {
-							  sb.append("5 ");
-						  }
 					  }
 					  
-					  
-						boolean[] flag = {false, false, false, false, false};		
-						if(request.getParameter("feature") != null && !"".equals(request.getParameter("feature"))) {
-							String[] feature = request.getParameterValues("feature");
-							StringBuffer sbu = new StringBuffer(1024);
-							for(String fea:feature){
-								System.out.println(fea);
-								sbu.append(fea + "|");
-							} 
-							String features = sbu.toString();
-							sb.append("features REGEXP " + features.substring(0, features.length() - 1));
-							 if(features.contains("Wifi"))
-								 flag[0] = true;
-							 if(features.contains("TV"))
-								 flag[1] = true;
-							 if(features.contains("NoSmoking"))
-								 flag[2] = true;
-							 if(features.contains("Kid"))
-								 flag[3] = true;
-							 if(features.contains("Washing"))
-								 flag[4] = true;
-						}  
-									
+					  int style = 0;
+					  if(st.equals("CityPad"))
+						  style = 1;
+					  if(st.equals("ByTheSea"))
+						  style = 2;
+					if(st.equals("Countryside"))
+							  style = 3;
+						if(st.equals("Mountain"))
+								  style = 4;
+						if(st.equals("SpringWater"))
+									  style = 5;
+								  
+			
 
 					%>
 					<form id="searchhouse_form" class="searchhouse_form" action="../searching/searchhouse.jsp" method="get/post">
@@ -145,14 +113,14 @@
 							<span>I'd like to stay in </span>
 							<input type="text" name="arrival" placeholder="e.g. Paris, London" value="<%=cityString %>" required>
 						</div>
-						<div class="search_input_date">
+						<!-- <div class="search_input_date">
 							<span>Check-in</span>
 							<input type="date" name="indate" value="<%=checkIn %>">
 						</div>
 						<div class="search_input_date">
 							<span>Check-out</span>
 							<input type="date" name="outdate" value="<%=checkOut %>">
-						</div>
+						</div> -->
 						<div class="search_input_number">
 							<span>Sleeping</span>
 							<select name="sleeps">
@@ -201,28 +169,49 @@
 								</div>
 						</div>
 						</div>
+						
+						<%
+							String c1 = "", c2 = "", c3 = "", c4 = "", c5 = "";
+							String features = "";
+							if(request.getParameter("Wifi")!= null && !"".equals(request.getParameter("Wifi"))) {
+					 			c1 = request.getParameter("Wifi");
+							}
+							if(request.getParameter("TV")!= null && !"".equals(request.getParameter("TV"))) {
+					 			c2 = request.getParameter("TV");
+							}
+							if(request.getParameter("NoSmoking")!= null && !"".equals(request.getParameter("NoSmoking"))) {
+					 			c3 = request.getParameter("NoSmoking");
+							}
+							if(request.getParameter("Kid")!= null && !"".equals(request.getParameter("Kid"))) {
+					 			c4 = request.getParameter("Kid");
+							}
+							if(request.getParameter("Washing")!= null && !"".equals(request.getParameter("Washing"))) {
+					 			c5 = request.getParameter("Washing");
+							}
+
+								%>
 						 <div class="search_input_3">
 						<div class="search_input_feature">
 							<div class="tit"><span>Feature</span></div>
 							<div class="choose_2">
 							<div class="input_feature">
-									<input  class="magic-checkbox" type="checkbox" name="layout" id="c1" value="Wifi"<% if(flag[0] == true) { %> checked<% } %>>
+									<input  class="magic-checkbox" type="checkbox" name="Wifi" id="c1" value="Wifi" <%if(c1.equals("Wifi")) { %>checked<%} %>>
 									<label for="c1">Wifi</label>
 								</div>
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="layout" id="c2" value="TV"<% if(flag[1] == true) { %> checked<% } %>>
+									<input class="magic-checkbox" type="checkbox" name="TV" id="c2" value="TV" <%if(c2.equals("TV")) { %>checked<%} %>>
 									<label for="c2">TV</label>
 								</div>
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="layout" id="c3" value="NoSmoking"<% if(flag[2] == true) { %> checked<% } %>>
+									<input class="magic-checkbox" type="checkbox" name="NoSmoking" id="c3" value="NoSmoking" <%if(c3.equals("NoSmoking")) { %>checked<%} %>>
 									<label for="c3">NO smoking</label>
 								</div>
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="layout" id="c4" value="Kid"<% if(flag[3] == true) { %> checked<% } %>>
+									<input class="magic-checkbox" type="checkbox" name="Kid" id="c4" value="Kid" <%if(c4.equals("Kid")) { %>checked<%} %>>
 									<label for="c4">For kid</label>
 								</div>
 								<div class="input_feature">
-									<input class="magic-checkbox" type="checkbox" name="layout" id="c5" value="Washing"<% if(flag[4] == true) { %> checked<% } %>>
+									<input class="magic-checkbox" type="checkbox" name="Washing" id="c5" value="Washing" <%if(c5.equals("Washing")) { %>checked<%} %>>
 									<label for="c5">Washing</label>
 								</div>
 								</div>
@@ -236,10 +225,45 @@
 					</form>
 				</div>
 				<div class="recommend_house">
-				<%	String sql = "SELECT Hid, Uid, Title, Detail, Features, Style, bedrooms, bathrooms, PeoplNum, Addr_country, Addr_city, Address, Photo, Comment, State FROM house WHERE State = 1"
-								+ sb.toString();
+				<%	String styleString = " ";
+					if(style != 0){
+						styleString = " AND Style = ? ";
+					}
+					String featureString1 = " ";
+					String featureString2 = " ";
+					String featureString3 = " ";
+					String featureString4 = " ";
+					String featureString5 = " ";
+
+					if(c1.equals("Wifi")){
+						featureString1 = " AND instr(Features, 'Wifi') > 0 ";
+					}
+					if(c2.equals("TV")){
+						featureString2 = " AND instr(Features, 'TV') > 0 ";
+					}
+					if(c3.equals("NoSmoking")){
+						featureString3 = " AND instr(Features, 'NoSmoking') > 0 ";
+					}
+					if(c4.equals("Kid")){
+						featureString4 = " AND instr(Features, 'Kid') > 0 ";
+					}
+					if(c5.equals("Washing")){
+						featureString5 = " AND instr(Features, 'Washing') > 0 ";
+					}
+					
+					
+					String sql = "SELECT Hid, Uid, Title, Detail, Features, Style, bedrooms, bathrooms, PeoplNum, Addr_country, Addr_city, Address, Photo, Comment, State "
+					+ " FROM house WHERE Addr_city LIKE ? AND PeoplNum >= ? AND Bedrooms >= ? " + featureString1 + featureString2 + featureString3 + featureString4 + featureString5 + styleString + " AND State <> 2;";
+					
+											
 					pstmt = conn.prepareStatement(sql);
-							rs = pstmt.executeQuery();
+					pstmt.setString(1, Arrival);
+					pstmt.setInt(2, Sleeps);
+					pstmt.setInt(3, Bedrooms);
+					if(style != 0){
+						pstmt.setInt(4, style);
+					}
+					rs = pstmt.executeQuery();
 							while (rs.next()) { 
 								String Hid = rs.getString(1);
 								String Uid = rs.getString(2);
@@ -262,7 +286,7 @@
 						
 						<div class="recommandation"><a href="../myhouse/housedetail.jsp?Hid=<%=Hid %>" id="transHid">
 							<div class="re_house_img">
-								<img src="../img/house1.jpg" width="300" height="220">
+								<img src="/file/<%=Uid %>/<%=Photo %>" width="300" height="220">
 							</div>
 							<div class="re_house_detail">
 							<div class="re_house_title""><%=Title %></div>
