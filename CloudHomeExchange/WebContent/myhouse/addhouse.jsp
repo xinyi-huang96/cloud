@@ -34,9 +34,9 @@
 				<%	if (session.getAttribute("userNickName") != null) {
 			%>
 				<a>Welcome, <%=session.getAttribute("userNickName") %></a>
-				<a href="../myaccount/login.jsp">Sign out</a>
+				<a href="../myaccount/login.html">Sign out</a>
 			<%	} else { %>
-				<a href="../myaccount/login.jsp">Log in</a>
+				<a href="../myaccount/login.html">Log in</a>
 			<%	} %>
 			</div>
 		</div>
@@ -96,7 +96,8 @@
 								</div>
 								<div class="input_feature">
 									<input class="magic-checkbox" type="checkbox" name="feature" id="c2" value="TV">
-									<label for="c2">TV</label>								</div>
+									<label for="c2">TV</label>								
+								</div>
 								<div class="input_feature">
 									<input class="magic-checkbox" type="checkbox" name="feature" id="c3" value="NoSmoking">
 									<label for="c3">NO smoking</label>

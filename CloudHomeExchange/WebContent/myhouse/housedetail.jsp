@@ -58,6 +58,7 @@
 				<div class="result">
 				<%
     				String Hid = request.getParameter("Hid");
+					String userId = (String)session.getAttribute("userId");
 					String sql1 = "select * from house where Hid = ? AND (State = 1 or State = 3);";					
 					pstmt1 = conn.prepareStatement(sql1);
 					pstmt1.setString(1, Hid);					
@@ -135,8 +136,10 @@
 								<input type="text" name="uid" value="<%=session.getAttribute("userId") %>" hidden/>
 							</div>
 							<div class="house_apply">
+							<% if( !userId.equals(Uid)) { %>
 								<input type="button" name="apply" value="Apply" onclick="this.form.action='../createOrder';this.form.submit()">
 								<input type="button" name="message" value="Message" onclick="this.form.action='../contact/message.jsp?receiver=<%=Uid %>';this.form.submit()">
+								<%} %>
 							</div>
 							</form>
 						</div>
